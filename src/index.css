@@ -25,6 +25,12 @@ code {
     monospace;
 }
 
+.image_logo{
+  width: 6%;
+  height: 6%;
+  margin: 1rem;
+}
+
 /* /////////////////////////////////////////////////////////////////////////////////CARD & CAROUSEL  */
 
 .container_carousel {
@@ -32,14 +38,13 @@ code {
 }
 
 .image_card_size {
-  width: 25vw;
-  height: 25vh;
+  width: 90%;
+  height: 90%;
 }
 
 .polaroid {
   width: 70%;
   padding-top: 1.5rem;
-  /* padding-bottom: 2rem; */
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -95,7 +100,7 @@ code {
   font-size: 5rem;
   color: rgb(255, 255, 255);
   letter-spacing: 0.3rem;
-  text-shadow: 0px 0px 5px rgb(0, 0, 0);
+  text-shadow: 0px 0px 5px rgb(112, 3, 45);
   padding-bottom: 5rem;
 }
 
@@ -103,7 +108,7 @@ code {
 .fancy {
   /* background-color: transparent; */
   background-color: rgba(255, 255, 255, 0.733);
-  border: 2px solid #000;
+  border: 2px solid rgb(139, 14, 62);
   border-radius: 0;
   box-sizing: border-box;
   color: #fff;
@@ -181,7 +186,7 @@ code {
 
 .fancy:hover {
   color: white;
-  background: #000000;
+  background: rgb(221, 46, 113);
 }
 
 .fancy:hover::before {
@@ -205,6 +210,14 @@ code {
   width: 0;
 }
 
+
+
+.karen{
+  width: 50%;
+}
+
+
+
 /* /////////////////////////////////////////////////////////////////////////////////MEDIA  */
 
 @media (max-width: 570px) {
@@ -213,8 +226,26 @@ code {
 
 @media (max-width: 450px) {
   .ff-title{font-size: 3rem;}
+  .karen{width: 100%;}
+  .card_ffamily {font-size: 1rem;}
 }
 
 @media (max-width: 375px) {
   .ff-title{font-size: 2rem;}
+  .karen{width: 100%;}
+  .card_ffamily {font-size: 1rem;}
+}
+
+
+.text-my-nav{
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.text-my-nav{
+  font-weight: bold;
+}
+.text-my-nav:hover{
+color: rgb(221, 46, 113);
+
 }

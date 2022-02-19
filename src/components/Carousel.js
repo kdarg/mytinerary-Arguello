@@ -7,7 +7,7 @@ const carouselIndex = () => {
         [
             {
                 country: 'Germany',
-                city: 'Garmisch Partenkirchen',
+                city: 'Garmisch',
                 src: './assets/cities/garmischpartenkirchen.png',
                 id: '01',
             },
@@ -38,7 +38,7 @@ const carouselIndex = () => {
                 id: '05',
             },
             {
-                country: 'United States',
+                country: 'USA',
                 city: 'Washington',
                 src: './assets/cities/washington.png',
                 id: '06',
@@ -90,6 +90,9 @@ const carouselIndex = () => {
         <Carousel className='p-1' variant='dark' >
             {cities.map( (arraycities, index) => {
                 return ( 
+                    
+
+                    
                     <Carousel.Item key={index}>
                         <div className='d-flex justify-content-center flex-wrap'>
                             {
@@ -100,6 +103,8 @@ const carouselIndex = () => {
                             }
                         </div>
                     </Carousel.Item>
+
+                
                     )
                     }
                 )

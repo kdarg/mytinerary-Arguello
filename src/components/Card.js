@@ -2,7 +2,7 @@ const individualcard = ({city}) => {
 
     
     return (  
-        <div className='w-50'> 
+        <div className='karen'> 
             <div className='container_carousel bg-light d-flex justify-content-center align-items-center'>
                 <div className=" d-flex flex-column justify-content-center align-items-center  polaroid ">
                 <img src={city.src} alt='City' className='image_card_size d-flex'/>
