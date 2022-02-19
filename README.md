@@ -1,8 +1,11 @@
 # MyTinerary Page
+My first time using React.
 
 ## Done with:
 
-### HTML
-### CSS
-### BOOTSTRAP
-### MATERIAL UI 
+- HTML
+- CSS
+- JAVASCRIPT
+- REACT.JS
+- BOOTSTRAP
+- MATERIAL UI 
