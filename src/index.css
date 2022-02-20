@@ -41,6 +41,7 @@ code {
 
 .text-my-nav{
   font-weight: bold;
+  color: black;
 }
 .text-my-nav:hover{
   color: rgb(221, 46, 113);
@@ -380,7 +381,7 @@ font-family: "Croissant One", cursive;
 }
 
 @media (max-width: 768px) {
-  .image_logo {display: none}
+  /* .image_logo {display: none} */
   .popular_fs{font-size: 2rem;}
   .popular_mytineraries{width: 100vw;}
 }
@@ -397,7 +398,7 @@ font-family: "Croissant One", cursive;
   .ff-title{font-size: 3rem;}
   .twocards{width: 100%;}
   .card_ffamily {font-size: 1rem;}
-  .image_logo {display: none}
+  /* .image_logo {display: none} */
   .image_error{width: 100%;}
   .hfooter{font-size: 0.7rem;}
   .col-img{  width: 9rem;
@@ -410,7 +411,7 @@ font-family: "Croissant One", cursive;
   .ff-title{font-size: 2rem;}
   .twocards{width: 100%;}
   .card_ffamily {font-size: 1rem;}
-  .image_logo {display: none}
+  /* .image_logo {display: none} */
   .image_error{width: 100%;}
   .hfooter{font-size: 0.6rem;}
   .col-img{  width: 7rem;

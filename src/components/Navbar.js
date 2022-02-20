@@ -54,7 +54,7 @@ const Navbar = () => {
             LOGO
           </Typography> */}
 
-          <img className="image_logo" src='./assets/imgs/newlogo.png' />
+          {/* <img className="image_logo" src='./assets/imgs/newlogo.png' /> */}
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -87,7 +87,7 @@ const Navbar = () => {
             >
               {pages.map((page) => (
 
-                <Link to={page.url} >
+                <Link to={page.url} className="text-my-nav" >
                     <MenuItem key={page.name} onClick={handleCloseNavMenu}>
                         <Typography textAlign="center">{page.name}</Typography>
                     </MenuItem> 
@@ -115,14 +115,17 @@ const Navbar = () => {
               </Link>
             ))}
           </Box>
-
+          
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="User" arrow placement="left">
               <IconButton  onClick={handleOpenUserMenu} sx={{ p: 2 }}>
                <Avatar  sx={{ width: 50, height: 50}} > <UilChatBubbleUser>  </UilChatBubbleUser> </Avatar> 
-                {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
+                
               </IconButton>
             </Tooltip>
+
+            <img className="image_logo" src='./assets/imgs/newlogo.png' />
+
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
