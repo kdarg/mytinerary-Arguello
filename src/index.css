@@ -9,6 +9,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url(../public/assets/imgs/blue-snow.png)repeat;
+  background-color: #fff;
 }
 
 body::-webkit-scrollbar {
@@ -26,10 +28,25 @@ code {
 }
 
 .image_logo{
-  width: 6%;
-  height: 6%;
+  width: 4rem;
+  height: 4rem;
   margin: 1rem;
 }
+
+/* /////////////////////////////////////////////////////////////////////////////////NAVBAR  */
+
+.text-my-nav{
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.text-my-nav{
+  font-weight: bold;
+}
+.text-my-nav:hover{
+  color: rgb(221, 46, 113);
+}
+
 
 /* /////////////////////////////////////////////////////////////////////////////////CARD & CAROUSEL  */
 
@@ -51,6 +68,8 @@ code {
 .size_carousel {
   margin: auto;
   width: 80%;
+  margin-bottom: 5rem;
+  margin-top: 5rem;
 }
 
 .card_ffamily {
@@ -64,6 +83,11 @@ code {
 .card_ffamily:hover {
   color: rgb(221, 46, 113);
 }
+
+.twocards{
+  width: 50%;
+}
+
 
 /* /////////////////////////////////////////////////////////////////////////////////HERO  */
 
@@ -212,40 +236,130 @@ code {
 
 
 
-.karen{
-  width: 50%;
+/* /////////////////////////////////////////////////////////////////////////////////FOOTER  */
+
+.image_logo_footer{
+  width: 4rem;
+}
+
+.footer-top {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.hfooter{
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.footer{
+  padding: 2rem;
+  width: 100%;
+  background-color: rgb(71, 71, 71);
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+
+}
+.footerContain{
+  display: flex;
+  justify-content: space-around;
+}
+.footernav{
+  display: flex;
+  flex-direction: row;
+}
+
+.footernav .linkfooter{
+  margin: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  color: #fff;
+  font-family: "Zen Loop", cursive;
+  font-size: 1.5rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+
+.githublogo{
+  width: 3rem;
+  height: 3rem;
+  color: rgb(255, 255, 255);
 }
 
 
 
+
+
+
+
+
+
+/* /////////////////////////////////////////////////////////////////////////////////ERROR 404  */
+.image_error{
+  width: 60%;
+}
+
+.error_container{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////UNDER CONSTRUCTION  */
+
+.under_const{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image_const{
+  width: 60%;
+}
+
 /* /////////////////////////////////////////////////////////////////////////////////MEDIA  */
+
+@media (max-width: 768px) {
+  .image_logo {display: none}
+  
+}
 
 @media (max-width: 570px) {
   .ff-title{font-size: 4rem;}
+  .image_error{width: 100%;}
+  .hfooter{font-size: 0.8rem;}
 }
 
 @media (max-width: 450px) {
   .ff-title{font-size: 3rem;}
-  .karen{width: 100%;}
+  .twocards{width: 100%;}
   .card_ffamily {font-size: 1rem;}
+  .image_logo {display: none}
+  .image_error{width: 100%;}
+  .hfooter{font-size: 0.7rem;}
 }
 
 @media (max-width: 375px) {
   .ff-title{font-size: 2rem;}
-  .karen{width: 100%;}
+  .twocards{width: 100%;}
   .card_ffamily {font-size: 1rem;}
+  .image_logo {display: none}
+  .image_error{width: 100%;}
+  .hfooter{font-size: 0.6rem;}
 }
 
 
-.text-my-nav{
-  text-decoration: none;
-  font-weight: bold;
-}
 
-.text-my-nav{
-  font-weight: bold;
-}
-.text-my-nav:hover{
-color: rgb(221, 46, 113);
 
-}
+
+
+
+

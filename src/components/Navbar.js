@@ -16,6 +16,8 @@ import { Link } from 'react-router-dom';
 
 import { UilChatBubbleUser } from '@iconscout/react-unicons'
 
+
+
 const pages = [{name: 'Home', url: '/'}, { name: 'Cities', url: '/cities'}];
 const settings = ['Sign up', 'Log in'];
 
@@ -61,7 +63,7 @@ const Navbar = () => {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color="secondary"
             >
               <MenuIcon />
             </IconButton>

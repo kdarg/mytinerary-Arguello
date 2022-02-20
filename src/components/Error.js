@@ -1,6 +1,11 @@
 const Error = () => {
     return ( 
-        <h1>Error 404</h1>
+        <>
+        <div className="error_container">
+
+        <img className="image_error" src='./assets/imgs/6325254.png'/>
+        </div>
+        </>
      );
 }
  

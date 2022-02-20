@@ -91,7 +91,6 @@ const carouselIndex = () => {
             {cities.map( (arraycities, index) => {
                 return ( 
                     
-
                     
                     <Carousel.Item key={index}>
                         <div className='d-flex justify-content-center flex-wrap'>

@@ -1,7 +1,10 @@
 const pagecities = () => {
     return (  
         <>
-        <h1>PAGINA EN CONSTRUCCION </h1>
+        <div className="under_const">
+
+        <img className="image_const" src='./assets/imgs/underc.png'/>
+        </div>
         </>
  );
 }
