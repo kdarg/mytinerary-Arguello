@@ -132,7 +132,7 @@ code {
 .fancy {
   /* background-color: transparent; */
   background-color: rgba(255, 255, 255, 0.733);
-  border: 2px solid rgb(139, 14, 62);
+  border: 2px solid rgb(202, 25, 93);
   border-radius: 0;
   box-sizing: border-box;
   color: #fff;
@@ -235,6 +235,26 @@ code {
 }
 
 
+/* /////////////////////////////////////////////////////////////////////////////////ACTION */
+
+.col-img {
+  width: 18rem;
+  height: 30rem;
+  background-image: url(../public/assets/imgs/cartel.png);
+  background-size: cover;
+}
+
+.discoverslogan{
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  font-weight: bold;
+  font-family: "Zen Loop", cursive;
+}
+
+.container_action{
+  width: 100%;
+  margin: auto;
+}
 
 /* /////////////////////////////////////////////////////////////////////////////////FOOTER  */
 

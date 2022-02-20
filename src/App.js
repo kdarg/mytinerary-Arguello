@@ -1,4 +1,4 @@
-import './App.css';
+
 import Home from './pages/Home'
 import Cities from './pages/Cities'
 import Navbar from './components/Navbar'
