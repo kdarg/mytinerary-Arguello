@@ -7,10 +7,8 @@ const footer = () => {
   return (
     <>
       <div className="footer">
-      
-      <div className="">
-      <a href="https://github.com/kdarg" target='blank'><UilGithub className="uil uil-github githublogo"></UilGithub></a>
-        </div>
+      <img className="image_logo_footer" src="./assets/imgs/logofooter.png" />
+     
         <div className="footernav">
           <Link className="linkfooter" to="/">
             Home
@@ -20,8 +18,10 @@ const footer = () => {
           </Link>
         </div>
 
-
-        <img className="image_logo_footer" src="./assets/imgs/logofooter.png" />
+        <div className="">
+      <a href="https://github.com/kdarg" target='blank'><UilGithub className="uil uil-github githublogo"></UilGithub></a>
+        </div>
+        
       </div>
 
       <div className="bg-dark w-100  hfooter  ">
