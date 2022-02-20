@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
-
 import { UilGithub } from '@iconscout/react-unicons'
+import { UilInstagram } from '@iconscout/react-unicons'
+import { UilTwitter } from '@iconscout/react-unicons'
+import { UilFacebook } from '@iconscout/react-unicons'
 
 
 const footer = () => {
   return (
     <>
       <div className="footer">
-      <img className="image_logo_footer" src="./assets/imgs/logofooter.png" />
-     
+      <img className="image_logo_footer" src="./assets/imgs/logofooter.png" alt="Footer-logo" />
+
         <div className="footernav">
           <Link className="linkfooter" to="/">
             Home
@@ -20,8 +22,10 @@ const footer = () => {
 
         <div className="">
       <a href="https://github.com/kdarg" target='blank'><UilGithub className="uil uil-github githublogo"></UilGithub></a>
+      <a href="https://www.instagram.com/karuarguello/" target='blank'><UilInstagram className="uil uil-instagram githublogo"></UilInstagram></a>
+      <a href="https://twitter.com/MytinNews" target='blank'><UilTwitter className="uil uil-twitter githublogo"></UilTwitter></a>
+      <a href="https://www.facebook.com/Mytinerary/" target='blank'><UilFacebook className="uil uil-facebook githublogo"></UilFacebook></a>
         </div>
-        
       </div>
 
       <div className="bg-dark w-100  hfooter  ">

@@ -8,7 +8,7 @@ const Action = () => {
         <div class="col-lg-6 col-img"></div>
         <div class="col-lg-6 py-5 ">
           
-            <div class=" direction_action">
+            <div class="direction_action">
               <div class="col-md-10  ">
                 <h3 className="text-center discoverslogan">
                   Discover story-worthy travel moments

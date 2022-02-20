@@ -258,13 +258,14 @@ code {
 
 .tolkien{
   font-weight: bold;
-  font-size: 0.7rem;
+  /* font-size: 0.8rem; */
   text-transform: uppercase;
 }
 
 .direction_action{
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////POPULAR MYTINERARIES  */
@@ -312,6 +313,7 @@ font-family: "Croissant One", cursive;
 
 .footer{
   padding: 2rem;
+  padding-left: 4rem;
   width: 100%;
   background-color: rgb(71, 71, 71);
   display: flex;
@@ -343,8 +345,8 @@ font-family: "Croissant One", cursive;
 
 
 .githublogo{
-  width: 3rem;
-  height: 3rem;
+  width: 1.5rem;
+  height: 1.5rem;
   color: rgb(255, 255, 255);
 }
 
@@ -406,6 +408,8 @@ font-family: "Croissant One", cursive;
     height: 13rem;}
     .popular_fs{font-size: 1.4rem;}
     .popular_mytineraries{width: 100vw;}
+    .discoverslogan{font-size: 2.3rem;}
+    .footer{flex-direction: column;}
 }
 
 @media (max-width: 375px) {
@@ -420,6 +424,7 @@ font-family: "Croissant One", cursive;
   .popular_fs{font-size: 1.2rem;}
   .popular_mytineraries{width: 100vw;}
   .footer{flex-direction: column;}
+  .discoverslogan{font-size: 2rem;}
     
 }
 

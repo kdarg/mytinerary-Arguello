@@ -19,7 +19,8 @@ import { UilChatBubbleUser } from '@iconscout/react-unicons'
 
 
 const pages = [{name: 'Home', url: '/'}, { name: 'Cities', url: '/cities'}];
-const settings = ['Sign up', 'Log in'];
+// const settings = ['Sign up', 'Log in'];
+const settings = [{name: 'Sign up', url: '*'}, { name: 'Log in', url: '*'}];
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -44,15 +45,6 @@ const Navbar = () => {
     <AppBar position="static" style={{ background: '#fff' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* <Typography
-            color= 'black'
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-          >
-            LOGO
-          </Typography> */}
 
           {/* <img className="image_logo" src='./assets/imgs/newlogo.png' /> */}
 
@@ -124,7 +116,7 @@ const Navbar = () => {
               </IconButton>
             </Tooltip>
 
-            <img className="image_logo" src='./assets/imgs/newlogo.png' />
+            <img className="image_logo" src='./assets/imgs/newlogo.png' alt='MyTinerary-logo' />
 
             <Menu
               sx={{ mt: '45px' }}
@@ -143,9 +135,14 @@ const Navbar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+
+                <Link to={setting.url} className="text-my-nav" >
+                <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">{setting.name}</Typography>
                 </MenuItem>
+
+                </Link>
+
               ))}
             </Menu>
           </Box>
