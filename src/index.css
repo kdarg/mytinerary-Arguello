@@ -67,8 +67,8 @@ code {
 .size_carousel {
   margin: auto;
   width: 80%;
-  margin-bottom: 3rem;
-  margin-top: 3rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 .card_ffamily {
@@ -269,7 +269,7 @@ code {
 /* /////////////////////////////////////////////////////////////////////////////////POPULAR MYTINERARIES  */
 
 .popular_mytineraries{
-  width: 80%;
+  width: 60rem;
   margin: auto;
   display: flex;
   color: #fff;
@@ -277,6 +277,7 @@ code {
   justify-content: center;
   align-items: center;
   background-image: url(../public/assets/imgs/popular_bg.png);
+background-size: contain;
   background-position: center;
   /* background-attachment: fixed; */
   /* background-size: cover; */
@@ -373,14 +374,23 @@ font-family: "Croissant One", cursive;
 
 /* /////////////////////////////////////////////////////////////////////////////////MEDIA  */
 
+@media (max-width: 975px) {
+ 
+  .popular_mytineraries{width: 100vw;}
+}
+
 @media (max-width: 768px) {
   .image_logo {display: none}
+  .popular_fs{font-size: 2rem;}
+  .popular_mytineraries{width: 100vw;}
 }
 
 @media (max-width: 570px) {
   .ff-title{font-size: 4rem;}
   .image_error{width: 100%;}
   .hfooter{font-size: 0.8rem;}
+  .popular_fs{font-size: 1.6rem;}
+  .popular_mytineraries{width: 100vw;}
 }
 
 @media (max-width: 450px) {
@@ -392,6 +402,8 @@ font-family: "Croissant One", cursive;
   .hfooter{font-size: 0.7rem;}
   .col-img{  width: 9rem;
     height: 13rem;}
+    .popular_fs{font-size: 1.4rem;}
+    .popular_mytineraries{width: 100vw;}
 }
 
 @media (max-width: 375px) {
@@ -403,6 +415,8 @@ font-family: "Croissant One", cursive;
   .hfooter{font-size: 0.6rem;}
   .col-img{  width: 7rem;
     height: 10rem;}
+  .popular_fs{font-size: 1.2rem;}
+  .popular_mytineraries{width: 100vw;}
     
 }
 
