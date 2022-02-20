@@ -23,8 +23,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 .image_logo{
@@ -68,8 +67,8 @@ code {
 .size_carousel {
   margin: auto;
   width: 80%;
-  margin-bottom: 5rem;
-  margin-top: 5rem;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
 }
 
 .card_ffamily {
@@ -237,7 +236,7 @@ code {
 
 /* /////////////////////////////////////////////////////////////////////////////////ACTION */
 
-.col-img {
+.col-img{
   width: 18rem;
   height: 30rem;
   background-image: url(../public/assets/imgs/cartel.png);
@@ -254,6 +253,40 @@ code {
 .container_action{
   width: 100%;
   margin: auto;
+}
+
+.tolkien{
+  font-weight: bold;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.direction_action{
+  display: flex;
+  flex-direction: row;
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////POPULAR MYTINERARIES  */
+
+.popular_mytineraries{
+  width: 80%;
+  margin: auto;
+  display: flex;
+  color: #fff;
+  height: 15rem;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../public/assets/imgs/popular_bg.png);
+  background-position: center;
+  /* background-attachment: fixed; */
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+}
+
+.popular_fs{
+font-size: 2.6rem;
+text-shadow: 0px 0px 5px rgb(7, 3, 4);
+font-family: "Croissant One", cursive;
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////FOOTER  */
@@ -313,13 +346,6 @@ code {
 }
 
 
-
-
-
-
-
-
-
 /* /////////////////////////////////////////////////////////////////////////////////ERROR 404  */
 .image_error{
   width: 60%;
@@ -349,7 +375,6 @@ code {
 
 @media (max-width: 768px) {
   .image_logo {display: none}
-  
 }
 
 @media (max-width: 570px) {
@@ -365,6 +390,8 @@ code {
   .image_logo {display: none}
   .image_error{width: 100%;}
   .hfooter{font-size: 0.7rem;}
+  .col-img{  width: 9rem;
+    height: 13rem;}
 }
 
 @media (max-width: 375px) {
@@ -374,12 +401,10 @@ code {
   .image_logo {display: none}
   .image_error{width: 100%;}
   .hfooter{font-size: 0.6rem;}
+  .col-img{  width: 7rem;
+    height: 10rem;}
+    
 }
-
-
-
-
-
 
 
 

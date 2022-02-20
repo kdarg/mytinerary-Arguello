@@ -6,6 +6,7 @@ My first time using React.
 - HTML
 - CSS
 - JAVASCRIPT
+- NODE.JS
 - REACT.JS
 - BOOTSTRAP
 - MATERIAL UI 

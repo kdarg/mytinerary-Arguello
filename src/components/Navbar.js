@@ -117,7 +117,7 @@ const Navbar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="User">
+            <Tooltip title="User" arrow placement="left">
               <IconButton  onClick={handleOpenUserMenu} sx={{ p: 2 }}>
                <Avatar  sx={{ width: 50, height: 50}} > <UilChatBubbleUser>  </UilChatBubbleUser> </Avatar> 
                 {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}

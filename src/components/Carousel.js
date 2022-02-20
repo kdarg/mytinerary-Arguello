@@ -86,6 +86,10 @@ const carouselIndex = () => {
 
 
     return (  
+
+        <>
+        <div className="popular_mytineraries"><h3 className="popular_fs">Popular MyTineraries</h3></div>
+
     <div className='d-flex justify-content-center align-items-center size_carousel'>
         <Carousel className='p-1' variant='dark' >
             {cities.map( (arraycities, index) => {
@@ -110,6 +114,7 @@ const carouselIndex = () => {
             } 
         </Carousel>
     </div>
+    </>
     );
 }
 
