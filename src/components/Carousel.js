@@ -12,7 +12,7 @@ const carouselIndex = () => {
                 id: '01',
             },
             {
-                country: 'Japón',
+                country: 'Japan',
                 city: 'Kyoto',
                 src: './assets/cities/kyoto.png',
                 id: '02',
