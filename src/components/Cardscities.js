@@ -4,6 +4,15 @@ import { Link } from "react-router-dom";
 const Cardscities = () => {
     return ( 
         <>
+
+
+        <div className="d-flex justify-content-center mt-3 mb-3">
+        <input type='text' placeholder='Search city..' className='input-search'/> 
+
+        </div>
+
+
+
     <div class="d-flex flex-wrap justify-content-center align-items-center">
 
         <div class="maincontainer">
