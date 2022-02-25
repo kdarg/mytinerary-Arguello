@@ -12,19 +12,18 @@ const Cardscities = () => {
         </div>
 
 
+    <div className="d-flex flex-wrap justify-content-center align-items-center">
 
-    <div class="d-flex flex-wrap justify-content-center align-items-center">
+        <div className="maincontainer">
 
-        <div class="maincontainer">
+        <div className="thecard">
 
-        <div class="thecard">
-
-        <div class="thefront"> 
+        <div className="thefront"> 
             
-            <div class=" d-flex flex-column justify-content-center align-items-center polaroid-two ">
-            <img src="./telgart.png" alt='City' class='image_card_size d-flex'/>
+            <div className=" d-flex flex-column justify-content-center align-items-center polaroid-two ">
+            <img src="./telgart.png" alt='City' className='image_card_size d-flex'/>
 
-            <div class='fw-bold p-4'>
+            <div className='fw-bold p-4'>
                 <p>Bavaria - Germany</p>
             </div>
 
@@ -32,9 +31,9 @@ const Cardscities = () => {
         
         </div>
 
-        <div class="theback d-flex flex-column justify-content-center align-items-center"> 
+        <div className="theback d-flex flex-column justify-content-center align-items-center"> 
             
-            <h1 class="text-center fs-4">Bavaria - Germany</h1><p>Garmisch is a favoured holiday spot for skiing, snowboarding, and hiking, having some of the best skiing areas (Garmisch Classic and Zugspitze) in Germany. It was the site of the 1936 Winter Olympics, the first to feature alpine skiing.</p>
+            <h1 className="text-center fs-4">Bavaria - Germany</h1><p>Garmisch is a favoured holiday spot for skiing, snowboarding, and hiking, having some of the best skiing areas (Garmisch Classic and Zugspitze) in Germany. It was the site of the 1936 Winter Olympics, the first to feature alpine skiing.</p>
 
         <Link to='/const'><Button variant='outline-dark'>See more</Button></Link>
         </div>
@@ -42,26 +41,26 @@ const Cardscities = () => {
         </div>
         </div>
 
-        <div class="maincontainer">
+        <div className="maincontainer">
 
-        <div class="thecard">
+        <div className="thecard">
 
-        <div class="thefront"> 
+        <div className="thefront"> 
             
-            <div class=" d-flex flex-column justify-content-center align-items-center polaroid-two ">
-            <img src="./telgart.png" alt='City' class='image_card_size d-flex'/>
+            <div className=" d-flex flex-column justify-content-center align-items-center polaroid-two ">
+            <img src="./telgart.png" alt='City' className='image_card_size d-flex'/>
 
-            <div class='fw-bold p-4'>
-                <p>Kyoto - Japan</p>
+            <div className='fw-bold p-4'>
+                <p>Bavaria - Germany</p>
             </div>
 
             </div>
         
         </div>
 
-        <div class="theback d-flex flex-column justify-content-center align-items-center"> 
+        <div className="theback d-flex flex-column justify-content-center align-items-center"> 
             
-            <h1 class="text-center fs-4">Kyoto - Japan</h1><p>Majestic and delicate, friendly and proud, deceitful and kind, haunting and serene, modern and classic, simple and ritual describe Kyoto. It has been called a lucky city as it has saved from all bombings. Kyoto with its medieval spirit through a modern city represents Japanese culture.</p>
+            <h1 className="text-center fs-4">Bavaria - Germany</h1><p>Garmisch is a favoured holiday spot for skiing, snowboarding, and hiking, having some of the best skiing areas (Garmisch Classic and Zugspitze) in Germany. It was the site of the 1936 Winter Olympics, the first to feature alpine skiing.</p>
 
         <Link to='/const'><Button variant='outline-dark'>See more</Button></Link>
         </div>
@@ -69,43 +68,16 @@ const Cardscities = () => {
         </div>
         </div>
 
-        <div class="maincontainer">
+        <div className="maincontainer">
 
-<div class="thecard">
+<div className="thecard">
 
-<div class="thefront"> 
+<div className="thefront"> 
     
-    <div class=" d-flex flex-column justify-content-center align-items-center polaroid-two ">
-    <img src="./telgart.png" alt='City' class='image_card_size d-flex'/>
+    <div className=" d-flex flex-column justify-content-center align-items-center polaroid-two ">
+    <img src="./telgart.png" alt='City' className='image_card_size d-flex'/>
 
-    <div class='fw-bold p-4'>
-        <p>Reykjavík - Iceland</p>
-    </div>
-
-    </div>
-
-</div>
-
-<div class="theback d-flex flex-column justify-content-center align-items-center"> 
-    
-    <h1 class="text-center fs-4">Reykjavík - Iceland</h1><p>Reykjavík is the northernmost capital of a sovereign state in the world. It is among the cleanest, greenest, and safest cities in the world. It is extremely walkable, making it a perfect destination to explore by foot. The word Reykjavík translates literally as “smoky bay”.</p>
-
-<Link to='/const'><Button variant='outline-dark'>See more</Button></Link>
-</div>
-
-</div>
-        </div>
-
-        <div class="maincontainer">
-
-<div class="thecard">
-
-<div class="thefront"> 
-    
-    <div class=" d-flex flex-column justify-content-center align-items-center polaroid-two ">
-    <img src="./telgart.png" alt='City' class='image_card_size d-flex'/>
-
-    <div class='fw-bold p-4'>
+    <div className='fw-bold p-4'>
         <p>Bavaria - Germany</p>
     </div>
 
@@ -113,9 +85,9 @@ const Cardscities = () => {
 
 </div>
 
-<div class="theback d-flex flex-column justify-content-center align-items-center"> 
+<div className="theback d-flex flex-column justify-content-center align-items-center"> 
     
-    <h1 class="text-center fs-4">Bavaria - Germany</h1><p>Garmisch is a favoured holiday spot for skiing, snowboarding, and hiking, having some of the best skiing areas (Garmisch Classic and Zugspitze) in Germany. It was the site of the 1936 Winter Olympics, the first to feature alpine skiing.</p>
+    <h1 className="text-center fs-4">Bavaria - Germany</h1><p>Garmisch is a favoured holiday spot for skiing, snowboarding, and hiking, having some of the best skiing areas (Garmisch Classic and Zugspitze) in Germany. It was the site of the 1936 Winter Olympics, the first to feature alpine skiing.</p>
 
 <Link to='/const'><Button variant='outline-dark'>See more</Button></Link>
 </div>
@@ -123,16 +95,16 @@ const Cardscities = () => {
 </div>
         </div>
 
-        <div class="maincontainer">
+        <div className="maincontainer">
 
-<div class="thecard">
+<div className="thecard">
 
-<div class="thefront"> 
+<div className="thefront"> 
     
-    <div class=" d-flex flex-column justify-content-center align-items-center polaroid-two ">
-    <img src="./telgart.png" alt='City' class='image_card_size d-flex'/>
+    <div className=" d-flex flex-column justify-content-center align-items-center polaroid-two ">
+    <img src="./telgart.png" alt='City' className='image_card_size d-flex'/>
 
-    <div class='fw-bold p-4'>
+    <div className='fw-bold p-4'>
         <p>Bavaria - Germany</p>
     </div>
 
@@ -140,17 +112,46 @@ const Cardscities = () => {
 
 </div>
 
-<div class="theback d-flex flex-column justify-content-center align-items-center"> 
+<div className="theback d-flex flex-column justify-content-center align-items-center"> 
     
-    <h1 class="text-center fs-4">Bavaria - Germany</h1><p>Garmisch is a favoured holiday spot for skiing, snowboarding, and hiking, having some of the best skiing areas (Garmisch Classic and Zugspitze) in Germany. It was the site of the 1936 Winter Olympics, the first to feature alpine skiing.</p>
+    <h1 className="text-center fs-4">Bavaria - Germany</h1><p>Garmisch is a favoured holiday spot for skiing, snowboarding, and hiking, having some of the best skiing areas (Garmisch Classic and Zugspitze) in Germany. It was the site of the 1936 Winter Olympics, the first to feature alpine skiing.</p>
 
 <Link to='/const'><Button variant='outline-dark'>See more</Button></Link>
 </div>
 
 </div>
         </div>
+
+        <div className="maincontainer">
+
+<div className="thecard">
+
+<div className="thefront"> 
+    
+    <div className=" d-flex flex-column justify-content-center align-items-center polaroid-two ">
+    <img src="./telgart.png" alt='City' className='image_card_size d-flex'/>
+
+    <div className='fw-bold p-4'>
+        <p>Bavaria - Germany</p>
+    </div>
+
+    </div>
+
+</div>
+
+<div className="theback d-flex flex-column justify-content-center align-items-center"> 
+    
+    <h1 className="text-center fs-4">Bavaria - Germany</h1><p>Garmisch is a favoured holiday spot for skiing, snowboarding, and hiking, having some of the best skiing areas (Garmisch Classic and Zugspitze) in Germany. It was the site of the 1936 Winter Olympics, the first to feature alpine skiing.</p>
+
+<Link to='/const'><Button variant='outline-dark'>See more</Button></Link>
+</div>
+
+</div>
+        </div>
+
 
     </div> 
+
         </>
     );
 }
