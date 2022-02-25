@@ -19,7 +19,7 @@ const carouselIndex = () => {
             },
             {
                 country: 'Iceland',
-                city: 'Reykjavik',
+                city: 'Reykjavík',
                 src: './assets/cities/reykjavik.png',
                 id: '03',
             },
@@ -39,7 +39,7 @@ const carouselIndex = () => {
             },
             {
                 country: 'USA',
-                city: 'Washington',
+                city: 'Leavenworth',
                 src: './assets/cities/washington.png',
                 id: '06',
             },
@@ -50,7 +50,7 @@ const carouselIndex = () => {
                 id: '07',
             },
             {
-                country: 'Canadá',
+                country: 'Canada',
                 city: 'Roberta',
                 src: './assets/cities/roberta.png',
                 id: '08',
@@ -58,7 +58,7 @@ const carouselIndex = () => {
         ],
         [
             {
-                country: 'Canadá',
+                country: 'Canada',
                 city: 'Yukon',
                 src: './assets/cities/yukon.png',
                 id: '09',

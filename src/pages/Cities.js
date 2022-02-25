@@ -1,12 +1,16 @@
+import Search from '../components/Search'
+import Cardscities from '../components/Cardscities';
+
 const pagecities = () => {
     return (  
         <>
-        <div className="under_const">
 
-        <img className="image_const" src='./assets/imgs/underc.png'/>
-        </div>
+            <Search/>
+            <Cardscities/>
+
         </>
- );
+
+);
 }
- 
+
 export default pagecities;
