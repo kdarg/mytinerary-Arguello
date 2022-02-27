@@ -112,6 +112,34 @@ code {
   z-index: -1;
 }
 
+.hero-cities {
+  background-image: url(../public/assets/imgs/citiesbg.png);
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-each-city{
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+  height: 30rem;
+  z-index: 2;
+}
+
+.ff-title-eachcity{
+  font-family: "Croissant One", cursive;
+  font-size: 2.5rem;
+  color: rgb(255, 255, 255);
+  letter-spacing: 0.2rem;
+  text-shadow: 0px 0px 5px rgb(112, 3, 45);
+  background-color: rgba(255, 255, 255, 0.418);
+  padding: 1rem;
+}
+
 .slogan {
   background-color: rgba(255, 255, 255, 0.733);
   font-family: "Zen Loop", cursive;
@@ -481,7 +509,11 @@ font-family: "Croissant One", cursive;
 .bg-button-more{
   background-color: rgb(221, 46, 113);
   color: #fff;
+  text-decoration: none!important;
+
 }
+
+
 
 
 /* /////////////////////////////////////////////////////////////////////////////////NO RESULTS  */

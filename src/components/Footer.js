@@ -9,7 +9,7 @@ const footer = () => {
   return (
     <>
       <div className="footer">
-      <img className="image_logo_footer" src="./assets/imgs/logofooter.png" alt="Footer-logo" />
+      <img className="image_logo_footer" src={process.env.PUBLIC_URL+"/assets/imgs/logofooter.png"} alt="Footer-logo" />
 
         <div className="footernav">
           <Link className="linkfooter" to="/">

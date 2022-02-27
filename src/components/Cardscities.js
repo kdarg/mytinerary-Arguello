@@ -61,6 +61,7 @@ const Cardscities = () => {
 
     return ( 
         <>
+ <div className="popular_mytineraries"><h3 className="popular_fs">Adventures ahead!</h3></div>
 
 {/* SEARCH? */}
 
@@ -81,7 +82,7 @@ const Cardscities = () => {
         <div className="thefront"> 
             
             <div className=" d-flex flex-column justify-content-center align-items-center polaroid-two ">
-            <img src={city.src} alt='City' className='image_card_size d-flex'/>
+            <img src={process.env.PUBLIC_URL+"/assets/cities/"+ city.src} alt='City' className='image_card_size d-flex'/>
 
             <div className='fw-bold p-4'>
                 <p>{city.city} - {city.country}</p>

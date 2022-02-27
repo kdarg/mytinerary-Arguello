@@ -3,7 +3,7 @@ const Underconstruction = () => {
         <>
             <div className="under_const">
 
-                    <img className="image_const" src='./assets/imgs/underc.png'/>
+                    <img className="image_const" src={process.env.PUBLIC_URL+"/assets/imgs/underc.png"}/>  
 
             </div>
         </>
