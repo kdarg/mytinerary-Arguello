@@ -26,7 +26,6 @@ const Cardscities = () => {
     const searching = (event) => {
     setSearch(event.target.value);
     searchFilter(event.target.value);
-    
     };
 
     const searchFilter = (userSearching) => {
@@ -36,17 +35,12 @@ const Cardscities = () => {
                 .toString()
                 .toLowerCase()
                 .startsWith(userSearching.toLowerCase().trim())
-                
-        ) {
-
+        ) {  
             return info;
 
         }else{
-
             return //console.log('search doesnt exist') 
-
         }
-     
     });
 
     setCities(userSearch);
@@ -54,14 +48,13 @@ const Cardscities = () => {
     };
 
     useEffect(() => {
-
     petitionGet();
-
     }, []);
 
     return ( 
         <>
- <div className="popular_mytineraries"><h3 className="popular_fs">Adventures ahead!</h3></div>
+        
+        <div className="popular_mytineraries"><h3 className="popular_fs">Adventures ahead!</h3></div>
 
 {/* SEARCH? */}
 
