@@ -9,29 +9,22 @@ import Underconstruction from './components/Underconstruction'
 import axios from 'axios'
 import React, {useEffect, useState} from 'react'
 
-import {
-  BrowserRouter,
-  Routes,
-  Route
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 function App() {
 
 // const [input,setInput]=useState()
-const [apidata, setApiData ]= useState([])
+// const [apidata, setApiData ]= useState([])
 
 
-// console.log(input)
+// useEffect(()=>{
 
-useEffect(()=>{
+// axios.get(`http://localhost:4000/api/allcities`)
+//   .then(response=>console.log(response.data.response.allcities))
 
-axios.get(`http://localhost:4000/api/allcities`)
-  .then(response=>console.log(response.data.response.allcities))
+// },[]) 
 
-},[]) 
-
-// console.log(apidata)
 
 
   return (
