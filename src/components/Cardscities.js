@@ -69,11 +69,11 @@ const Cardscities = () => {
 
 {/* CARDS */}
 
-        <div className="d-flex flex-wrap justify-content-center align-items-center">
+        <div  className="d-flex flex-wrap justify-content-center align-items-center">
 
         {cities.length !== 0 ? (cities.map((city) => (
 
-        <div className="maincontainer">
+        <div key= {city._id} className="maincontainer">
 
         <div className="thecard">
 

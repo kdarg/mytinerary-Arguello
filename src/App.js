@@ -6,8 +6,8 @@ import Error from './components/Error'
 import Footer from './components/Footer'
 import Underconstruction from './components/Underconstruction'
 
-import axios from 'axios'
-import React, {useEffect, useState} from 'react'
+// import axios from 'axios'
+// import React, {useEffect, useState} from 'react'
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
