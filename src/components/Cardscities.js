@@ -16,6 +16,7 @@ const Cardscities = () => {
         .then((response) => {
             setCities(response.data.response.allcities);
             setAllMyCities(response.data.response.allcities);
+            //console.log(response.data.response.allcities)
         })
         .catch((error) => {
             console.log(error);
@@ -94,7 +95,7 @@ const Cardscities = () => {
             
             <h1 className="text-center fs-4">{city.city} - {city.country}</h1><p>{city.description}</p>
 
-        <Link to='/const'><Button variant='outline-dark' className='bg-button-more'>See more</Button></Link>
+        <Link to={`/city/${city._id}`}><Button variant='outline-dark' className='bg-button-more'>See more</Button></Link>
         </div>
 
         </div>
