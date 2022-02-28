@@ -35,6 +35,7 @@ const Cardscities = () => {
                 .toString()
                 .toLowerCase()
                 .startsWith(userSearching.toLowerCase().trim())
+
         ) {  
             return info;
 

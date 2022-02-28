@@ -1,7 +1,13 @@
 import Cardscities from '../components/Cardscities';
 import Headercities from '../components/Headercities';
+import { useEffect } from 'react';
 
 const pagecities = () => {
+
+
+    window.scrollTo({ top: 0, behavior: "smooth"})
+
+
     return (  
         <>
             <Headercities/>

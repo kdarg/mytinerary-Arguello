@@ -5,7 +5,7 @@ import Navbar from './components/Navbar'
 import Error from './components/Error'
 import Footer from './components/Footer'
 import Underconstruction from './components/Underconstruction'
-import Detailscity from './components/Detailscity'
+import Detailscity from './pages/Detailscity'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 

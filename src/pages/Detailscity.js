@@ -2,11 +2,13 @@
 import { useParams } from "react-router-dom";
 import React, {useEffect, useState} from 'react'
 import  {getMyCities} from '../Apicalls'
-import Underconstruction from './Underconstruction'
+import Underconstruction from '../components/Underconstruction'
 import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button'
 
 const Detailscity = () => {
+
+    window.scrollTo({top: 0, behavior: "smooth"})
 
     const {id} = useParams()
     const [specificCity , setspecificCity] = useState([])
@@ -49,12 +51,16 @@ const Detailscity = () => {
 
         <Underconstruction/>
 
-        <Link to="/cities">
             <div className='mb-5 d-flex justify-content-center'> 
-                <Button variant='outline-dark' className='bg-button-more '><u>Back to cities</u></Button> 
+
+                <Link to="/cities">
+
+                <Button variant='outline-dark' className='bg-button-more'>Back to cities</Button> 
+            
+                </Link>
+
             </div>
             
-            </Link>
 
 
 
