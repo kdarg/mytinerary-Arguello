@@ -51,7 +51,7 @@ const Detailscity = () => {
 
         <Link to="/cities">
             <div className='mb-5 d-flex justify-content-center'> 
-                <Button variant='outline-dark' className='bg-button-more '><u>Go back to cities</u></Button> 
+                <Button variant='outline-dark' className='bg-button-more '><u>Back to cities</u></Button> 
             </div>
             
             </Link>
