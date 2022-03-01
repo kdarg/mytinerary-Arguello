@@ -16,7 +16,6 @@ const Cardscities = () => {
         .then((response) => {
             setCities(response.data.response.allcities);
             setAllMyCities(response.data.response.allcities);
-            //console.log(response.data.response.allcities)
         })
         .catch((error) => {
             console.log(error);
@@ -35,10 +34,8 @@ const Cardscities = () => {
                 .toString()
                 .toLowerCase()
                 .startsWith(userSearching.toLowerCase().trim())
-
         ) {  
             return info;
-
         }else{
             return //console.log('search doesnt exist') 
         }
@@ -55,11 +52,13 @@ const Cardscities = () => {
     return ( 
         <>
         
+{/* MINI PRESENTATION */}
+
         <div className="popular_mytineraries"><h3 className="popular_fs">Adventures ahead!</h3></div>
 
-{/* SEARCH? */}
+{/* SEARCH */}
 
-        <div className="d-flex justify-content-center mt-3 mb-3"> 
+        <div className=" d-flex justify-content-center mt-3 mb-3"> 
         <input type='text' placeholder='Search destination..' className='input-search' value={search} onChange={searching}/> 
         </div>
 
@@ -78,7 +77,7 @@ const Cardscities = () => {
             <div className=" d-flex flex-column justify-content-center align-items-center polaroid-two ">
             <img src={process.env.PUBLIC_URL+"/assets/cities/"+ city.src} alt='City' className='image_card_size d-flex'/>
 
-            <div className='fw-bold p-4'>
+            <div className='fw-bold p-4 f-size-cardscities'>
                 <p>{city.city} - {city.country}</p>
             </div>
 

@@ -342,7 +342,7 @@ font-family: "Croissant One", cursive;
 
 .footer{
   padding: 2rem;
-  padding-left: 4rem;
+  /* padding-left: 4rem; para centrar los dos del medio :( */
   width: 100%;
   background-color: rgb(71, 71, 71);
   display: flex;
@@ -350,6 +350,7 @@ font-family: "Croissant One", cursive;
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
+  margin-top: 5rem;
 
 }
 .footerContain{
@@ -395,7 +396,8 @@ font-family: "Croissant One", cursive;
 /* /////////////////////////////////////////////////////////////////////////////////UNDER CONSTRUCTION  */
 
 .under_const{
-  height: 100vh;
+  /* height: 100vh; */
+  /* width: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -403,15 +405,18 @@ font-family: "Croissant One", cursive;
 
 .image_const{
   width: 60%;
+  margin: 2rem;
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////INPUT SEARCH CITIES  */
 
 .input-search{
-  width: 20rem;
+  width: 15rem;
   height: 2.5rem;
   padding-left: 1rem;
-
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow:  0 0 0 3px #f049979a;
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////CITIES CARDS  */
@@ -514,8 +519,6 @@ font-family: "Croissant One", cursive;
 }
 
 
-
-
 /* /////////////////////////////////////////////////////////////////////////////////NO RESULTS  */
 
 .cardfound {
@@ -540,17 +543,24 @@ font-family: "Croissant One", cursive;
 .size-img-search{
   width: 35%;
 }
+
+
+
+
 /* /////////////////////////////////////////////////////////////////////////////////MEDIA  */
 
 @media (max-width: 975px) {
- 
   .popular_mytineraries{width: 100vw;}
 }
 
 @media (max-width: 768px) {
-  /* .image_logo {display: none} */
   .popular_fs{font-size: 2rem;}
   .popular_mytineraries{width: 100vw;}
+  .image_const{width: 80%;}
+  .cardfound {width: 30rem;
+    height: 35rem;}
+  .size-img-search{width: 50%;}
+
 }
 
 @media (max-width: 570px) {
@@ -559,37 +569,52 @@ font-family: "Croissant One", cursive;
   .hfooter{font-size: 0.8rem;}
   .popular_fs{font-size: 1.6rem;}
   .popular_mytineraries{width: 100vw;}
+  .image_const{width: 80%;}
+  .cardfound {width: 17rem;
+    height: 20rem;}
+  .size-img-search{width: 50%;}
+
 }
 
 @media (max-width: 450px) {
   .ff-title{font-size: 3rem;}
   .twocards{width: 100%;}
   .card_ffamily {font-size: 1rem;}
-  /* .image_logo {display: none} */
   .image_error{width: 100%;}
   .hfooter{font-size: 0.7rem;}
   .col-img{  width: 9rem;
     height: 13rem;}
-    .popular_fs{font-size: 1.4rem;}
-    .popular_mytineraries{width: 100vw;}
-    .discoverslogan{font-size: 2.3rem;}
-    .footer{flex-direction: column;}
+  .popular_fs{font-size: 1.4rem;}
+  .popular_mytineraries{width: 100vw;}
+  .discoverslogan{font-size: 2.3rem;}
+  .footer{flex-direction: column;}
+  .thefront p {font-size: 1.3rem}
+  .image_const{width: 80%;}
+  .cardfound {width: 17rem;
+    height: 20rem;}
+  .size-img-search{width: 50%;}
+
 }
 
 @media (max-width: 375px) {
   .ff-title{font-size: 2rem;}
   .twocards{width: 100%;}
   .card_ffamily {font-size: 1rem;}
-  /* .image_logo {display: none} */
   .image_error{width: 100%;}
   .hfooter{font-size: 0.6rem;}
   .col-img{  width: 7rem;
-    height: 10rem;}
+  height: 10rem;}
   .popular_fs{font-size: 1.2rem;}
   .popular_mytineraries{width: 100vw;}
   .footer{flex-direction: column;}
   .discoverslogan{font-size: 2rem;}
-    
+  .thefront p {font-size: 1.3rem;}
+  .ff-title-eachcity{font-size:2rem;}
+  .image_const{width: 80%;}
+  .cardfound {width: 17rem;
+    height: 20rem;}
+  .size-img-search{width: 50%;}
+
 }
 
 
