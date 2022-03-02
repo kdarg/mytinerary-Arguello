@@ -52,13 +52,24 @@ const citiesController = {
         .catch((error) => res.json({success:false, response: error}))
     },
 
-    //modify one city
+    //modify one city //id in params
 
-    editCity:(req, res) =>{
-        myCities.findOneAndUpdate({_id:req.body.id}, {...req.body}, {new: true})
-        .then((editedcity) => res.json({success:true, note:'edited city', response: editedcity}))
+    editCity: async (req, res) =>{
+        await myCities.findOneAndUpdate({_id:req.params.id}, req.body, {new: true})
+        .then((response) => res.json({success:true, note:'edited city', response: response}))
         .catch((error) => res.json({success:false, response:error}))
+    
     }
+
+
+    //modify one city //id in body 
+
+    // editCity: async (req, res) =>{
+    //     await myCities.findOneAndUpdate({_id:req.body.id}, req.body, {new: true})
+    //     .then((response) => res.json({success:true, note:'edited city', response: response}))
+    //     .catch((error) => res.json({success:false, response:error}))
+    // },
+
 
 };
 

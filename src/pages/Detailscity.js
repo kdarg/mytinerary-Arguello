@@ -6,6 +6,7 @@ import Underconstruction from '../components/Underconstruction'
 import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button'
 
+
 const Detailscity = () => {
 
     window.scrollTo({top: 0, behavior: "smooth"})
@@ -15,7 +16,6 @@ const Detailscity = () => {
 
     useEffect(()=>{
         getMyCities()
-        
         .then(response => setspecificCity(response.data.response.allcities.filter(cities => cities._id === id)))
     },[]) //preguntar por que iria id adentro?
 
