@@ -15,7 +15,7 @@ const citiesController = {
         console.log(error);
     }
     res.json({
-        response: error ? "ERROR" : { allcities },
+        response: error ? "ERROR" :  allcities,
         success: error ? false : true,
         error: error,
     });

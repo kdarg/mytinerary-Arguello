@@ -1,9 +1,9 @@
 const mongoose = require("mongoose")
 
 const itinerarySchema = new mongoose.Schema({
-    country: { type: String, required: true },
+    city: { type: String, required: true },
     title: { type: String, required: true },
-    src: { type: String, required: true },
+    src: { type: String },
     description: { type: String, required: true },
     profilePicture: { type: String, required: true },
     userName: { type: String, required: true },
@@ -11,8 +11,8 @@ const itinerarySchema = new mongoose.Schema({
     duration: { type: String, required: true },
     likes: { type: Number , default:0 },
     hashtags: [{ type: String, required: true }],
-    comments: []
-    // cityId:{type: mongoose.Types.ObjectId, ref:'city'}
+    comments: [],
+    cityId:{type: mongoose.Types.ObjectId, ref:'cities'}
 })
 
 const myItineraries = mongoose.model("itineraries", itinerarySchema) 

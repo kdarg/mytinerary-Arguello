@@ -8,17 +8,21 @@ import citiesActions from "../redux/actions/citiesActions";
 
 const Cardscities = (props) => {
 
+    //dentro de las llaves de (props) puedo poner ({NOMBRERANDOM ej: cities}) 
+    const {cities} = props //es para que en el mapeo de todo no tenga q escribir props.cities.map
     //get cities by action:
-
+console.log(props)
     useEffect(() => {
         props.getCities() 
     }, [])
 
+    const [] = useState()
+
     const inputsearch = (e) => {
         props.filterCities(e.target.value)
+        console.log(e.target.value)
     }
 
-    
     return ( 
         <>
         
@@ -36,7 +40,7 @@ const Cardscities = (props) => {
 
         <div  className="d-flex flex-wrap justify-content-center align-items-center">
 
-        {props.allCities.length !== 0 ? (props.allCities.map((city) => (
+        {props.cityfiltered.length !== 0 ? (props.cityfiltered.map((city) => (
 
         <div key= {city._id} className="maincontainer">
 
@@ -76,16 +80,17 @@ const Cardscities = (props) => {
 
 }
 
-const mapStateToProps = state => {
-    return {
-      allCities: state.citiesReducer.allCities, //va el reducer en el medio?
-    }
-  }
-  
-  const mapDispatchToProps = {
-    getCities: citiesActions.getCities,
-    filterCities: citiesActions.filterCities
-  }
+    const mapStateToProps = state => {
+        return {
+            //cities: state.citiesReducer.getCities, solo trae todo pero no filtra
+            cityfiltered: state.citiesReducer.filterCities 
+        }
+}
+
+    const mapDispatchToProps = {
+        getCities: citiesActions.getCities,
+        filterCities: citiesActions.filterCities
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cardscities);
 

@@ -14,10 +14,11 @@ const citiesActions = {
            dispatch({ type: "filter_cities", payload: value })
         }
      },
-
+     
     getOneCity: (id) => {
-        return(dispatch, getState) => {
-            dispatch ({type: 'one_city', payload: id})
+        return async (dispatch, getState) => {
+            const response = await axios.get(`http://localhost:4000/api/city/${id}`)
+            dispatch ({type: 'one_city', payload: response.data.response})
         }
      }
 

@@ -9,13 +9,13 @@ const itinerariesController = {
         let error = null;
     
         try {
-            all_itineraries = await myItineraries.find();
+            all_itineraries = await myItineraries.find().populate("cityId");
         } catch (err) {
             error = err;
             console.log(error);
         }
         res.json({
-            response: error ? "ERROR" : { all_itineraries },
+            response: error ? "ERROR" :  all_itineraries,
             success: error ? false : true,
             error: error,
         });
@@ -26,7 +26,7 @@ const itinerariesController = {
 
         addItinerary:  (req, res) => {
             const newItinerary = new myItineraries({
-                country:req.body.country,
+                city:req.body.city,
                 title:req.body.title,
                 src:req.body.src,
                 description:req.body.description,
@@ -37,6 +37,7 @@ const itinerariesController = {
                 likes:req.body.likes,
                 hashtags:req.body.hashtags,
                 comments:req.body.comments,
+                cityId:req.body.cityId
             })
             newItinerary.save()
             .then((response)=> res.json({success:true, note:'itinerary added', response: response}))
@@ -47,7 +48,7 @@ const itinerariesController = {
 
         getItineraryById: async (req, res) => {
         await myItineraries.findOne({_id:req.params.id})
-        .then((itinerary) => res.json({success:true, response: itinerary}))
+        .then((itinerary) => res.json({success:true, note:'itinerary by id', response: itinerary}))
         .catch((error) => res.json({success:false, response:error}))
         },
 
@@ -59,6 +60,13 @@ const itinerariesController = {
             res.json({ success: true, response: itinerariesByCity }))
             .catch((err) => res.json({ success: false, response: err }))
         },
+
+        // getItinerariesByCity: (req, res) => {
+        //     myItineraries.find({ cityId: req.params.id }).populate("cityId")
+        //     .then((itinerariesByCity) =>
+        //     res.json({ success: true, response: itinerariesByCity }))
+        //     .catch((err) => res.json({ success: false, response: err }))
+        // },
 
         //detele one itinerary 
 
