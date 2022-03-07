@@ -1,18 +1,19 @@
 const initialState = {
-    itineraries: []
+    itinerary: [],
 }
 
-const itinerariesReducer = (state = initialState, action)=>{
+const itinerariesReducer = (state = initialState, action) => {
 
-    switch(action.type){
-        case 'each-itinerary':
-            return{
+    switch (action.type) {
+
+        case 'get_itineraries':
+            return {
                 ...state,
-                ...action.payload
+                itinerary: action.payload
             }
         default:
             return state
     }
 }
 
-export default itinerariesReducer;
+export default itinerariesReducer

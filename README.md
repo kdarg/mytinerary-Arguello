@@ -11,3 +11,4 @@ My first time using React.
 - BOOTSTRAP
 - MATERIAL UI 
 - ICONSCOUT
+- REDUX
