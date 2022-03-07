@@ -36,7 +36,7 @@ const Cardscities = (props) => {
 
         <div  className="d-flex flex-wrap justify-content-center align-items-center">
 
-        {cities.length !== 0 ? (cities.map((city) => (
+        {props.allCities.length !== 0 ? (props.allCities.map((city) => (
 
         <div key= {city._id} className="maincontainer">
 

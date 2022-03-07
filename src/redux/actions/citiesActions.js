@@ -15,13 +15,11 @@ const citiesActions = {
         }
      },
 
-
-
-    //  getOneCity: (id) => {
-    //      return(dispatch, getState) => {
-    //          dispatch ({type: 'GET_ONE_CITY', payload: id})
-    //      }
-    //  }
+    getOneCity: (id) => {
+        return(dispatch, getState) => {
+            dispatch ({type: 'one_city', payload: id})
+        }
+     }
 
 }
 

@@ -24,8 +24,11 @@ const citiesReducer = (state = initialState, action) => {
                 filterCities: state.getCities.filter((city) => (city.city.toLowerCase().startsWith(action.payload.toLowerCase().trim()))),
             }
 
-
-
+            case "one_city": 
+            return {
+                ...state,
+                cityById: action.payload //?? ? ?? ? ? ? ? ? ? 
+            }
 
 
 
