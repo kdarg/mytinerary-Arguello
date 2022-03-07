@@ -9,25 +9,19 @@ const citiesActions = {
         }
     },
 
-
-
-
-
-
-
-
-
-
-     filterCities: (e) => {
-         return (dispatch, getState) => {
-             dispatch ({type: 'FILTER_CITIES', payload:e})
-         }
+    filterCities: (value) => {
+        return (dispatch) => {
+           dispatch({ type: "filter_cities", payload: value })
+        }
      },
-     getOneCity: (id) => {
-         return(dispatch, getState) => {
-             dispatch ({type: 'GET_ONE_CITY', payload: id})
-         }
-     }
+
+
+
+    //  getOneCity: (id) => {
+    //      return(dispatch, getState) => {
+    //          dispatch ({type: 'GET_ONE_CITY', payload: id})
+    //      }
+    //  }
 
 }
 

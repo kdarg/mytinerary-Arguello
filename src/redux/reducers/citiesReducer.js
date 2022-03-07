@@ -1,6 +1,6 @@
 const initialState = {
     getCities: [],
-    searchedCity: [],
+    filterCities: [],
     cityById: []
     
 
@@ -14,11 +14,23 @@ const citiesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 allCities: action.payload,
-                citySearched: action.payload,
+                filterCities: action.payload,
                 cityById: action.payload
             }
-        default:
-            return state
+
+            case "filter_cities": 
+            return {
+                ...state, 
+                filterCities: state.getCities.filter((city) => (city.city.toLowerCase().startsWith(action.payload.toLowerCase().trim()))),
+            }
+
+
+
+
+
+
+            default:
+                return state
     }
 }
 
