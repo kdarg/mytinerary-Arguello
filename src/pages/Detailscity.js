@@ -13,75 +13,103 @@ import Noitineraries from '../components/Noitineraries'
 
 const Detailscity = (props) => {
 
-    window.scrollTo({top: 0, behavior: "smooth"})
+    // SCROLL TO TOP
+    //window.scrollTo({top: 0, behavior: "smooth"})
+
+    //ITINERARIES BY CITY ID
 
     const {id} = useParams()
-    //const [specificCity , setspecificCity] = useState([])
-
-console.log(props)
 
     useEffect(()=>{
         props.getOneCity(id)
         props.getItinerariesByCityId(id)
-        
     },[]) 
 
-    console.log(props.cityById)
-    const {cityById} = props
+    //SEE MORE / SEE LESS BUTTON 
+    const [buttonMore, setButtonMore] = useState(false)
 
-    console.log(props.itinerary)
+    const actionButton = () => {
+        setButtonMore(!buttonMore)
+    }
+
+    //DESTRUCTURING 
+    const {cityById} = props
 
     return ( 
         <>
+
+{/* WELCOME TO CHOSEN CITY */}
+
         <div>
             {props.cityById._id &&  (
                 <div key={cityById._id} >
                     <div>
-
                     <div className="hero-each-city  d-flex align-items-center"
                     style={{backgroundImage: `url('${process.env.PUBLIC_URL+"/assets/cities/"+ cityById.src}' )`}}>
-                    <div className="container"> 
-                        <div className="row"> 
-                            <div className=" col-lg-7 mx-auto text-center">
-                                <h1 className="ff-title-eachcity ">Welcome to {cityById.city} </h1>
-                                
+                        <div className="container"> 
+                            <div className="row"> 
+                                <div className=" col-lg-7 mx-auto text-center">
+                                    <h1 className="ff-title-eachcity ">Welcome to {cityById.city} </h1>
+                                </div>
                             </div>
                         </div>
                     </div>
-            </div>
-                    
                     </div>
-
                 </div>
-
-
                 )
             }
             
         </div>
 
-{props.itinerary.length ? //<h1>si hay {props.itinerary.length} itinerarios</h1>
+{/* ITINERARIES LIL HEADER */}
 
-(
-    <>
-    {props.itinerary.map(itinerary => 
+        <div className="popular_mytineraries"><h3 className="popular_fs">Itineraries</h3></div>
 
-        <p>{itinerary.userName}</p>
+{/* DYNAMIC ITINERARIES */}
 
-    )}
-    </>
-)
+        {props.itinerary.length ? //<h1>si hay {props.itinerary.length} itinerarios</h1>
+            (
+                <>
+                
+                    {props.itinerary.map(itinerary => 
+                        <div key= {itinerary._id}>
+                        <div  className="centerItinerariesCards">
+                        <div  className="itinerariesCards">
 
-:<Noitineraries/> }
+                            <p>{itinerary.userName}</p>
+                            <p>{itinerary.duration}</p>
+                            <p>{itinerary.price}</p>
+                            <p>{itinerary.profilePicture}</p>
+                            <div>{itinerary.hashtags.map((tag, key) => <p key={key}>#{tag}</p>)}</div>
+
+                            {!buttonMore && <Button variant='outline-dark' className="bg-button-more" onClick={actionButton}> {buttonMore ? 'View less' : 'View More'}</Button>}
+
+                        {
+                    buttonMore
+                    &&
+                    <div className="activityContainer">
+                        <Underconstruction buttonMore={buttonMore}  />
+                        
+                        <Button variant='outline-dark' className="bg-button-more" onClick={actionButton}> {buttonMore ? 'View less' : 'View More'}</Button>
+                    </div>
+                }
+                        </div>
+                        </div>
+                        </div>
+                    )}
+                </>
+            )
+
+            :<Noitineraries/> 
+
+        }
+
+{/* BUTTON BACK TO CITIES */}
 
             <div className='mb-5 d-flex justify-content-center'> 
-
                 <Link to="/cities">
-
                 <Button variant='outline-dark' className='bg-button-more'>Back to cities</Button> 
-            
                 </Link>
-
             </div>
 
     </>
