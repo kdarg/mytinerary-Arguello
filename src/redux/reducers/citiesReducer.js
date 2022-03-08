@@ -2,8 +2,6 @@ const initialState = {
     getCities: [],
     filterCities: [],
     cityById: {}
-    
-
 }
 
 const citiesReducer = (state = initialState, action) => {
@@ -30,10 +28,8 @@ const citiesReducer = (state = initialState, action) => {
             case "one_city": 
             return {
                 ...state,
-                cityById: action.payload //?? ? ?? ? ? ? ? ? ? 
+                cityById: action.payload 
             }
-
-
 
             default:
                 return state

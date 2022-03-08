@@ -8,10 +8,9 @@ import citiesActions from "../redux/actions/citiesActions";
 
 const Cardscities = (props) => {
 
-    //dentro de las llaves de (props) puedo poner ({NOMBRERANDOM ej: cities}) 
-    const {cities} = props //es para que en el mapeo de todo no tenga q escribir props.cities.map
-    //get cities by action:
+
 console.log(props)
+
     useEffect(() => {
         props.getCities() 
     }, [])
@@ -82,7 +81,7 @@ console.log(props)
 
     const mapStateToProps = state => {
         return {
-            //cities: state.citiesReducer.getCities, solo trae todo pero no filtra
+            //cities: state.citiesReducer.getCities, solo trae todo pero no filtra y nofuncionaaaAAA
             cityfiltered: state.citiesReducer.filterCities 
         }
 }
