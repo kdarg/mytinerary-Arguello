@@ -524,7 +524,7 @@ font-family: "Croissant One", cursive;
 .cardfound {
   width: 40rem;
   height: 35rem;
-  margin-bottom: 10rem;
+  margin-bottom: 5rem;
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
