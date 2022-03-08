@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button'
 import { connect } from "react-redux";
 import citiesActions from "../redux/actions/citiesActions";
 import itinerariesActions from "../redux/actions/itinerariesActions";
+import Noitineraries from '../components/Noitineraries'
 
 
 const Detailscity = (props) => {
@@ -71,11 +72,7 @@ console.log(props)
     </>
 )
 
-
-
-: <h1>no hay itinerario</h1> }
-
-        <Underconstruction/>
+:<Noitineraries/> }
 
             <div className='mb-5 d-flex justify-content-center'> 
 
