@@ -82,7 +82,7 @@ const Detailscity = (props) => {
                                 
                             <img src={process.env.PUBLIC_URL+"/assets/imgs/"+ itinerary.profilePicture} alt='user' className='user_img_size'/>
                                 
-                            <div className="userName">› {itinerary.userName} ‹</div>
+                            <div className="userName"> › {itinerary.userName} ‹ </div>
                             </div>
 
                             <div className="itiDescription text-center">{itinerary.description}</div>

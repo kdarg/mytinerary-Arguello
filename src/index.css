@@ -613,10 +613,11 @@ font-family: "Croissant One", cursive;
   align-items: center;
   font-size: 2rem;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: bolder;
   font-family: "Zen Loop", cursive;
   margin-left: 2rem;
   letter-spacing: 0.1rem;
+
 }
 
 .itiDescription{
@@ -629,7 +630,7 @@ font-family: "Croissant One", cursive;
  padding-top: 2rem;
   font-style: italic;
   width: 60%;
-  
+  /* background-color: rgb(255, 238, 241); */
   margin: auto;
  
 }
@@ -673,20 +674,22 @@ font-family: "Croissant One", cursive;
 
 @media (max-width: 975px) {
   .popular_mytineraries{width: 100vw;}
-  .itiPrice , .itiDuration, .itiLikes{font-size: 1.4rem; }
+  .itiPrice , .itiDuration, .itiLikes{font-size: 1.2rem; }
   .priceDuration{width: 60%;}
+  .tag{font-size: 1.7rem; text-align: center;}
 }
 
 @media (max-width: 768px) {
+  .ff-title{font-size: 4rem;}
   .popular_fs{font-size: 2rem;}
   .popular_mytineraries{width: 100vw;}
   .image_const{width: 80%;}
   .cardfound {width: 30rem;
     height: 35rem;}
   .size-img-search{width: 50%;}
-  .tag{font-size: 1rem; text-align: center;}
+  .tag{font-size: 1.5rem; text-align: center;}
   .userName{ font-size: 1.8rem; margin-left: 1rem; margin-top:1rem;}
-  .itiDescription{font-size: 1.3rem;}
+  .itiDescription{font-size: 1.2rem;}
   .itiPrice , .itiDuration, .itiLikes{font-size: 1.2rem; }
   .priceDuration{width: 70%;}
   .centerHashtags{ font-size: 1rem;}
@@ -695,7 +698,7 @@ font-family: "Croissant One", cursive;
 }
 
 @media (max-width: 570px) {
-  .ff-title{font-size: 4rem;}
+  .ff-title{font-size: 3rem;}
   .image_error{width: 100%;}
   .hfooter{font-size: 0.8rem;}
   .popular_fs{font-size: 1.6rem;}
@@ -704,7 +707,7 @@ font-family: "Croissant One", cursive;
   .cardfound {width: 17rem;
     height: 20rem;}
   .size-img-search{width: 50%;}
-  .tag{font-size: 1rem; text-align: center;}
+  .tag{font-size: 1.3rem; text-align: center;}
   .userName{ font-size: 1.5rem; margin-left: 1rem; margin-top:1rem;}
   .itiDescription{font-size: 1.1rem;}
   .itiPrice , .itiDuration, .itiLikes{font-size: 1rem; }
