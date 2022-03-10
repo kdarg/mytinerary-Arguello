@@ -74,15 +74,30 @@ const Detailscity = (props) => {
                     {props.itinerary.map(itinerary => 
                         <div key= {itinerary._id}>
                         <div  className="centerItinerariesCards">
-                        <div  className="itinerariesCards">
+                        <div  className="itinerariesCards bg-light">
 
-                            <p>{itinerary.userName}</p>
-                            <p>{itinerary.duration}</p>
-                            <p>{itinerary.price}</p>
-                            <p>{itinerary.profilePicture}</p>
-                            <div>{itinerary.hashtags.map((tag, key) => <p key={key}>#{tag}</p>)}</div>
+                            <div className="centerTag"><span className="tag">{itinerary.title}</span></div>
 
-                            {!buttonMore && <Button variant='outline-dark' className="bg-button-more" onClick={actionButton}> {buttonMore ? 'View less' : 'View More'}</Button>}
+                            <div className="user">
+                                
+                            <img src={process.env.PUBLIC_URL+"/assets/imgs/"+ itinerary.profilePicture} alt='user' className='user_img_size'/>
+                                
+                            <div className="userName">{itinerary.userName}</div>
+                            </div>
+
+                            <div className="itiDescription text-center">{itinerary.description}</div>
+
+                            <div className="priceDuration">
+                            <p className="itiPrice"><span className="itiUnderline">Price</span>: {"💵".repeat(parseInt(itinerary.price))}</p>
+                            <p className="itiDuration"><span className="itiUnderline">Duration</span>: {"🕓" + itinerary.duration}</p>
+                            </div>
+                            
+                            <div className="centerHashtags">
+                                {itinerary.hashtags.map((tag, key) => <p className="tagsColor" key={key}>{tag}</p>)}
+                                </div>
+                            
+
+                            {!buttonMore && <div className="d-flex justify-content-center"><Button variant='outline-dark' className="bg-button-more" onClick={actionButton}> {buttonMore ? 'View less' : 'View More'}</Button></div>}
 
                         {
                     buttonMore
@@ -90,7 +105,7 @@ const Detailscity = (props) => {
                     <div className="activityContainer">
                         <Underconstruction buttonMore={buttonMore}  />
                         
-                        <Button variant='outline-dark' className="bg-button-more" onClick={actionButton}> {buttonMore ? 'View less' : 'View More'}</Button>
+                        <div className="d-flex justify-content-center"><Button variant='outline-dark' className="bg-button-more" onClick={actionButton}> {buttonMore ? 'View less' : 'View More'}</Button></div>
                     </div>
                 }
                         </div>

@@ -570,6 +570,101 @@ font-family: "Croissant One", cursive;
   align-items: center;
 }
 
+.tag{
+
+  background: #cccccc;
+  border-radius: 50px;
+  font-size: 2rem;
+  margin: 0;
+  color: #fff;
+  padding: 2px 20px;
+  text-transform: uppercase;
+  background-color: #f049979a;
+  font-family: "Zen Loop", cursive;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+}
+
+.centerTag{
+  display: flex;
+  justify-content: center;
+}
+
+.user_img_size{
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+}
+
+.user{
+  
+  display: flex;
+  justify-content: center;
+  /* margin-right: 10rem; */
+  margin-top: 2rem;
+  
+}
+
+.userName{
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: "Zen Loop", cursive;
+  margin-left: 2rem;
+  letter-spacing: 0.1rem;
+}
+
+.itiDescription{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap ;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.1rem;
+ padding-top: 2rem;
+  font-style: italic;
+  width: 60%;
+  
+  margin: auto;
+ 
+}
+
+.itiPrice , .itiDuration{
+  font-size: 1.5rem;
+
+}
+
+.priceDuration{
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+  margin: auto;
+  padding-top: 2rem;
+
+}
+
+.itiUnderline{
+  text-decoration: underline;
+}
+
+.centerHashtags{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 20%;
+  margin: auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+.tagsColor:hover{
+  color: rgb(221, 46, 113);
+}
+
 /* /////////////////////////////////////////////////////////////////////////////////MEDIA  */
 
 @media (max-width: 975px) {

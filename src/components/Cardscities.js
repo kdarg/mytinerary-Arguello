@@ -9,7 +9,7 @@ import citiesActions from "../redux/actions/citiesActions";
 const Cardscities = (props) => {
 
 
-console.log(props)
+//console.log(props)
 
     useEffect(() => {
         props.getCities() 
@@ -19,7 +19,7 @@ console.log(props)
 
     const inputsearch = (e) => {
         props.filterCities(e.target.value)
-        console.log(e.target.value)
+        //console.log(e.target.value)
     }
 
     return ( 
