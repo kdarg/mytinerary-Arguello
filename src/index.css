@@ -602,11 +602,14 @@ font-family: "Croissant One", cursive;
   justify-content: center;
   /* margin-right: 10rem; */
   margin-top: 2rem;
+  flex-wrap: wrap;
   
 }
 
 .userName{
   display: flex;
+  justify-content: center;
+  flex-direction: row;
   align-items: center;
   font-size: 2rem;
   text-transform: uppercase;
@@ -631,7 +634,7 @@ font-family: "Croissant One", cursive;
  
 }
 
-.itiPrice , .itiDuration{
+.itiPrice , .itiDuration, .itiLikes{
   font-size: 1.5rem;
 
 }
@@ -639,7 +642,7 @@ font-family: "Croissant One", cursive;
 .priceDuration{
   display: flex;
   justify-content: space-around;
-  width: 40%;
+  width: 60%;
   margin: auto;
   padding-top: 2rem;
 
@@ -653,7 +656,7 @@ font-family: "Croissant One", cursive;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 20%;
+  width: 50%;
   margin: auto;
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -665,10 +668,13 @@ font-family: "Croissant One", cursive;
   color: rgb(221, 46, 113);
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////////////MEDIA  */
 
 @media (max-width: 975px) {
   .popular_mytineraries{width: 100vw;}
+  .itiPrice , .itiDuration, .itiLikes{font-size: 1.4rem; }
+  .priceDuration{width: 60%;}
 }
 
 @media (max-width: 768px) {
@@ -678,6 +684,13 @@ font-family: "Croissant One", cursive;
   .cardfound {width: 30rem;
     height: 35rem;}
   .size-img-search{width: 50%;}
+  .tag{font-size: 1rem; text-align: center;}
+  .userName{ font-size: 1.8rem; margin-left: 1rem; margin-top:1rem;}
+  .itiDescription{font-size: 1.3rem;}
+  .itiPrice , .itiDuration, .itiLikes{font-size: 1.2rem; }
+  .priceDuration{width: 70%;}
+  .centerHashtags{ font-size: 1rem;}
+
 
 }
 
@@ -691,6 +704,12 @@ font-family: "Croissant One", cursive;
   .cardfound {width: 17rem;
     height: 20rem;}
   .size-img-search{width: 50%;}
+  .tag{font-size: 1rem; text-align: center;}
+  .userName{ font-size: 1.5rem; margin-left: 1rem; margin-top:1rem;}
+  .itiDescription{font-size: 1.1rem;}
+  .itiPrice , .itiDuration, .itiLikes{font-size: 1rem; }
+  .priceDuration{width: 90%;flex-direction: column; align-items: center;}
+  .centerHashtags{flex-direction: column; align-items: center; font-size: 1rem;}
 
 }
 
@@ -711,6 +730,13 @@ font-family: "Croissant One", cursive;
   .cardfound {width: 17rem;
     height: 20rem;}
   .size-img-search{width: 50%;}
+  .tag{font-size: 1rem; text-align: center;}
+  .user{flex-direction: column; align-items: center;}
+  .userName{ font-size: 1.5rem; margin-left: 1rem; margin-top:1rem;}
+  .itiDescription{font-size: 1rem;}
+  .itiPrice , .itiDuration, .itiLikes{font-size: 1rem; }
+  .priceDuration{width: 90%;flex-direction: column; align-items: center;}
+  .centerHashtags{flex-direction: column; align-items: center; font-size: 1rem;}
 
 }
 
@@ -732,7 +758,13 @@ font-family: "Croissant One", cursive;
   .cardfound {width: 17rem;
     height: 20rem;}
   .size-img-search{width: 50%;}
-
+  .tag{font-size: 1rem; text-align: center;}
+  .userName{ font-size: 1.2rem; margin-left: 0; margin-top:1rem;}
+  .itiDescription{font-size: 1rem;}
+  .itiPrice , .itiDuration, .itiLikes{font-size: 1rem; }
+  .priceDuration{width: 90%;flex-direction: column; align-items: center;}
+  .centerHashtags{flex-direction: column; align-items: center; font-size: 1rem;}
+  
 }
 
 
