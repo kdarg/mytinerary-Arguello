@@ -61,13 +61,6 @@ const itinerariesController = {
             .catch((err) => res.json({ success: false, response: err }))
         },
 
-        // getItinerariesByCity: (req, res) => {
-        //     myItineraries.find({ cityId: req.params.id }).populate("cityId")
-        //     .then((itinerariesByCity) =>
-        //     res.json({ success: true, response: itinerariesByCity }))
-        //     .catch((err) => res.json({ success: false, response: err }))
-        // },
-
         //detele one itinerary 
 
     deleteItinerary :(req, res) =>{
@@ -82,7 +75,6 @@ const itinerariesController = {
         await myItineraries.findOneAndUpdate({_id:req.params.id}, req.body, {new: true})
         .then((response) => res.json({success:true, note:'itinerary edited', response: response}))
         .catch((error) => res.json({success:false, response:error}))
-    
     }
 
 };

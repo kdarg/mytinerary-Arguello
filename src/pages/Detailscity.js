@@ -135,7 +135,6 @@ const Detailscity = (props) => {
 
 const mapStateToProps = state => {
     return {
-        //cities: state.citiesReducer.getCities, solo trae todo pero no filtra
         cityById: state.citiesReducer.cityById,
         itinerary: state.itinerariesReducer.itinerary
     }
