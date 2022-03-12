@@ -8,7 +8,7 @@ const individualcard = ({city}) => {
                 <img src={city.src} alt='City' className='image_card_size d-flex'/>
 
                 <div className='fw-bold p-4'>
-                    <p className='card_ffamily'>{city.city} - {city.country}</p>
+                    <p className='card_ffamily'>{city.city} -- {city.country}</p>
                 </div>
 
                 </div>
