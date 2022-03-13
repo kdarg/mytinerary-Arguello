@@ -725,6 +725,17 @@ align-items: center!important;
   justify-content: center;
   align-items: center;
 }
+
+.inputforms{
+  display: flex;
+  align-items: center;
+  
+}
+
+.iconsmargin{
+  margin-right: 1rem;
+
+}
 /* /////////////////////////////////////////////////////////////////////////////////MEDIA  */
 
 @media (max-width: 975px) {

@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
-import Button from  'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
 import { useState } from "react";
-import { BsEye, BsEyeSlash } from 'react-icons/bs'
+import { BsEye, BsEyeSlash } from "react-icons/bs";
+import { FaUser} from "react-icons/fa";
+import { ImKey } from "react-icons/im";
+
 
 const LogIn = () => {
 
@@ -22,15 +25,19 @@ const LogIn = () => {
             <p className="login">Welcome back!</p>
 
             <form className="formLogin">
-			<div className="mb-3"> 
+			<div className="mb-3 inputforms">
+            <FaUser className="iconsmargin" />
 				<input name="email" className="form-control" placeholder="Email address" type="email" />
 			</div>
             
-			<div className="mb-3">
-				<input name='password' className="form-control" placeholder="Password" type={hidden ? "password" : "text"} />
+			<div className="mb-3 inputforms">
+            <ImKey className="iconsmargin" />
+				<input name='password' className="form-control" placeholder="Password" type={hidden ? "password" : "text"} vale="" onChange="" />
                 <div onClick={() => setHidden(!hidden)}> {hidden ? <BsEyeSlash /> : <BsEye />}
                 </div>
 			</div>
+
+
 
 			<div className="">
 				<Button variant='outline-dark' className="bg-button-more" > Log in </Button>
