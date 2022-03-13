@@ -6,6 +6,8 @@ import Error from './components/Error'
 import Footer from './components/Footer'
 import Underconstruction from './components/Underconstruction'
 import Detailscity from './pages/Detailscity'
+import LogIn from './pages/LogIn'
+import SignUp from './pages/SignUp'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
@@ -20,6 +22,8 @@ function App() {
           <Route path='/cities' element={ <Cities/> }/>
           <Route path='*' element={ <Error/> }/>
           <Route path='/const' element={ <Underconstruction/> }/>
+          <Route path='/login' element={ <LogIn/> }/>
+          <Route path='/signup' element={ <SignUp/> }/>
         </Routes>
       <Footer/>
     </BrowserRouter>
