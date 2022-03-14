@@ -33,9 +33,10 @@ const LogIn = () => {
 			<div className="mb-3 inputforms">
             <ImKey className="iconsmargin" />
 				<input name='password' className="form-control" placeholder="Password" type={hidden ? "password" : "text"} vale="" onChange="" />
-                <div onClick={() => setHidden(!hidden)}> {hidden ? <BsEyeSlash /> : <BsEye />}
+                <div className="positionhidden" onClick={() => setHidden(!hidden)}> {hidden ? <BsEyeSlash/> : <BsEye/>}
                 </div>
 			</div>
+
 
 
 

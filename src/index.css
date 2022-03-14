@@ -736,6 +736,11 @@ align-items: center!important;
   margin-right: 1rem;
 
 }
+
+.positionhidden{
+  position: absolute;
+  margin-left: 13rem;
+}
 /* /////////////////////////////////////////////////////////////////////////////////MEDIA  */
 
 @media (max-width: 975px) {
