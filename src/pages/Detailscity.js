@@ -14,7 +14,7 @@ import Noitineraries from '../components/Noitineraries'
 const Detailscity = (props) => {
 
     // SCROLL TO TOP
-    //window.scrollTo({top: 0, behavior: "smooth"})
+    //window.scrollTo({top: 0, behavior: "smooth"}) por que con cada click en boton sube lol?
 
     //ITINERARIES BY CITY ID
 

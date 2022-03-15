@@ -18,12 +18,13 @@ Router.route("/itineraries/:id").get(getItinerariesByCity);
 
 Router.route("/itinerary/:id").get(getItineraryById).delete(deleteItinerary).put(editItinerary);
 
+const validator = require('../config/validator')
 
 const usersController = require ('../controllers/usersController')
 const {signUpUsers, logInUser, LogOutUser} = usersController;
 
 
-Router.route('/auth/signup').post(signUpUsers)
+Router.route('/auth/signup').post(validator, signUpUsers)
 
 Router.route('/auth/login').post(logInUser)
 
