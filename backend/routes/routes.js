@@ -20,9 +20,13 @@ Router.route("/itinerary/:id").get(getItineraryById).delete(deleteItinerary).put
 
 
 const usersController = require ('../controllers/usersController')
-const {signUpUsers} = usersController;
+const {signUpUsers, logInUser, LogOutUser} = usersController;
 
 
 Router.route('/auth/signup').post(signUpUsers)
+
+Router.route('/auth/login').post(logInUser)
+
+Router.route('/auth/logout').post(LogOutUser)
 
 module.exports = Router

@@ -4,15 +4,23 @@ import { useState } from "react";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { FaUser} from "react-icons/fa";
 import { ImKey } from "react-icons/im";
+import { connect } from 'react-redux';
+import userActions from '../redux/actions/userActions';
 
-
-const LogIn = () => {
+const LogIn = (props) => {
 
 
     const [hidden, setHidden] = useState(true)
 
-
-
+	const handleSubmit = (event) => {
+		event.preventDefault()
+		const logedUser = {
+			email: event.target[0].value,
+			password: event.target[1].value,
+			from: "form-Login"
+		}
+		props.logInUser(logedUser)
+	}
 
 
 
@@ -24,7 +32,7 @@ const LogIn = () => {
             <div  className="loginCard ">
             <p className="login">Welcome back!</p>
 
-            <form className="formLogin">
+            <form className="formLogin" onSubmit={handleSubmit}>
 			<div className="mb-3 inputforms">
             <FaUser className="iconsmargin" />
 				<input name="email" className="form-control" placeholder="Email address" type="email" />
@@ -38,10 +46,8 @@ const LogIn = () => {
 			</div>
 
 
-
-
 			<div className="">
-				<Button variant='outline-dark' className="bg-button-more" > Log in </Button>
+				<Button variant='outline-dark' className="bg-button-more" as="input" type="submit" value="Log In" /> 
 			</div>
 			<div className="text-center mt-4">Don't have an account yet? <Link to="/signup" className="signuphere"> <span className="">Sign up</span></Link> </div>
 		</form>
@@ -54,4 +60,9 @@ const LogIn = () => {
     );
 }
 
-export default LogIn;
+const mapDispatchToProps = {
+	logInUser: userActions.logInUser,
+
+}
+
+export default connect(null, mapDispatchToProps)(LogIn);
