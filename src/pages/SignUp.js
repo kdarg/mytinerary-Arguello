@@ -6,28 +6,28 @@ import { ImKey } from "react-icons/im"
 import React, {useEffect, useState} from 'react'
 import axios from "axios"
 import { BsEye, BsEyeSlash } from "react-icons/bs";
+import userActions from "../redux/actions/userActions";
+import { connect } from 'react-redux';
 
-const SignUp = () => {
+const SignUp = (props) => {
 
     const [hidden, setHidden] = useState(true)
 
 
 
-//     const [countries, setCountries] = useState([])
+    const [countries, setCountries] = useState([])
 
-//     useEffect(() => {
-//         axios
-//         .get("https://restcountries.com/v3.1/all")
-//         .then((res) => ((res.data).forEach(element => {
-//             console.log(element.name.common)
-//         })))
+    useEffect(() => {
+        axios
+        .get("https://restcountries.com/v2/all?fields=name")
+        .then((res) => setCountries(res.data))
+            .catch((error) => console.log(error))
+    }, [])
 
-//             .catch((error) => console.log(error))
-//     }, [])
-
-// console.log(countries)
-
-
+    // .get("https://restcountries.com/v3.1/all")
+    // .then((res) => ((res.data).forEach(element => {
+    //     setCountries(element.name.common)
+    // })))
 
 
 
@@ -58,12 +58,12 @@ const handleSubmit = (event) => {
 
         <div className="mb-3 inputforms">
         <FaUser className="iconsmargin" />
-            <input name="firstname" className="form-control" placeholder="First Name" type="text" vale="" onChange="" />
+            <input name="firstname" className="form-control" placeholder="First Name" type="text" />
         </div>
 
         <div className="mb-3 inputforms">
         <FaUser className="iconsmargin" />
-            <input name="lastname" className="form-control" placeholder="Last Name" type="text" vale="" onChange="" />
+            <input name="lastname" className="form-control" placeholder="Last Name" type="text"  />
         </div>
 
         <div className="mb-3 inputforms"> 
@@ -73,33 +73,33 @@ const handleSubmit = (event) => {
         
         <div className="mb-3 inputforms">
         <ImKey className="iconsmargin" />
-        <input name='password' className="form-control" placeholder="Password" type={hidden ? "password" : "text"} vale="" onChange="" />
+        <input name='password' className="form-control" placeholder="Password" type={hidden ? "password" : "text"} />
                 <div className="positionhidden" onClick={() => setHidden(!hidden)}> {hidden ? <BsEyeSlash/> : <BsEye/>}
         </div>
         </div>
 
             <div className="mb-3 inputforms">
             <FaImage className="iconsmargin" />
-            <input name='urlimage' id="urlimage" className="form-control" placeholder="URL image" type="url" vale="" onChange="" />
+            <input name='urlimage' id="urlimage" className="form-control" placeholder="URL image" type="url" />
         </div>
 
             <div className="mb-3 inputforms">
-            <select name="country" onChange="">
-            <option>Choose your country</option>
-{/*             
+            <select name="country" >
+            <option >Choose your country</option>
+            
             {countries.map((country, key) => (
-                <option value={country} key={key}>
-                    {country}
+                <option  value={country.name} key={key}>
+                    {country.name}
                     </option>
-                    ))} */}
+                    ))}
 
         </select>
         </div>
 
         <div className="">
-            <Button variant='outline-dark' className="bg-button-more" > Sign up </Button>
+            <Button type="submit" variant='outline-dark' className="bg-button-more" > Create account </Button>
         </div>
-        <div className="text-center mt-4">Already have an account? <Link to="/login" className="signuphere"> <span className="">Log in here</span></Link> </div>
+        <div className="text-center mt-4">Already have an account? <Link to="/login" className="signuphere"> <span className="">Log in</span></Link> </div>
 
         
     </form>
@@ -111,4 +111,15 @@ const handleSubmit = (event) => {
     );
 }
 
-export default SignUp;
+const mapDispatchToProps = {
+    signUpUser: userActions.signUpUser,
+    
+}
+
+const mapStateToProps = (state) => {
+	return {
+		message: state.userReducer.message,
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

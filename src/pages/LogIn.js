@@ -32,7 +32,7 @@ const LogIn = () => {
             
 			<div className="mb-3 inputforms">
             <ImKey className="iconsmargin" />
-				<input name='password' className="form-control" placeholder="Password" type={hidden ? "password" : "text"} vale="" onChange="" />
+				<input name='password' className="form-control" placeholder="Password" type={hidden ? "password" : "text"}  />
                 <div className="positionhidden" onClick={() => setHidden(!hidden)}> {hidden ? <BsEyeSlash/> : <BsEye/>}
                 </div>
 			</div>
@@ -43,7 +43,7 @@ const LogIn = () => {
 			<div className="">
 				<Button variant='outline-dark' className="bg-button-more" > Log in </Button>
 			</div>
-			<div className="text-center mt-4">Don't have an account yet? <Link to="/signup" className="signuphere"> <span className="">Sign up here</span></Link> </div>
+			<div className="text-center mt-4">Don't have an account yet? <Link to="/signup" className="signuphere"> <span className="">Sign up</span></Link> </div>
 		</form>
 
             </div>

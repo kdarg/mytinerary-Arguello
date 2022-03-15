@@ -19,5 +19,10 @@ Router.route("/itineraries/:id").get(getItinerariesByCity);
 Router.route("/itinerary/:id").get(getItineraryById).delete(deleteItinerary).put(editItinerary);
 
 
+const usersController = require ('../controllers/usersController')
+const {signUpUsers} = usersController;
+
+
+Router.route('/auth/signup').post(signUpUsers)
 
 module.exports = Router
