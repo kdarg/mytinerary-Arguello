@@ -2,6 +2,7 @@ const User = require('../models/modelUsers')
 const bcryptjs = require('bcryptjs')
 const crypto = require('crypto')       
 const nodemailer = require('nodemailer') 
+const jwt = require('jsonwebtoken')
 
 
 const sendEmail = async (email, uniqueString) => { // send verification email to user
@@ -39,7 +40,7 @@ const sendEmail = async (email, uniqueString) => { // send verification email to
 };
 
 
-
+///////////////////////////////////////////////// USER CONTROLLER ///////////////////////////////////////////
 
 
 
@@ -188,6 +189,7 @@ const usersController = {
                     if (passMatches.length > 0) { 
 
                         const userData = {
+                                        id: existingUser._id,
                                         firstname: existingUser.firstname,
                                         email: existingUser.email,
                                         from:existingUser.from
@@ -195,9 +197,11 @@ const usersController = {
 
                         await existingUser.save()
 
+                        const token = jwt.sign({...userData}, process.env.SECRET_KEY,{expiresIn:  60* 60*24 })
+
                         res.json({ success: true, 
                                 from:from,
-                                response: {userData}, 
+                                response: {token, userData}, 
                                 message:"Welcome back "+userData.firstname,
                                 })
 
@@ -213,15 +217,20 @@ const usersController = {
                         let passMatches = existingUser.password.filter(pass =>bcryptjs.compareSync(password, pass))
 
                         if(passMatches .length >0){
+
                         const userData = {
+                            id: existingUser._id,
                             firstname: existingUser.firstname, 
                             email: existingUser.email,
                             from: existingUser.from
                             }
                         
+                            const token = jwt.sign({...userData}, process.env.SECRET_KEY,{expiresIn:  60* 60*24 })
+
+
                         res.json({ success: true, 
                             from: from, 
-                            response: {userData }, 
+                            response: {token, userData }, 
                             message:"Welcome back "+userData.firstname,
                         })
                         }else{
