@@ -1,6 +1,7 @@
 const initialState = {
     user: null,
     message:null,
+    newuser: {}
     
 }
 
@@ -13,10 +14,17 @@ const userReducer = (state = initialState, action) => {
                 ...state,
                 user: action.payload,   
             }
-            case 'message':
+
+        case 'message':
             return {
                 ...state,
                 message: action.payload,   
+            }
+
+            case 'newuser':
+                return {
+                    ...state,
+                    newuser: action.payload,   
             }
 
         default:

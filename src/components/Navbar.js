@@ -19,8 +19,7 @@ import { UilChatBubbleUser } from '@iconscout/react-unicons'
 
 
 const pages = [{name: 'Home', url: '/'}, { name: 'Cities', url: '/cities'}];
-// const settings = ['Sign up', 'Log in'];
-const settings = [{name: 'Sign up', url: '*'}, { name: 'Log in', url: '*'}];
+const settings = [{name: 'Sign up', url: 'signup'}, { name: 'Log in', url: 'login'}];
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -46,8 +45,6 @@ const Navbar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
 
-          {/* <img className="image_logo" src='./assets/imgs/newlogo.png' /> */}
-
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -59,6 +56,7 @@ const Navbar = () => {
             >
               <MenuIcon />
             </IconButton>
+            
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -110,7 +108,7 @@ const Navbar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="User" arrow placement="left">
               <IconButton  onClick={handleOpenUserMenu} sx={{ p: 2 }}>
-               <Avatar  sx={{ width: 50, height: 50}} > <UilChatBubbleUser>  </UilChatBubbleUser> </Avatar> 
+              <Avatar  sx={{ width: 50, height: 50}} > <UilChatBubbleUser>  </UilChatBubbleUser> </Avatar> 
                 
               </IconButton>
             </Tooltip>

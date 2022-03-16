@@ -82,6 +82,8 @@ const usersController = {
                     res.json({
                         success: true, 
                         from:"signup", 
+                        firstname,
+                        lastname,
                         message: "We sent you an e-mail to validate your registration so you can continue with your sign up."
                     })
                 }
