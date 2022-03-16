@@ -1,7 +1,66 @@
 const User = require('../models/modelUsers')
 const bcryptjs = require('bcryptjs')
+const crypto = require('crypto')       
+const nodemailer = require('nodemailer') 
+
+
+const sendEmail = async (email, uniqueString) => { // send verification email to user
+
+    const transporter = nodemailer.createTransport({ 
+        host: 'smtp.gmail.com',        
+        port: 465,
+        secure: true,
+        auth: {
+            user: "***REMOVED***", 
+            pass: "***REMOVED***"                          
+        }                                              
+    })
+
+    // email details
+    let sender = "***REMOVED***"  
+    let mailOptions = { 
+        from: sender,    
+        to: email,      
+        subject: "Welcome adventurer. Let's verify your email!",
+        html: `
+        <div >
+        <h1 style="color:black">Hey, you're nearly there! Verify your email address to log in and get started: <a style="color:blue font-weight:bold" href=http://localhost:4000/api/verify/${uniqueString}>Verify email</a></h1>
+        </div>
+        `
+    
+    };
+    await transporter.sendMail(mailOptions, function (error, response) { 
+        if (error) { console.log(error) }
+        else {
+            console.log("Mensaje enviado")
+
+        }
+    })
+};
+
+
+
+
+
 
 const usersController = {
+
+    verifyEmail: async (req, res) => {
+
+        const { uniqueString } = req.params; 
+
+        const user = await User.findOne({ uniqueString: uniqueString })
+        console.log(user) // search user according to the link
+        if (user) {
+            user.verifiedEmail = true 
+            await user.save()
+            res.redirect("http://localhost:3000/signup") 
+        }
+        else { res.json({ success: false, response: "Unverified email." }) }
+    },
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     signUpUsers:async (req,res)=>{
 
@@ -29,9 +88,16 @@ const usersController = {
 
                     existingUser.password.push(hashPass) 
 
+                    //  IF HIS SIGN UP IS FROM OUR FORM
+                    
                     if(from === "form-Signup"){ 
 
+                        existingUser.uniqueString = crypto.randomBytes(20).toString('hex')
+
                         await existingUser.save()
+
+                        await sendEmail(email, existingUser.uniqueString)
+
     
                     res.json({
                         success: true, 
@@ -58,13 +124,14 @@ const usersController = {
                     lastname,
                     email,
                     password:[hashPass],
-                    verifiedEmail:true,
+                    uniqueString:crypto.randomBytes(20).toString('hex'),
+                    verifiedEmail:false,
                     urlimage,
                     country,
                     from:[from],
                 })
             
-
+            //  IF USER IS SIGNING UP FROM GOOGLE/FACEBOOK DOESNT NEED TO VERIFICATE EMAIL
                 if (from !== "form-Signup") { 
                     
                     await setNewUser.save()
@@ -75,9 +142,10 @@ const usersController = {
                         message: "Yey! account created with" +from
                     }) 
     
-                } else {
+                } else { //ELSE: SEND EMAIL TO VERIFICATE
 
                     await setNewUser.save()
+                    await sendEmail(email, setNewUser.uniqueString)
     
                     res.json({
                         success: true, 
@@ -184,7 +252,7 @@ const usersController = {
 
 
 
-    LogOutUser: async (req, res) => {
+    logOutUser: async (req, res) => {
     
         const email = req.body.closeuser
         const user = await User.findOne({ email })

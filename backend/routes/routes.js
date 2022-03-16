@@ -21,13 +21,16 @@ Router.route("/itinerary/:id").get(getItineraryById).delete(deleteItinerary).put
 const validator = require('../config/validator')
 
 const usersController = require ('../controllers/usersController')
-const {signUpUsers, logInUser, LogOutUser} = usersController;
+const {signUpUsers, logInUser, logOutUser, verifyEmail} = usersController;
 
 
 Router.route('/auth/signup').post(validator, signUpUsers)
 
 Router.route('/auth/login').post(logInUser)
 
-Router.route('/auth/logout').post(LogOutUser)
+Router.route('/auth/logout').post(logOutUser)
+
+
+Router.route('/verify/:uniqueString').get(verifyEmail)
 
 module.exports = Router
