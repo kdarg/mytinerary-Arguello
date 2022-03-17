@@ -111,7 +111,7 @@ const usersController = {
                     
                     res.json({ success: true,
                             from:"signup", 
-                            message: "We added" +from+ "to your media to log in" })
+                            message: "We added " +from+ " to your media to log in" })
                 }
             }
             } else {
@@ -191,6 +191,7 @@ const usersController = {
                         const userData = {
                                         id: existingUser._id,
                                         firstname: existingUser.firstname,
+                                        lastname: existingUser.lastname,
                                         email: existingUser.email,
                                         from:existingUser.from
                                         }
@@ -221,6 +222,7 @@ const usersController = {
                         const userData = {
                             id: existingUser._id,
                             firstname: existingUser.firstname, 
+                            lastname: existingUser.lastname,
                             email: existingUser.email,
                             from: existingUser.from
                             }

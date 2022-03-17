@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaUser, FaImage } from "react-icons/fa"
 import { MdEmail } from "react-icons/md"
 import { ImKey } from "react-icons/im"
+import { BiWorld } from "react-icons/bi";
 import React, {useEffect, useState} from 'react'
 import axios from "axios"
 import { BsEye, BsEyeSlash } from "react-icons/bs";
@@ -10,6 +11,7 @@ import userActions from "../redux/actions/userActions";
 import { connect } from 'react-redux';
 // import Toast from "../components/Toast"
 import Swal from 'sweetalert2'
+import FacebookSignup from '../components/FacebookSignup';
 
 const SignUp = (props) => {
 
@@ -117,8 +119,9 @@ const SignUp = (props) => {
             <input name='urlimage' id="urlimage" className="form-control" placeholder="URL image" type="url"  value={urlimage} onChange={ e => setUrlimage(e.target.value) } />
         </div>
 
-            <div className="mb-3 inputforms">
-            <select name="country" value={country} onChange={ e => setCountry(e.target.value) }>
+            <div className="mb-3 inputforms ">
+                <BiWorld className='iconsmargin'/>
+            <select className='selectwidth form-control'  name="country" value={country} onChange={ e => setCountry(e.target.value) }>
             <option>Choose your country</option>
             
             {countries.map((country, key) => (
@@ -133,7 +136,9 @@ const SignUp = (props) => {
         <div className="">
             <Button type="submit" variant='outline-dark' className="bg-button-more" > Create account </Button>
         </div>
-        <div className="text-center mt-4">Already have an account? <Link to="/login" className="signuphere"> <span className="">Log in</span></Link> </div>
+        <FacebookSignup/>
+        <div className="text-center mt-4">Already have an account? </div> 
+        <div><Link to="/login" className="signuphere"> <span className="">Log in</span></Link> </div>
 
         
     </form>

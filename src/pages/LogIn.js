@@ -6,6 +6,7 @@ import { FaUser} from "react-icons/fa";
 import { ImKey } from "react-icons/im";
 import { connect } from 'react-redux';
 import userActions from '../redux/actions/userActions';
+import LoginFacebook from "../components/LoginFacebook";
 
 const LogIn = (props) => {
 
@@ -32,7 +33,7 @@ const LogIn = (props) => {
             <div  className="loginCard ">
             <p className="login">Welcome back!</p>
 
-            <form className="formLogin" onSubmit={handleSubmit}>
+            <form className="formLogin2" onSubmit={handleSubmit}>
 			<div className="mb-3 inputforms">
             <FaUser className="iconsmargin" />
 				<input name="email" className="form-control" placeholder="Email address" type="email" />
@@ -49,7 +50,12 @@ const LogIn = (props) => {
 			<div className="">
 				<Button variant='outline-dark' className="bg-button-more" as="input" type="submit" value="Log In" /> 
 			</div>
-			<div className="text-center mt-4">Don't have an account yet? <Link to="/signup" className="signuphere"> <span className="">Sign up</span></Link> </div>
+
+			<LoginFacebook/>
+
+
+			<div className="text-center mt-4">Don't have an account yet?</div>
+			<div><Link to="/signup" className="signuphere"> <span className="">Sign up</span></Link> </div> 
 		</form>
 
             </div>
