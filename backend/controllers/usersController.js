@@ -273,6 +273,21 @@ const usersController = {
         res.json(console.log('Closed session ' + email))
     },
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    VerifyToken:(req, res) => {
+        console.log(req.user)
+        if(!req.err){
+        res.json({success:true,
+                response:{id:req.user.id, firstname:req.user.firstname, lastname:req.user.lastname, urlimage: req.user.urlimage, email:req.user.email, from:"token"},
+                message:"Welcome back "+req.user.firstname}) 
+        }else{
+            res.json({success:false,
+            message:"Por favor realiza nuevamente signIn"}) 
+        }
+    }
+
+
 
 }
 module.exports = usersController
