@@ -22,7 +22,7 @@ const userActions = {
                 console.log(res.data)
                 const Toast = Swal.mixin({
                     toast: true,
-                    position: "top-end",
+                    position: "center-end",
                     showConfirmButton: false,
                     timer: 3000,
                     background: "#FFF",
@@ -82,20 +82,20 @@ const userActions = {
 
                 const user = await axios.post('http://localhost:4000/api/auth/login', { logedUser })
 
-
+                    console.log(user.data)
 
                 if(user.data.success){
     
                     localStorage.setItem('token',user.data.response.token)
     
-                    dispatch({type: 'user', payload: user.data.response.logedUser});
+                    dispatch({type: 'user', payload: user.data.response.logedUser || user.data.response.userData });
     
                     console.log(user.data.response.userData.firstname)
 
 
                     const Toast = Swal.mixin({
                         toast: true,
-                        position: "top-end",
+                        position: "center-end",
                         showConfirmButton: false,
                         timer: 3000,
                         background: "#FFF",

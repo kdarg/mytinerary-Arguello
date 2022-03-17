@@ -192,6 +192,7 @@ const usersController = {
                                         id: existingUser._id,
                                         firstname: existingUser.firstname,
                                         lastname: existingUser.lastname,
+                                        urlimage:existingUser.urlimage,
                                         email: existingUser.email,
                                         from:existingUser.from
                                         }
@@ -223,6 +224,7 @@ const usersController = {
                             id: existingUser._id,
                             firstname: existingUser.firstname, 
                             lastname: existingUser.lastname,
+                            urlimage: existingUser.urlimage,
                             email: existingUser.email,
                             from: existingUser.from
                             }

@@ -758,6 +758,21 @@ align-items: center!important;
 .colorlogsign:hover{
   color: rgb(255, 132, 179);
 }
+
+.avatarusersize{
+
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  object-fit: cover;
+
+}
+
+.logoutmargin{
+
+  margin: 0!important;
+  padding: 0!important;
+}
 /* /////////////////////////////////////////////////////////////////////////////////MEDIA  */
 
 @media (max-width: 975px) {

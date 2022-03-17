@@ -11,17 +11,19 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-
 import { Link } from 'react-router-dom';
-
-import { UilChatBubbleUser } from '@iconscout/react-unicons'
-
+import { UilChatBubbleUser } from '@iconscout/react-unicons';
+import userActions from '../redux/actions/userActions';
+import { connect } from 'react-redux';
 
 
 const pages = [{name: 'Home', url: '/'}, { name: 'Cities', url: '/cities'}];
 const settings = [{name: 'Sign up', url: 'signup'}, { name: 'Log in', url: 'login'}];
 
-const Navbar = () => {
+const Navbar = (props) => {
+
+  // console.log(props.user)
+  
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -39,6 +41,11 @@ const Navbar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+
+  function handleCloseLogOut(){
+    props.LogOutUser(props.user.userEmail)
+  }
 
   return (
     <AppBar position="static" style={{ background: '#fff' }}>
@@ -91,9 +98,11 @@ const Navbar = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            LOGO
+            
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+
             {pages.map((page) => (
                     <Link to={page.url} className="text-my-nav" key={page.name} >
               <Button className='text-my-nav'
@@ -105,8 +114,54 @@ const Navbar = () => {
             ))}
           </Box>
           
+
+
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="User" arrow placement="left">
+
+
+              {props.user ? 
+        
+
+              <>
+
+              <Tooltip title="User" arrow placement="left">
+
+              <IconButton  onClick={handleOpenUserMenu} sx={{ p: 2 }}>
+              <img src={props.user.urlimage }  className='avatarusersize' />  
+              </IconButton>
+              
+              </Tooltip>
+            
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+
+
+            <MenuItem  onClick={handleCloseUserMenu}>
+            <p className='logoutmargin' onClick={handleCloseLogOut}>Log out</p>
+            </MenuItem>
+
+            </Menu>
+
+
+
+              </>
+            
+            : <>
+                <Tooltip title="User" arrow placement="left">
               <IconButton  onClick={handleOpenUserMenu} sx={{ p: 2 }}>
               <Avatar  sx={{ width: 50, height: 50}} > <UilChatBubbleUser>  </UilChatBubbleUser> </Avatar> 
                 
@@ -131,6 +186,8 @@ const Navbar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
+
+
               {settings.map((setting) => (
 
                 <Link to={setting.url} className="text-my-nav" key={setting.name}>
@@ -141,11 +198,36 @@ const Navbar = () => {
                 </Link>
 
               ))}
+
+
             </Menu>
+            </>
+            
+            }
+
+
           </Box>
+
+
+
+
+
         </Toolbar>
       </Container>
     </AppBar>
   );
 };
-export default Navbar;
+
+const mapStateToProps = (state) => {
+
+  return{
+    user: state.userReducer.user,
+  }
+
+}
+
+const mapDispatchToProps = {
+  LogOutUser: userActions.LogOutUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
