@@ -138,7 +138,7 @@ const SignUp = (props) => {
         </div>
         <FacebookSignup/>
         <div className="text-center mt-4">Already have an account? </div> 
-        <div><Link to="/login" className="signuphere"> <span className="">Log in</span></Link> </div>
+        <div><Link to="/login" className="signuphere"> <span className="fw-bold colorlogsign">Log in here</span></Link> </div>
 
         
     </form>

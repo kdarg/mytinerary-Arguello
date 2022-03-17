@@ -685,9 +685,6 @@ font-family: "Croissant One", cursive;
   
 }
 
-.signuphere:hover{
-  color: rgb(221, 46, 113);
-}
 
 .centerLogin{
   display: flex;
@@ -754,6 +751,13 @@ align-items: center!important;
   margin-left: 12rem;
 }
 
+.colorlogsign{
+  color:rgb(221, 46, 113);
+}
+
+.colorlogsign:hover{
+  color: rgb(255, 132, 179);
+}
 /* /////////////////////////////////////////////////////////////////////////////////MEDIA  */
 
 @media (max-width: 975px) {

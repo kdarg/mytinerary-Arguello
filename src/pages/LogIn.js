@@ -48,14 +48,13 @@ const LogIn = (props) => {
 
 
 			<div className="">
-				<Button variant='outline-dark' className="bg-button-more" as="input" type="submit" value="Log In" /> 
+				<Button variant='outline-dark' className="bg-button-more" as="input" type="submit" value="Log in" /> 
 			</div>
 
 			<LoginFacebook/>
 
-
 			<div className="text-center mt-4">Don't have an account yet?</div>
-			<div><Link to="/signup" className="signuphere"> <span className="">Sign up</span></Link> </div> 
+			<div><Link to="/signup" className="signuphere"> <span className="fw-bold colorlogsign">Sign up here</span></Link> </div> 
 		</form>
 
             </div>

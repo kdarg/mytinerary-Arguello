@@ -6,7 +6,7 @@ const Noresults = () => {
 
                 <p className="mt-2">- No results to show - </p>
                 <p className="mt-2">Please try again</p>
-                <img src={process.env.PUBLIC_URL+"/assets/imgs/noresult.png"} className="size-img-search"/> 
+                <img src={process.env.PUBLIC_URL+"/assets/imgs/noresult.png"} alt='No_results' className="size-img-search"/> 
 
             </div>
         </div>

@@ -28,7 +28,7 @@ function LoginFacebook(props) {
         <FacebookLogin
         cssClass="buttonsocial my-facebook-button-class"
         icon="fa-facebook"
-        textButton=" with Facebook"
+        textButton="Log in with Facebook "
         appId="505181134513821"
         autoLoad={false}
         fields="name,email,picture"
