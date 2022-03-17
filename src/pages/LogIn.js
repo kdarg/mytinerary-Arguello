@@ -7,20 +7,55 @@ import { ImKey } from "react-icons/im";
 import { connect } from 'react-redux';
 import userActions from '../redux/actions/userActions';
 import LoginFacebook from "../components/LoginFacebook";
+import Swal from 'sweetalert2'
 
 const LogIn = (props) => {
 
-
+    //PASSWORD VISIBILITY 
     const [hidden, setHidden] = useState(true)
+
+	//TOAST EMPTY FIELDS
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    //HANDLE SUBMIT
 
 	const handleSubmit = (event) => {
 		event.preventDefault()
-		const logedUser = {
-			email: event.target[0].value,
-			password: event.target[1].value,
-			from: "form-Login"
+
+		if([email, password].includes('')){
+
+			const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                background: "#FFF",
+                iconColor: "rgb(185, 40, 40)",
+                confirmButtonColor: "rgb(221, 46, 113)",
+                timerProgressBar: true,
+                
+                didOpen: (toast) => {
+                    toast.addEventListener("mouseenter", Swal.stopTimer);
+                    toast.addEventListener("mouseleave", Swal.resumeTimer);
+                },
+            });
+
+            Toast.fire({
+                icon: "error",
+                title: `<span style="color:rgb(221, 46, 113)"> You must fill all the fields! <span>`,
+            });
+
+		}else{
+
+			const logedUser = {
+				email: event.target[0].value,
+				password: event.target[1].value,
+				from: "form-Login"
+			}
+			props.logInUser(logedUser)
+
 		}
-		props.logInUser(logedUser)
 	}
 
 
@@ -36,13 +71,15 @@ const LogIn = (props) => {
             <form className="formLogin2" onSubmit={handleSubmit}>
 			<div className="mb-3 inputforms">
             <FaUser className="iconsmargin" />
-				<input name="email" className="form-control" placeholder="Email address" type="email" />
+				<input name="email" className="form-control" placeholder="Email address" type="email" value={email} onChange={ e => setEmail(e.target.value) } />
 			</div>
             
 			<div className="mb-3 inputforms">
             <ImKey className="iconsmargin" />
-				<input name='password' className="form-control" placeholder="Password" type={hidden ? "password" : "text"}  />
+				<input name='password' className="form-control" placeholder="Password" type={hidden ? "password" : "text"} value={password} onChange={ e => setPassword(e.target.value) }  />
+
                 <div className="positionhidden" onClick={() => setHidden(!hidden)}> {hidden ? <BsEyeSlash/> : <BsEye/>}
+
                 </div>
 			</div>
 
