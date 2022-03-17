@@ -17,8 +17,7 @@ function FacebookSignup(props) {
 
      // let nombre = separatedFullName[0]
       //let apellido = separatedFullName[1]
-      //console.log(nombre)
-      //console.log(apellido)
+
 
 
 
@@ -28,9 +27,8 @@ function FacebookSignup(props) {
         email: res.email,
         password: res.id,
         urlimage: res.picture.data.url,
-        country: 'Internet',
+        country: 'Private',
         from: "facebook",
-      //pais:props.pais
     }
     await props.signUpUser(userData)
     }

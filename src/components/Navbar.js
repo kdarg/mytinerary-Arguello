@@ -132,6 +132,9 @@ const Navbar = (props) => {
               
               </Tooltip>
             
+            
+              <img className="image_logo" src={process.env.PUBLIC_URL+"/assets/imgs/newlogo.png"}  alt='MyTinerary-logo' />
+              
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"

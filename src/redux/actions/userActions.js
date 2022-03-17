@@ -164,13 +164,13 @@ const userActions = {
 
     LogOutUser: (closeuser)=>{
         return async (dispatch, getState) => {
-        const user = axios.post('http://localhost:4000/api/auth/signout', {closeuser})
+        //const user = axios.post('http://localhost:4000/api/auth/signout', {closeuser})
 
         localStorage.removeItem('token')
 
         dispatch({type: 'user', payload: null});
 
-        console.log(user.data)
+        //console.log(user.data)
         } 
     }
 
