@@ -2,7 +2,7 @@ import React from 'react';
 import FacebookLogin from 'react-facebook-login';
 import { connect } from 'react-redux';
 import userActions from '../redux/actions/userActions';
-import './styleSign.css'
+// import './styleSign.css'
 
 function LoginFacebook(props) {
 
