@@ -40,7 +40,7 @@ const userActions = {
     
                 Toast.fire({
                     icon: "success",
-                    title: `<span style="color:rgb(221, 46, 113)"> Welcome, ${res.data.firstname || userData.firstname} ${res.data.lastname || userData.lastname}!  <span>`,
+                    title: `<span style="color:rgb(221, 46, 113)"> Welcome, ${res.data.firstname || userData.firstname} ${res.data.lastname || userData.lastname}! <span>`,
                 });
             } else {
                 const Toast = Swal.mixin({
