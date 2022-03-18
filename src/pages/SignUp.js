@@ -45,11 +45,11 @@ const SignUp = (props) => {
 
             const Toast = Swal.mixin({
                 toast: true,
-                position: "top-end",
+                position: "center-end",
                 showConfirmButton: false,
                 timer: 3000,
                 background: "#FFF",
-                iconColor: "rgb(185, 40, 40)",
+                iconColor: "rgb(238, 76, 103)",
                 confirmButtonColor: "rgb(221, 46, 113)",
                 timerProgressBar: true,
                 
@@ -61,7 +61,7 @@ const SignUp = (props) => {
 
             Toast.fire({
                 icon: "error",
-                title: `<span style="color:rgb(221, 46, 113)"> You must fill all the fields! <span>`,
+                title: `You must fill all the fields!`,
             });
 
         }else{

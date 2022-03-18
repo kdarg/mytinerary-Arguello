@@ -40,7 +40,8 @@ const userActions = {
     
                 Toast.fire({
                     icon: "success",
-                    title: `<span style="color:rgb(221, 46, 113)"> Welcome, ${res.data.firstname || userData.firstname} ${res.data.lastname || userData.lastname}! <span>`,
+                    // title: `<span style="color:rgb(221, 46, 113)"> Welcome, ${res.data.firstname || userData.firstname} ${res.data.lastname || userData.lastname}! <span>`,
+                    title: `${res.data.message}`
                 });
             } else {
                 const Toast = Swal.mixin({
@@ -86,6 +87,29 @@ const userActions = {
 
                     console.log(user.data)
 
+                    
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "center-end",
+                showConfirmButton: false,
+                timer: 3000,
+                background: "#FFF",
+                iconColor: "rgb(238, 76, 103)",
+                confirmButtonColor: "rgb(221, 46, 113)",
+                timerProgressBar: true,
+                
+                didOpen: (toast) => {
+                    toast.addEventListener("mouseenter", Swal.stopTimer);
+                    toast.addEventListener("mouseleave", Swal.resumeTimer);
+                },
+            });
+
+            Toast.fire({
+                icon: "error",
+                title: `${user.data.message}`,
+            });
+            
+
                 if(user.data.success){
     
                     localStorage.setItem('token',user.data.response.token)
@@ -112,44 +136,14 @@ const userActions = {
                     })
                     Toast.fire({
                         icon: "success",
-                        title: `<span style="color:rgb(221, 46, 113)"> Welcome back, ${user.data.response.userData.firstname || logedUser.firstname} ${user.data.response.userData.lastname || logedUser.lastname}!  <span>`,
+                        // title: `<span style="color:rgb(221, 46, 113)"> Welcome back, ${user.data.response.userData.firstname || logedUser.firstname} ${user.data.response.userData.lastname || logedUser.lastname}!  <span>`,
+                        title: `${user.data.message}`,
                     })
 
 
 
-                }else{ 
-    
-
-                    console.log(user.data)
-                    console.log(user.data.message) 
-                
-                
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: "top-end",
-                        showConfirmButton: false,
-                        timer: 3000,
-                        confirmButtonColor: "rgb(221, 46, 113)",
-                        background: "#FFF",
-                        iconColor: "rgb(238, 76, 103)",
-                        timerProgressBar: true,
-                        
-                        didOpen: (toast) => {
-                            toast.addEventListener("mouseenter", Swal.stopTimer);
-                            toast.addEventListener("mouseleave", Swal.resumeTimer);
-                        },
-                    });
-    
-                    Toast.fire({
-                        icon: "error",
-                        title: `<span style="color:rgb(221, 46, 113)">You are already logged in!</span>`,
-                        background: "#FFF",
-                        iconColor: "rgb(216, 86, 86)",
-                        confirmButtonColor: "rgb(221, 46, 113)",
-                    });
-                
                 }
-                    
+        
 
 
             }catch (error) {

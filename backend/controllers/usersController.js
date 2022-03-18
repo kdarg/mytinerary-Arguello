@@ -235,7 +235,7 @@ const usersController = {
                         res.json({ success: true, 
                             from: from, 
                             response: {token, userData }, 
-                            message:"Welcome back "+userData.firstname,
+                            message:"Welcome back "+userData.firstname + " " + userData.lastname + "!",
                         })
                         }else{
                             res.json({ success: false, 
