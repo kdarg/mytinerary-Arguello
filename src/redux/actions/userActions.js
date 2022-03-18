@@ -43,7 +43,8 @@ const userActions = {
                     // title: `<span style="color:rgb(221, 46, 113)"> Welcome, ${res.data.firstname || userData.firstname} ${res.data.lastname || userData.lastname}! <span>`,
                     title: `${res.data.message}`
                 });
-            } else {
+            }
+             else {
                 const Toast = Swal.mixin({
                     toast: true,
                     position: "top-end",
@@ -62,7 +63,7 @@ const userActions = {
 
                 Toast.fire({
                     icon: "error",
-                    title: `<span style="color:rgb(221, 46, 113)">User already registered!</span>`,
+                    title: `${res.data.message}`,
                     background: "#FFF",
                     iconColor: "rgb(216, 86, 86)",
                     confirmButtonColor: "rgb(221, 46, 113)",

@@ -23,11 +23,10 @@ const sendEmail = async (email, uniqueString) => { // send verification email to
         from: sender,    
         to: email,      
         subject: "Welcome adventurer. Let's verify your email!",
-        html: `
-        <div >
+        html: 
+        `        <div >
         <h1 style="color:black">Hey, you're nearly there! Verify your email address to log in and get started: <a style="color:blue font-weight:bold" href=http://localhost:4000/api/verify/${uniqueString}>Verify email</a></h1>
-        </div>
-        `
+        </div>`
     
     };
     await transporter.sendMail(mailOptions, function (error, response) { 
@@ -140,7 +139,7 @@ const usersController = {
                     res.json({
                         success: true, 
                         from:"signup",
-                        message: "Yey! account created with" +from
+                        message: "Yey! account created with" + " " +from
                     }) 
     
                 } else { //ELSE: SEND EMAIL TO VERIFICATE
@@ -204,7 +203,7 @@ const usersController = {
                         res.json({ success: true, 
                                 from:from,
                                 response: {token, userData}, 
-                                message:"Welcome back "+userData.firstname,
+                                message:"Hello, "+userData.firstname + " " + userData.lastname + "!",
                                 })
 
                     } else {
@@ -235,7 +234,7 @@ const usersController = {
                         res.json({ success: true, 
                             from: from, 
                             response: {token, userData }, 
-                            message:"Welcome back "+userData.firstname + " " + userData.lastname + "!",
+                            message:"Welcome "+userData.firstname + " " + userData.lastname + "!",
                         })
                         }else{
                             res.json({ success: false, 
@@ -280,7 +279,7 @@ const usersController = {
         if(!req.err){
         res.json({success:true,
                 response:{id:req.user.id, firstname:req.user.firstname, lastname:req.user.lastname, urlimage: req.user.urlimage, email:req.user.email, from:"token"},
-                message:"Welcome back "+req.user.firstname}) 
+                message:"Welcome "+req.user.firstname}) 
         }else{
             res.json({success:false,
             message:"Por favor realiza nuevamente signIn"}) 
