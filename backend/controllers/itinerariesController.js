@@ -75,6 +75,51 @@ const itinerariesController = {
         await myItineraries.findOneAndUpdate({_id:req.params.id}, req.body, {new: true})
         .then((response) => res.json({success:true, note:'itinerary edited', response: response}))
         .catch((error) => res.json({success:false, response:error}))
+    },
+
+
+    //like and dislike
+
+    likeItinerary:  async (req, res) => {
+
+        const id = req.params.id
+
+        const user = req.body.user
+
+        let itineraries
+
+        try{
+
+            itineraries = await myItineraries.findOne({_id:id})
+
+            //si itinerarios.likes incluye el id del usuario dentro del array (definido en el modelo), lo buscamos y lo actualizamos, le pulleamos el dato del user. (con $pull quitamos de la base de datos el like del usuario) sino, pusheamos el dato del user
+
+            if(itineraries.likes.includes(user)){
+
+                myItineraries.findOneAndUpdate(
+                    { _id: id },
+                    { $pull: { likes: user } },
+                    { new: true }
+                ).then (response => res.json({success: true, response: response.likes}))
+                .catch(error => console.log(error) )
+
+            }else{
+
+                myItineraries.findOneAndUpdate(
+                    { _id: id },
+                    { $push: { likes: user } },
+                    { new: true }
+                ).then (response => res.json({success: true, response: response.likes}))
+                .catch(error => console.log(error) )
+
+            }
+
+        } catch (err) {
+            error = err
+            res.json({success: false, response: error})
+            
+        }
+
     }
 
 };

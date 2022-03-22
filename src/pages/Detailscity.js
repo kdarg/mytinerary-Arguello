@@ -9,12 +9,16 @@ import { connect } from "react-redux";
 import citiesActions from "../redux/actions/citiesActions";
 import itinerariesActions from "../redux/actions/itinerariesActions";
 import Noitineraries from '../components/Noitineraries'
+import {FaHeart, FaRegHeart} from 'react-icons/fa'
+import generalToast from "../components/Toast"
 
 
 const Detailscity = (props) => {
 
+    console.log("🚀 ~ file: Detailscity.js ~ line 23 ~ Detailscity ~ props", props)
+
     // SCROLL TO TOP
-    //window.scrollTo({top: 0, behavior: "smooth"}) por que con cada click en boton sube lol?
+    //window.scrollTo({top: 0, behavior: "smooth"}) por que con cada click en boton sube? lol
 
     //ITINERARIES BY CITY ID
 
@@ -34,6 +38,37 @@ const Detailscity = (props) => {
 
     //DESTRUCTURING 
     const {cityById} = props
+
+
+//FIRST TRY JIJI
+
+    //LIKES AND DISLIKES
+    //DESTRUCTURING
+    
+     const {likes, _id} = props.itinerary
+     console.log("🚀 ~ file: Detailscity.js ~ line 49 ~ Detailscity ~ props", props)
+     
+     console.log("🚀 ~ file: Detailscity.js ~ line 48 ~ Detailscity ~ _id", _id)
+     console.log("🚀 ~ file: Detailscity.js ~ line 48 ~ Detailscity ~ likes", likes)
+
+    const [likeIcon, setLikeIcon] = useState(true)
+    const [itinerariesLikes, setItinerariesLikes] = useState(likes)
+    const liked= itinerariesLikes.includes(props.itinerary._id) ? <FaHeart className="heartIconRed"/> : <FaRegHeart className="heartIcon"/>
+
+    
+    const likeItinerary = async ()=>{
+    setLikeIcon(false)
+    if(!props.itinerary.token){
+        generalToast('error', 'You must be logged in to like this post')
+    }else{
+        let response = await props.itinerary.likeItinerary(_id, props.itinerary.token)
+        setItinerariesLikes(response.data.response)
+    }
+    setLikeIcon(true)
+    }
+
+
+
 
     return ( 
         <>
@@ -90,9 +125,22 @@ const Detailscity = (props) => {
                             <div className="priceDuration">
                             <p className="itiPrice"><span className="itiUnderline">Price</span>: {"💵".repeat(parseInt(itinerary.price))}</p>
                             <p className="itiDuration"><span className="itiUnderline">Duration</span>: {"🕓" + itinerary.duration}</p>
+
+
+                            <div onClick={(likeIcon ? likeItinerary : null )} className="likes">
+                            {liked}
+                           <p>{itinerariesLikes.length}</p>
+                        </div>
+
                             <p className="itiLikes">{itinerary.likes + "💖"}</p>
+
+
                             </div>
                             
+
+
+
+
                             <div className="centerHashtags">
                                 {itinerary.hashtags.map((tag, key) => <p className="tagsColor" key={key}>{tag}</p>)}
                                 </div>
@@ -133,16 +181,21 @@ const Detailscity = (props) => {
     );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         cityById: state.citiesReducer.cityById,
-        itinerary: state.itinerariesReducer.itinerary
+        itinerary: state.itinerariesReducer.itinerary,
+        user: state.userReducer.user,
+        token: state.userReducer.token,
+        _id: state.userReducer._id,
     }
 }
 
 const mapDispatchToProps = {
     getOneCity: citiesActions.getOneCity,
-    getItinerariesByCityId: itinerariesActions.getItinerariesByCityId
+    getItinerariesByCityId: itinerariesActions.getItinerariesByCityId,
+    likeItinerary: itinerariesActions.likeItinerary,
+
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Detailscity);

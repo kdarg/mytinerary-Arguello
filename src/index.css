@@ -935,3 +935,22 @@ font-size: 0.8rem;
 margin-right: 0px !important;
 width: 45px !important;
 }
+
+
+.heartIconRed{
+  color:red;
+  font-size: 1.8em;
+  cursor: pointer; 
+}
+
+.heartIcon{
+  font-size: 1.8em;
+  cursor: pointer;
+}
+
+.likes{
+  width: 10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

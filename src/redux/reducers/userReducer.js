@@ -13,6 +13,8 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 user: action.payload,   
+                token: action.payload.token, // ?
+                _id: action.payload._id  // ?
             }
 
         case 'message':
@@ -24,7 +26,7 @@ const userReducer = (state = initialState, action) => {
             case 'newuser':
                 return {
                     ...state,
-                    newuser: action.payload,   
+                    newuser: action.payload,  
             }
 
         default:
