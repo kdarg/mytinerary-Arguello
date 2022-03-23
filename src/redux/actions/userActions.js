@@ -141,18 +141,11 @@ const userActions = {
                         title: `${user.data.message}`,
                     })
 
-
-
                 }
-        
-
 
             }catch (error) {
                 console.log(error);
             }
-
-
-            
 
         }
     },
@@ -175,7 +168,7 @@ const userActions = {
     VerifyToken: (token) => {
 
         return async (dispatch, getState) => {
-            console.log(token)
+            //console.log(token)
             const user = await axios.get('http://localhost:4000/api/auth/signInToken', {
                 headers: {
                     'Authorization': 'Bearer ' + token
@@ -199,8 +192,6 @@ const userActions = {
 
         }
     }
-
-
 
 
 

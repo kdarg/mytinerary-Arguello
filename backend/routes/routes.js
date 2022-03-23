@@ -46,4 +46,17 @@ Router.route('/auth/signInToken').get(passport.authenticate('jwt',{ session:fals
 
 Router.route('/itinerary/like/:id').put(passport.authenticate('jwt',{ session:false }), likeItinerary) 
 
+// ACTIVITIES
+
+const activityControllers = require('../controllers/activitiesController');
+
+const { getActivities, addActivity, getActivity, deleteActivity, editActivity, getActivityByItinterary } = activityControllers;
+
+Router.route('/activities').get(getActivities).post(addActivity)
+
+Router.route('/activities/:id').get(getActivity).delete(deleteActivity).put(editActivity)
+
+Router.route('/activities/itinerary/:id').get(getActivityByItinterary)
+
+
 module.exports = Router

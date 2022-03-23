@@ -37,6 +37,22 @@ const itinerariesActions = {
         }
     },    
 
+    getActivityByItinterary: (id) => {
+        return async () => {
+            try { 
+                const response = await axios.get(`http://localhost:4000/api/activities/itinerary/${id}`)
+                console.log(id)
+                const data = response.data.response
+                return {success: true, response: data}
+            } catch (error){
+                return {
+                    success: false, response: error
+                }
+            }
+        }
+    },
+
+
 }
 
 
