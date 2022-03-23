@@ -27,7 +27,7 @@ const Activity = (props) => {
         <div className=" ">
         <div className="centerTag"><span className="tag_act mb-4">Activities</span></div>
 
-        <div className='d-flex justify-content-center align-items-center'>
+        <div className='activities_box'>
 
 
             {activities.map(activity => {
