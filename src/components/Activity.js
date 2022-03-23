@@ -23,22 +23,29 @@ const Activity = (props) => {
     // console.log(nombre)
 
     return (
+        <>
+        <div className=" ">
+        <div className="centerTag"><span className="tag_act mb-4">Activities</span></div>
 
-        <div className="">
-            <p>Activities</p>
+        <div className='d-flex justify-content-center align-items-center'>
+
+
             {activities.map(activity => {
                 return ( 
-                    <div className="d-flex flex-column justify-content-center align-items-center">
-                    <div key={activity._id}>
-                            <div/>
-                            <img className="col-12" src={process.env.PUBLIC_URL+"/assets/imgs/"+ activity.src} alt='City' className='image_card_size d-flex'/>
+                    <div className=" ">
+                    <div key={activity._id} className="uwu">
+                    
+                    <img src={process.env.PUBLIC_URL+"/assets/imgs/"+ activity.src} alt='Activity' className='image_card_size_act mb-3'/>
 
-                            <p>{activity.title}</p>
+                    <p className='activity_title'>{activity.title}</p>
 
                     </div>
                     </div>
-                )})}       
+                )})} 
+
+                </div>      
         </div>
+</>
     )
 }
 const mapDispatchToProps = {

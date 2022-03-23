@@ -771,9 +771,50 @@ align-items: center!important;
   padding: 0!important;
 }
 
-/* /////////////////////////////////////////////////////////////////////////////////MEDIA  */
+/* /////////////////////////////////////////////////////////////////////////////////ACTIVITIES */
 
+.image_card_size_act{
+  width: 85%;
+  height: 85%;
+  border-radius: 20px;
+}
 
+.tag_act{
+
+  background: #cccccc;
+  border-radius: 50px;
+  font-size: 2rem;
+  margin: 0;
+  color: #fff;
+  padding: 2px 20px;
+  text-transform: uppercase;
+  background-color: #f049979a;
+  /* background-color: #8949f09a; */
+  font-family: "Zen Loop", cursive;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+}
+
+.activity_title{
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  color: #f049979a;
+  background-color: #ffdfed9a;
+  border-radius: 10px;
+  padding: 2px 10px;
+  font-weight: bolder;
+  font-family: "Zen Loop", cursive;
+  letter-spacing: 0.2rem;
+}
+
+.uwu{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #5f0077; */
+  flex-wrap: wrap;
+}
 
 /* /////////////////////////////////////////////////////////////////////////////////MEDIA  */
 

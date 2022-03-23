@@ -119,7 +119,11 @@ const Detailscity = (props) => {
                     &&
                     <div className="activityContainer">
 
+                        <div className="uwu">
                             <Activity id={itinerary._id}/>
+                        </div>
+
+
                         {/* <Underconstruction buttonMore={buttonMore}  /> */}
                                                 
                         <div className="d-flex justify-content-center"><Button variant='outline-dark' className="bg-button-more" onClick={actionButton}> {buttonMore ? 'View less' : 'View More'}</Button></div>
