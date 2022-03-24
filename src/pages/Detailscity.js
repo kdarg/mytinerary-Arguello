@@ -10,6 +10,7 @@ import citiesActions from "../redux/actions/citiesActions";
 import itinerariesActions from "../redux/actions/itinerariesActions";
 import Noitineraries from '../components/Noitineraries'
 import Activity from '../components/Activity'
+import Likes from '../components/Likes'
 
 
 const Detailscity = (props) => {
@@ -25,7 +26,7 @@ const Detailscity = (props) => {
         props.getOneCity(id)
         props.getItinerariesByCityId(id)
     },[]) 
-
+    //console.log(props)
     //SEE MORE / SEE LESS BUTTON 
     const [buttonMore, setButtonMore] = useState(false)
 
@@ -36,7 +37,22 @@ const Detailscity = (props) => {
     //DESTRUCTURING 
     const {cityById} = props
 
+    //LIKES & DISLIKES
 
+    // const [reload, setReload] = useState(false)
+    // const [itinerary, setItinerary] = useState()
+
+    // useEffect(() => {
+    //     props.getItinerariesByCityId(id)
+    //       .then(response => setItinerary(response.data.response.itinerary))
+    //   }, [reload])
+
+    // async function likesOrDislikes() {
+    //     await props.likeItinerary(itinerary._id)
+        
+    //     setReload(!reload)
+    // }
+    // console.log(itinerary)
 
 
     return ( 
@@ -95,7 +111,7 @@ const Detailscity = (props) => {
                             <p className="itiPrice"><span className="itiUnderline">Price</span>: {"💵".repeat(parseInt(itinerary.price))}</p>
                             <p className="itiDuration"><span className="itiUnderline">Duration</span>: {"🕓" + itinerary.duration}</p>
 
-
+{/* <Likes/> */}
 
                             <p className="itiLikes">{itinerary.likes + "💖"}</p>
 
@@ -160,9 +176,9 @@ const mapStateToProps = (state) => {
     return {
         cityById: state.citiesReducer.cityById,
         itinerary: state.itinerariesReducer.itinerary,
-        user: state.userReducer.user,
-        token: state.userReducer.token,
-        _id: state.userReducer._id,
+        // user: state.userReducer.user,
+        // token: state.userReducer.token,
+        // _id: state.userReducer._id,
     }
 }
 

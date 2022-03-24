@@ -2,7 +2,6 @@
 import { connect } from 'react-redux'
 import itinerariesActions from "../redux/actions/itinerariesActions"
 import { useEffect, useState } from 'react'
-import { useParams } from "react-router-dom";
 
 const Activity = (props) => {
 
@@ -32,8 +31,8 @@ const Activity = (props) => {
 
             {activities.map(activity => {
                 return ( 
-                    <div className=" ">
-                    <div key={activity._id} className="uwu">
+                    <div key={activity._id} className=" ">
+                    <div className="uwu">
                     
                     <img src={process.env.PUBLIC_URL+"/assets/imgs/"+ activity.src} alt='Activity' className='image_card_size_act mb-3'/>
 
