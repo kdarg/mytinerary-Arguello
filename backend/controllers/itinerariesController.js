@@ -1,9 +1,8 @@
-const { FlagCircle } = require("@mui/icons-material");
 const myItineraries = require("../models/modelItineraries")
 
 const itinerariesController = {
 
-    //get all itineraries
+    //GET ALL ITINERARIES
 
     getAllItineraries: async (req, res) => {
         let all_itineraries;
@@ -23,29 +22,29 @@ const itinerariesController = {
         
         },
 
-    //add new itinerary
+    //ADD NEW ITINERARY 
 
-        addItinerary:  (req, res) => {
-            const newItinerary = new myItineraries({
-                city:req.body.city,
-                title:req.body.title,
-                src:req.body.src,
-                description:req.body.description,
-                profilePicture:req.body.profilePicture,
-                userName:req.body.userName,
-                price:req.body.price,
-                duration:req.body.duration,
-                likes:req.body.likes,
-                hashtags:req.body.hashtags,
-                comments:req.body.comments,
-                cityId:req.body.cityId
+    addItinerary:  (req, res) => {
+        const newItinerary = new myItineraries({
+            city:req.body.city,
+            title:req.body.title,
+            src:req.body.src,
+            description:req.body.description,
+            profilePicture:req.body.profilePicture,
+            userName:req.body.userName,
+            price:req.body.price,
+            duration:req.body.duration,
+            likes:req.body.likes,
+            hashtags:req.body.hashtags,
+            comments:req.body.comments,
+            cityId:req.body.cityId
             })
-            newItinerary.save()
-            .then((response)=> res.json({success:true, note:'itinerary added', response: response}))
-            .catch((error)=> res.json({success:false, response:error}))
+        newItinerary.save()
+        .then((response)=> res.json({success:true, note:'itinerary added', response: response}))
+        .catch((error)=> res.json({success:false, response:error}))
         },
 
-        // get one itinerary by id
+    // GET ONE ITINERARY BY ID
 
         getItineraryById: async (req, res) => {
         await myItineraries.findOne({_id:req.params.id})
@@ -53,7 +52,7 @@ const itinerariesController = {
         .catch((error) => res.json({success:false, response:error}))
         },
 
-        // get itineraries by city 
+    // GET ITINERARIES BY CITY 
 
         getItinerariesByCity: (req, res) => {
             myItineraries.find({ cityId: req.params.id }).populate("cityId")
@@ -62,7 +61,7 @@ const itinerariesController = {
             .catch((err) => res.json({ success: false, response: err }))
         },
 
-        //detele one itinerary 
+    // DELETE ONE ITINERARY 
 
     deleteItinerary :(req, res) =>{
         myItineraries.findOneAndDelete({_id:req.params.id})
@@ -70,7 +69,7 @@ const itinerariesController = {
         .catch((error) => res.json({success:false, response: error}))
     },
 
-    //edit one itinerary //id in params
+    // EDIT ONE ITINERARY - ID IN PARAMS 
 
     editItinerary: async (req, res) =>{
         await myItineraries.findOneAndUpdate({_id:req.params.id}, req.body, {new: true})
@@ -78,14 +77,14 @@ const itinerariesController = {
         .catch((error) => res.json({success:false, response:error}))
     },
 
-    //like and dislike
+    //LIKE AND DISLIKE 
 
     likeItinerary: async (req, res) => {
 
         const id = req.params.id //id del lugar que queremos likear o dislikear, llega desde axios
-//console.log(req.user)
+
         const user = req.user.id //el dato del usuario viene una vez que pasa por passport
-//console.log(id)
+
         await myItineraries.findOne({_id:id})
         .then( (itinerary) => {
 
@@ -109,54 +108,64 @@ const itinerariesController = {
 
         }).catch( (error) => res.json( {success: false, response: error }))
 
-    }
+    },
 
+    // ADD NEW COMMENT
 
-    //like and dislike
+    addComment: async (req, res) => {
+        const {itinerary,comment} = req.body.comment
+        const user = req.user._id
+        try {
+            const newComment = await myItineraries.findOneAndUpdate({_id:itinerary}, {$push: {comments: {comment: comment, userID: user}}}, {new: true}).populate("comments.userID", {firstname:1, lastname:1, urlimage:1})
+            res.json({ success: true, response:{newComment}, message:"Thanks for your comment!" })
 
-    // likeItinerary:  async (req, res) => {
+        }
+        catch (error) {
+            console.log(error)
+            res.json({ success: false, message: "Something went wrong, please try again in a few minutes." })
+        }
 
-    //     const id = req.params.id //id del lugar donde queremos poner like o sacar
+    },
 
-    //     const user = req.body.user
+    // EDIT COMMENT
 
-    //     let itineraries
+    editComment: async (req, res) => {
+        const {commentID,comment} = req.body.comment
+        const user = req.user._id
+        try {
+            const editedComment = await myItineraries.findOneAndUpdate({"comments._id":commentID}, {$set: {"comments.$.comment": comment}}, {new: true})
 
-    //     try{
+            console.log(editedComment)
 
-    //         itineraries = await myItineraries.findOne({_id:id})
+            res.json({ success: true, response:{editedComment}, message:"Comment modified!" })
 
-    //         //si itinerarios.likes incluye el id del usuario dentro del array (definido en el modelo), lo buscamos y lo actualizamos, le pulleamos el dato del user. (con $pull quitamos de la base de datos el like del usuario) sino, pusheamos el dato del user
+        }
+        catch (error) {
+            console.log(error)
+            res.json({ success: true, message: "Something went wrong, please try again in a few minutes." })
+        }
 
-    //         if(itineraries.likes.includes(user)){
+    },
 
-    //             myItineraries.findOneAndUpdate(
-    //                 { _id: id },
-    //                 { $pull: { likes: user } },
-    //                 { new: true }
-    //             ).then (response => res.json({success: true, response: response.likes}))
-    //             .catch(error => console.log(error) )
+    // DELETE COMMENT
 
-    //         }else{
+    deleteComment: async (req, res) => {
+        const id = req.params.id
+        const user = req.user._id
+        try {
+            const deleteComment = await myItineraries.findOneAndUpdate({"comments._id":id}, {$pull: {comments: {_id: id}}}, {new: true})
 
-    //             myItineraries.findOneAndUpdate(
-    //                 { _id: id },
-    //                 { $push: { likes: user } },
-    //                 { new: true }
-    //             ).then (response => res.json({success: true, response: response.likes}))
-    //             .catch(error => console.log(error) )
+        console.log(deleteComment)
 
-    //         }
+            res.json({ success: true, response:{deleteComment}, message: "Comment deleted!" })
 
-    //     } catch (err) {
-    //         error = err
-    //         res.json({success: false, response: error})
-            
-    //     }
+        }
+        catch (error) {
+            console.log(error)
+            res.json({ success: false, message: "Something went wrong, please try again in a few minutes." })
+        }
 
-    // }
-
-
+    },
 
 };
 

@@ -37,7 +37,6 @@ const SignUp = (props) => {
     const [country, setCountry] = useState('')
 
     //HANDLE SUBMIT
-
     const handleSubmit = (event) => {
         event.preventDefault()
         
@@ -79,12 +78,8 @@ const SignUp = (props) => {
 
     }
 
-
-
-
     return ( 
 
-            
         <div className="lel">
         <div  className="centerLogin containerLogin bg-light mt-5"> 
         <div  className="loginCard ">
@@ -114,13 +109,13 @@ const SignUp = (props) => {
         </div>
         </div>
 
-            <div className="mb-3 inputforms">
-            <FaImage className="iconsmargin" />
-            <input name='urlimage' id="urlimage" className="form-control" placeholder="URL image" type="url"  value={urlimage} onChange={ e => setUrlimage(e.target.value) } />
+        <div className="mb-3 inputforms">
+        <FaImage className="iconsmargin" />
+        <input name='urlimage' id="urlimage" className="form-control" placeholder="URL image" type="url"  value={urlimage} onChange={ e => setUrlimage(e.target.value) } />
         </div>
 
-            <div className="mb-3 inputforms ">
-                <BiWorld className='iconsmargin'/>
+        <div className="mb-3 inputforms ">
+            <BiWorld className='iconsmargin'/>
             <select className='selectwidth form-control'  name="country" value={country} onChange={ e => setCountry(e.target.value) }>
             <option>Choose your country</option>
             
@@ -129,8 +124,7 @@ const SignUp = (props) => {
                     {country.name}
                     </option>
                     ))}
-
-        </select>
+            </select>
         </div>
 
         <div className="">
@@ -141,7 +135,7 @@ const SignUp = (props) => {
         <div><Link to="/login" className="signuphere"> <span className="fw-bold colorlogsign">Log in here</span></Link> </div>
 
         
-    </form>
+        </form>
 
         </div>
         </div>
@@ -152,7 +146,6 @@ const SignUp = (props) => {
 
 const mapDispatchToProps = {
     signUpUser: userActions.signUpUser,
-    
 }
 
 const mapStateToProps = (state) => {

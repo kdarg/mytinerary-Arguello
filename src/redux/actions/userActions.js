@@ -5,6 +5,8 @@ const Swal = require("sweetalert2");
 
 const userActions = {
     
+    // SIGN UP
+
     signUpUser: (userData) => {
         return async (dispatch, getState) => {
 
@@ -12,12 +14,9 @@ const userActions = {
 
                 const res = await axios.post('http://localhost:4000/api/auth/signup', {userData})
             dispatch({type: 'message', payload: res.data});
-            console.log(res.data)
-            console.log(res.data.message)
-            console.log(userData)
-
-
-
+            // console.log(res.data)
+            // console.log(res.data.message)
+            // console.log(userData)
 
             if (res.data.success) {
                 dispatch({ type: "newuser", payload: res.data });
@@ -40,11 +39,10 @@ const userActions = {
     
                 Toast.fire({
                     icon: "success",
-                    // title: `<span style="color:rgb(221, 46, 113)"> Welcome, ${res.data.firstname || userData.firstname} ${res.data.lastname || userData.lastname}! <span>`,
                     title: `${res.data.message}`
                 });
             }
-             else {
+            else {
                 const Toast = Swal.mixin({
                     toast: true,
                     position: "top-end",
@@ -74,19 +72,19 @@ const userActions = {
                 console.log(error);
             }
 
-            
         }
     }, 
 
+    // LOG IN
+
     logInUser: (logedUser) => {
         return async (dispatch, getState) => {
-
 
             try{
 
                 const user = await axios.post('http://localhost:4000/api/auth/login', { logedUser })
 
-                    console.log(user.data)
+                    //console.log(user.data)
 
                     
             const Toast = Swal.mixin({
@@ -110,7 +108,7 @@ const userActions = {
                 title: `${user.data.message}`,
             });
             
-                console.log(user)
+                //console.log(user)
                 
                 if(user.data.success){
     
@@ -118,8 +116,7 @@ const userActions = {
     
                     dispatch({type: 'user', payload: user.data.response.logedUser || user.data.response.userData });
     
-                    console.log(user.data.response.userData.firstname)
-
+                    //console.log(user.data.response.userData.firstname)
 
                     const Toast = Swal.mixin({
                         toast: true,
@@ -138,7 +135,6 @@ const userActions = {
                     })
                     Toast.fire({
                         icon: "success",
-                        // title: `<span style="color:rgb(221, 46, 113)"> Welcome back, ${user.data.response.userData.firstname || logedUser.firstname} ${user.data.response.userData.lastname || logedUser.lastname}!  <span>`,
                         title: `${user.data.message}`,
                     })
 
@@ -150,6 +146,8 @@ const userActions = {
 
         }
     },
+
+    // LOG OUT
 
     LogOutUser: (closeuser)=>{
         return async (dispatch, getState) => {
@@ -164,18 +162,18 @@ const userActions = {
         } 
     },
 
-
+    // VERIFY TOKEN
 
     VerifyToken: (token) => {
 
         return async (dispatch, getState) => {
-            //console.log(token)
+
             const user = await axios.get('http://localhost:4000/api/auth/signInToken', {
                 headers: {
                     'Authorization': 'Bearer ' + token
                 }
             })
-            console.log(user)
+            //console.log(user)
             
             if (user.data.success) {
                 dispatch({ type: 'user', payload: user.data.response });
@@ -194,8 +192,6 @@ const userActions = {
         }
     }
 
-
-
-
 }
+
 export default userActions;

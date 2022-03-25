@@ -19,10 +19,6 @@ const itinerariesReducer = (state = initialState, action) => {
                     itineraries: action.payload
                 }
 
-
-
-
-
         default:
             return state
     }

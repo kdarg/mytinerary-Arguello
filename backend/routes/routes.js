@@ -9,11 +9,10 @@ Router.route('/allcities').get(getCities);
 Router.route("/cities").get(getCities).post(addNewCity);
 Router.route("/city/:id").get(getCityById).delete(deleteCity).put(editCity);
 
-// ITINERARIES
+// ITINERARIES - LIKES & DISLIKE 
 
 const itinerariesController = require('../controllers/itinerariesController');
 const {getAllItineraries, addItinerary, getItineraryById, deleteItinerary, editItinerary, getItinerariesByCity, likeItinerary} = itinerariesController;
-
 
 Router.route("/itineraries").get(getAllItineraries).post(addItinerary);
 
@@ -34,7 +33,7 @@ Router.route('/auth/login').post(logInUser)
 
 //Router.route('/auth/signOut').post(logOutUser)
 
-// VERIFY AND VERIFY TOKEN
+// VERIFY EMAIL AND VERIFY TOKEN
 
 Router.route('/verify/:uniqueString').get(verifyEmail)
 
@@ -57,6 +56,5 @@ Router.route('/activities').get(getActivities).post(addActivity)
 Router.route('/activities/:id').get(getActivity).delete(deleteActivity).put(editActivity)
 
 Router.route('/activities/itinerary/:id').get(getActivityByItinterary)
-
 
 module.exports = Router

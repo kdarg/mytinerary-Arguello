@@ -62,7 +62,6 @@ const Cardscities = (props) => {
 
         </div>
 
-
         </div>
 
         ))): <Noresults/> }
@@ -76,7 +75,6 @@ const Cardscities = (props) => {
 
     const mapStateToProps = state => {
         return {
-            //cities: state.citiesReducer.getCities, solo trae todo pero no filtra y nofuncionaaaAAA
             cityfiltered: state.citiesReducer.filterCities 
         }
 }

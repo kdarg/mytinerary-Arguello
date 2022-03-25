@@ -2,7 +2,7 @@ const myCities = require("../models/modelcities");
 
 const citiesController = {
 
-    //get all cities
+    // GET ALL CITIES
 
     getCities: async (req, res) => {
     let allcities;
@@ -22,7 +22,7 @@ const citiesController = {
     
     },
 
-    //add new city
+    // ADD NEW CITY 
 
     addNewCity:  (req, res) => {
         const newCity = new myCities({
@@ -32,11 +32,11 @@ const citiesController = {
             description:req.body.description
         })
         newCity.save()
-        .then((response)=> res.json({success:true, note:'added city', response: response}))
+        .then((response)=> res.json({success:true, note:'city added', response: response}))
         .catch((error)=> res.json({success:false, response:error}))
     },
 
-    // get one city by id
+    // GET ONE CITY BY ID
 
     getCityById: async (req, res) => {
         await myCities.findOne({_id:req.params.id})
@@ -44,15 +44,15 @@ const citiesController = {
         .catch((error) => res.json({success:false, response:error}))
     },
     
-     //detele one city 
+     // DELETE ONE CITY  
 
     deleteCity :(req, res) =>{
         myCities.findOneAndDelete({_id:req.params.id})
-        .then((deteledcity) =>res.json({success:true, note:'deleted city', response: deteledcity }))
+        .then((deteledcity) =>res.json({success:true, note:'city deleted', response: deteledcity }))
         .catch((error) => res.json({success:false, response: error}))
     },
 
-    //modify one city //id in params
+    // EDIT ONE CITY - ID IN PARAMS
 
     editCity: async (req, res) =>{
         await myCities.findOneAndUpdate({_id:req.params.id}, req.body, {new: true})
@@ -61,15 +61,13 @@ const citiesController = {
     
     }
 
-
-    //modify one city //id in body 
+    // EDIT ONE CITY -  ID IN BODY - WORKS :D 
 
     // editCity: async (req, res) =>{
     //     await myCities.findOneAndUpdate({_id:req.body.id}, req.body, {new: true})
     //     .then((response) => res.json({success:true, note:'edited city', response: response}))
     //     .catch((error) => res.json({success:false, response:error}))
     // },
-
 
 };
 

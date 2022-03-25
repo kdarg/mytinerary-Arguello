@@ -4,8 +4,9 @@ const crypto = require('crypto')
 const nodemailer = require('nodemailer') 
 const jwt = require('jsonwebtoken')
 
+    //SEND VERIFICATION EMAIL TO USER
 
-const sendEmail = async (email, uniqueString) => { // send verification email to user
+const sendEmail = async (email, uniqueString) => { 
 
     const transporter = nodemailer.createTransport({ 
         host: 'smtp.gmail.com',        
@@ -17,7 +18,6 @@ const sendEmail = async (email, uniqueString) => { // send verification email to
         }                                              
     })
 
-    // email details
     let sender = "***REMOVED***"  
     let mailOptions = { 
         from: sender,    
@@ -39,18 +39,18 @@ const sendEmail = async (email, uniqueString) => { // send verification email to
 };
 
 
-///////////////////////////////////////////////// USER CONTROLLER ///////////////////////////////////////////
-
-
+    // USERS CONTROLLER
 
 const usersController = {
+
+    // VERIFY EMAIL
 
     verifyEmail: async (req, res) => {
 
         const { uniqueString } = req.params; 
 
         const user = await User.findOne({ uniqueString: uniqueString })
-        console.log(user) // search user according to the link
+
         if (user) {
             user.verifiedEmail = true 
             await user.save()
@@ -59,8 +59,7 @@ const usersController = {
         else { res.json({ success: false, response: "Unverified email." }) }
     },
 
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // SIGN UP 
 
     signUpUsers:async (req,res)=>{
 
@@ -72,14 +71,14 @@ const usersController = {
 
             const existingUser = await User.findOne({ email })
             
-            //if the user already exists:
+            //if the user already exists
 
             if (existingUser) {
                 console.log(existingUser.from.indexOf(from))
 
                 if (existingUser.from.indexOf(from) === 0) { 
 
-                    res.json({ success: false, from:"signup", message: "User already registered, please log in" })
+                    res.json({ success: false, from:"signup", message: "User already registered, please log in." })
 
                 } else { 
                     const hashPass = bcryptjs.hashSync(password, 10)
@@ -88,7 +87,7 @@ const usersController = {
 
                     existingUser.password.push(hashPass) 
 
-                    //  IF HIS SIGN UP IS FROM OUR FORM
+                    //  if his/her sign up is from our form 
                     
                     if(from === "form-Signup"){ 
 
@@ -98,11 +97,10 @@ const usersController = {
 
                         await sendEmail(email, existingUser.uniqueString)
 
-    
                     res.json({
                         success: true, 
                         from:"signup",
-                        message: "Please check your e-mail to continue with your sign up"
+                        message: "Please check your email to continue with your sign up."
                     }) 
                     
                     }else{
@@ -110,12 +108,12 @@ const usersController = {
                     
                     res.json({ success: true,
                             from:"signup", 
-                            message: "We added " +from+ " to your media to log in" })
+                            message: "We added " +from+ " to your media to log in." })
                 }
             }
             } else {
 
-                //if the user doesnt exist:
+                //if user doesnt exist
             
                 const hashPass = bcryptjs.hashSync(password, 10) 
 
@@ -131,7 +129,8 @@ const usersController = {
                     from:[from],
                 })
             
-            //  IF USER IS SIGNING UP FROM GOOGLE/FACEBOOK DOESNT NEED TO VERIFICATE EMAIL
+            //  if user is signing up from Google/Facebook, he/she doesnt need to verificate email 
+
                 if (from !== "form-Signup") { 
                     
                     await setNewUser.save()
@@ -142,7 +141,7 @@ const usersController = {
                         message: "Yey! account created with" + " " +from
                     }) 
     
-                } else { //ELSE: SEND EMAIL TO VERIFICATE
+                } else { // else: send email to verificate 
 
                     await setNewUser.save()
                     await sendEmail(email, setNewUser.uniqueString)
@@ -152,7 +151,7 @@ const usersController = {
                         from:"signup", 
                         firstname,
                         lastname,
-                        message: "We sent you an e-mail to validate your registration so you can continue with your sign up."
+                        message: "We sent you an email to validate your registration so you can continue with your sign up."
                     })
                 }
             }
@@ -163,25 +162,24 @@ const usersController = {
         }
     },
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    // LOG IN 
 
     logInUser: async (req, res) => {
 
         const { email, password, from } = req.body.logedUser
         try {
 
-            //checks if user exists:
+            // checks if user exists:
 
             const existingUser = await User.findOne({ email })
 
-            //if the user doesnt exist:
+            // if the user doesnt exist:
 
             if (!existingUser) {
-                res.json({ success: false, message: "User doesn't exist, try signing up" })
+                res.json({ success: false, message: "User doesn't exist, try signing up." })
 
             } else {
-                if (from !== "form-Login") { //el registro del user es dif al registro a traves del form log in? bueno, verificamos si su pass coincide
+                if (from !== "form-Login") { // user different from our form log in? okey, we verify if her/his pass matches 
                     
                     let passMatches = existingUser.password.filter(pass =>bcryptjs.compareSync(password, pass))
                     
@@ -230,7 +228,6 @@ const usersController = {
                         
                             const token = jwt.sign({...userData}, process.env.SECRET_KEY,{expiresIn:  60* 60*24 })
 
-
                         res.json({ success: true, 
                             from: from, 
                             response: {token, userData }, 
@@ -239,7 +236,7 @@ const usersController = {
                         }else{
                             res.json({ success: false, 
                                 from: from,  
-                                message:"Email or password doesn't match.",
+                                message:"Email and password do not match. Please try again",
                             })
                         }
                     }else{
@@ -258,11 +255,7 @@ const usersController = {
         }
     },
 
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
+    // LOG OUT
 
     logOutUser: async (req, res) => {
     
@@ -272,7 +265,7 @@ const usersController = {
         res.json(console.log('Closed session ' + email))
     },
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+    // VERIFY TOKEN
 
     VerifyToken:(req, res) => {
         console.log(req.user)
@@ -282,11 +275,10 @@ const usersController = {
                 message:"Welcome "+req.user.firstname}) 
         }else{
             res.json({success:false,
-            message:"Por favor realiza nuevamente signIn"}) 
+            message:"Please try logging in again."}) 
         }
     }
 
+};
 
-
-}
 module.exports = usersController

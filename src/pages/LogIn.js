@@ -19,7 +19,6 @@ const LogIn = (props) => {
     const [password, setPassword] = useState('')
 
     //HANDLE SUBMIT
-
 	const handleSubmit = (event) => {
 		event.preventDefault()
 
@@ -58,8 +57,6 @@ const LogIn = (props) => {
 		}
 	}
 
-
-
     return ( 
 
                     
@@ -82,7 +79,6 @@ const LogIn = (props) => {
 
                 </div>
 			</div>
-
 
 			<div className="">
 				<Button variant='outline-dark' className="bg-button-more" as="input" type="submit" value="Log in" /> 

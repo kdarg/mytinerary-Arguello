@@ -84,7 +84,6 @@ const carouselIndex = () => {
         ]
     ] 
 
-
     return (  
 
         <>
@@ -94,19 +93,16 @@ const carouselIndex = () => {
         <Carousel className='p-1' variant='dark' >
             {cities.map( (arraycities, index) => {
                 return ( 
-                    
-                    
+
                     <Carousel.Item key={index}>
                         <div className='d-flex justify-content-center flex-wrap'>
-                            {
-                                arraycities.map( city =>{
+                            {arraycities.map( city =>{
                                     return <Card city={city} key={city.city}/>
                                     }                          
                                 )
                             }
                         </div>
                     </Carousel.Item>
-
                 
                     )
                     }

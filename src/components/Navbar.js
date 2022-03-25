@@ -21,8 +21,6 @@ const pages = [{name: 'Home', url: '/'}, { name: 'Cities', url: '/cities'}];
 const settings = [{name: 'Sign up', url: 'signup'}, { name: 'Log in', url: 'login'}];
 
 const Navbar = (props) => {
-
-  // console.log(props.user)
   
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -41,7 +39,6 @@ const Navbar = (props) => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
 
   function handleCloseLogOut(){
     props.LogOutUser(props.user.userEmail)
@@ -113,15 +110,11 @@ const Navbar = (props) => {
               </Link>
             ))}
           </Box>
-          
-
 
           <Box sx={{ flexGrow: 0 }}>
 
-
               {props.user ? 
         
-
               <>
 
               <Tooltip title="User" arrow placement="left">
@@ -132,10 +125,9 @@ const Navbar = (props) => {
               
               </Tooltip>
             
-            
               <img className="image_logo" src={process.env.PUBLIC_URL+"/assets/imgs/newlogo.png"}  alt='MyTinerary-logo' />
               
-            <Menu
+              <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
@@ -152,14 +144,11 @@ const Navbar = (props) => {
               onClose={handleCloseUserMenu}
             >
 
-
             <MenuItem  onClick={handleCloseUserMenu}>
             <p className='logoutmargin' onClick={handleCloseLogOut}>Log out</p>
             </MenuItem>
 
             </Menu>
-
-
 
               </>
             
@@ -190,7 +179,6 @@ const Navbar = (props) => {
               onClose={handleCloseUserMenu}
             >
 
-
               {settings.map((setting) => (
 
                 <Link to={setting.url} className="text-my-nav" key={setting.name}>
@@ -202,18 +190,12 @@ const Navbar = (props) => {
 
               ))}
 
-
             </Menu>
             </>
             
             }
 
-
           </Box>
-
-
-
-
 
         </Toolbar>
       </Container>

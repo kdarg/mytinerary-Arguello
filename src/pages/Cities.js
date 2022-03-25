@@ -8,9 +8,7 @@ const pagecities = () => {
         <>
             <Headercities/>
             <Cardscities/>
-
         </>
-
 );
 }
 

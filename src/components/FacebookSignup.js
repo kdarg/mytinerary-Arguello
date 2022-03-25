@@ -2,24 +2,15 @@ import React from 'react';
 import FacebookLogin from 'react-facebook-login';
 import { connect } from 'react-redux';
 import userActions from '../redux/actions/userActions';
-// import './styleSign.css'
 
 function FacebookSignup(props) {
 
   const responseFacebook = async (res) => {
-    console.log(res)
-    console.log(res.name)
-
-    
+    // console.log(res)
+    // console.log(res.name)
 
         const separatedFullName = res.name.split(" ")
         console.log(separatedFullName)
-
-     // let nombre = separatedFullName[0]
-      //let apellido = separatedFullName[1]
-
-
-
 
         const userData = {
         firstname:separatedFullName[0],
@@ -33,26 +24,21 @@ function FacebookSignup(props) {
     await props.signUpUser(userData)
     }
 
-
-
-
-
   return (
     <FacebookLogin
-    cssClass="buttonsocial my-facebook-button-class"
-    icon="fa-facebook"
-    textButton=" Sign up with Facebook"
+      cssClass="buttonsocial my-facebook-button-class"
+      icon="fa-facebook"
+      textButton=" Sign up with Facebook"
       appId="505181134513821"
       autoLoad={false}
       fields="name,email,picture"
       callback={responseFacebook}
-
     />
   );
 }
+
 const mapDispatchToProps = {
     signUpUser: userActions.signUpUser,
-
 }
 
 export default connect(null, mapDispatchToProps)(FacebookSignup);

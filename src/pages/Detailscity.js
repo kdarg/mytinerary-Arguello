@@ -11,7 +11,6 @@ import itinerariesActions from "../redux/actions/itinerariesActions";
 import Noitineraries from '../components/Noitineraries'
 import Swal from 'sweetalert2'
 import Activity from '../components/Activity'
-import Likes from '../components/Likes'
 
 const Detailscity = (props) => {
 

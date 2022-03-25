@@ -2,11 +2,9 @@ const initialState = {
     user: null,
     message:null,
     newuser: {}
-    
 }
 
 const userReducer = (state = initialState, action) => {
-    
     
     switch (action.type) {
         case 'user':

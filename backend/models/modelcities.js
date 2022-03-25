@@ -7,5 +7,6 @@ src: {type:String, required:true},
 description: {type:String, required:true}
 })
 
-const myCities = mongoose.model('cities',citiesSchema) //'cities' es mi coleccion mongodb dentro de mytinerary
+const myCities = mongoose.model('cities',citiesSchema) //'cities' is my mongodb collection
+
 module.exports = myCities

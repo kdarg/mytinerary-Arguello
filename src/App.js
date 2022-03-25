@@ -16,7 +16,7 @@ import userActions from './redux/actions/userActions';
 function App(props) {
 
   useEffect(() => {
- 
+
     if(localStorage.getItem('token')!== null){
       const token = localStorage.getItem("token")
       props.VerifyToken(token)
@@ -44,7 +44,6 @@ function App(props) {
 
 const mapDispatchToProps = {
 	VerifyToken: userActions.VerifyToken,
-
 }
 
 
