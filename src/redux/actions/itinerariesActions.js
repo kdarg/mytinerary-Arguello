@@ -22,27 +22,13 @@ const itinerariesActions = {
         }
     },
 
-    // likeItinerary: (id, token) =>{
-    //     return async () => {
-    //             try{
-    //                 const response = await axios.put(`http://localhost:4000/api/itinerary/like/${id}`, {},{
-    //                     headers:{
-    //                         Authorization: `Bearer ${token}`
-    //                     }
-    //                 })
-    //                 return response
-    //             } catch(error) {
-    //                 console.log(error)
-    //             }
-    //     }
-    // },    
-
     
     likeItinerary: (id) =>{
 
-        const token = localStorage.getItem('token')
-
+        
         return async () => {
+            const token = localStorage.getItem('token')
+            console.log(token)
 
                 try{
                     const response = await axios.put(`http://localhost:4000/api/itinerary/like/${id}`, {},
@@ -50,7 +36,9 @@ const itinerariesActions = {
                             Authorization: "Bearer "+token
                     }
                     })
-                    return response
+                    //console.log(id)
+                    //console.log(response)
+                    return {success:true}
 
                 } catch(error) {
                     console.log(error)
@@ -62,7 +50,7 @@ const itinerariesActions = {
         return async () => {
             try { 
                 const response = await axios.get(`http://localhost:4000/api/activities/itinerary/${id}`)
-                console.log(id)
+                //console.log(id)
                 const data = response.data.response
                 return {success: true, response: data}
             } catch (error){

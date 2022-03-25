@@ -554,6 +554,7 @@ font-family: "Croissant One", cursive;
   box-shadow: 0px 0px 10px 3px rgba(146, 146, 146, 0.39);
   padding: 3vh 2vw;
   margin-bottom: 5vh;
+  background-color: #fff;
 }
 
 .activityContainer{ 
@@ -655,6 +656,16 @@ font-family: "Croissant One", cursive;
   color: rgb(221, 46, 113);
 }
 
+.likes_pointer{
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+.ooola{
+  margin-left: 1rem;
+  
+}
 /* /////////////////////////////////////////////////////////////////////////////////LOG IN  */
 
 .login{

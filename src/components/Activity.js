@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 
 const Activity = (props) => {
 
-    console.log(props)
+    //console.log(props)
     
     
     const [activities, setActivities] = useState([])

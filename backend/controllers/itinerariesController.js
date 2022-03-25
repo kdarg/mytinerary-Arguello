@@ -83,9 +83,9 @@ const itinerariesController = {
     likeItinerary: async (req, res) => {
 
         const id = req.params.id //id del lugar que queremos likear o dislikear, llega desde axios
-
+//console.log(req.user)
         const user = req.user.id //el dato del usuario viene una vez que pasa por passport
-
+//console.log(id)
         await myItineraries.findOne({_id:id})
         .then( (itinerary) => {
 

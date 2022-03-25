@@ -9,9 +9,9 @@ import { connect } from "react-redux";
 import citiesActions from "../redux/actions/citiesActions";
 import itinerariesActions from "../redux/actions/itinerariesActions";
 import Noitineraries from '../components/Noitineraries'
+import Swal from 'sweetalert2'
 import Activity from '../components/Activity'
 import Likes from '../components/Likes'
-
 
 const Detailscity = (props) => {
 
@@ -54,6 +54,21 @@ const Detailscity = (props) => {
     // }
     // console.log(itinerary)
 
+    
+    
+    const [reload, setReload] = useState(false)
+    
+    async function likesOrDislikes(itineraryid) {
+        await props.likeItinerary(itineraryid)
+        props.getItinerariesByCityId(id) //se reinicia el itinerario sin necesidad de f5
+        setReload(!reload)
+    }
+    
+    console.log(props.itinerary);
+    console.log(props.user)
+
+
+
 
     return ( 
         <>
@@ -90,11 +105,11 @@ const Detailscity = (props) => {
         {props.itinerary.length ?
             (
                 <>
-                
+                {/* {props.user?<h2>Hola</h2>:<h2>Chau</h2>} */}
                     {props.itinerary.map(itinerary => 
                         <div key= {itinerary._id}>
                         <div  className="centerItinerariesCards">
-                        <div  className="itinerariesCards bg-light">
+                        <div  className="itinerariesCards">
 
                             <div className="centerTag"><span className="tag">{itinerary.title}</span></div>
 
@@ -103,6 +118,12 @@ const Detailscity = (props) => {
                             <img src={process.env.PUBLIC_URL+"/assets/imgs/"+ itinerary.profilePicture} alt='user' className='user_img_size'/>
                                 
                             <div className="userName"> › {itinerary.userName} ‹ </div>
+
+
+                            
+
+
+
                             </div>
 
                             <div className="itiDescription text-center">{itinerary.description}</div>
@@ -111,13 +132,32 @@ const Detailscity = (props) => {
                             <p className="itiPrice"><span className="itiUnderline">Price</span>: {"💵".repeat(parseInt(itinerary.price))}</p>
                             <p className="itiDuration"><span className="itiUnderline">Duration</span>: {"🕓" + itinerary.duration}</p>
 
-{/* <Likes/> */}
+                            <div className="d-flex likes_pointer">
+                            {props.user
+                            ? 
+                            (<div onClick={() => likesOrDislikes(itinerary._id)}>
+                                {itinerary.likes.includes(props.user.id)?
 
-                            <p className="itiLikes">{itinerary.likes + "💖"}</p>
+                            <span style={{color: "red", fontSize:30 , backgroundColor:"white"}} className="material-icons">favorite</span>
+                            :
+                            <span style={{  fontSize:30 }}className="material-icons">favorite_border</span>}
+                            </div>)
+                            :
+                            (<span style={{fontSize:30}}className="material-icons">favorite_border</span>)
+                            
+                            }
+
+                        <p style={{color:"black ",fontSize:20 }} className='ooola'>{itinerary?.likes.length}</p>
+            
+
+                            {/* <p className="itiLikes">{itinerary.likes + "💖"}</p> */}
+                            </div>
+
+
 
 
                             </div>
-                            
+        
 
 
 
@@ -176,9 +216,7 @@ const mapStateToProps = (state) => {
     return {
         cityById: state.citiesReducer.cityById,
         itinerary: state.itinerariesReducer.itinerary,
-        // user: state.userReducer.user,
-        // token: state.userReducer.token,
-        // _id: state.userReducer._id,
+        user: state.userReducer.user
     }
 }
 

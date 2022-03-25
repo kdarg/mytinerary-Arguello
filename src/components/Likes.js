@@ -6,26 +6,37 @@ import itinerariesActions from "../redux/actions/itinerariesActions";
 
 const Likes = (props) => {
 
-    console.log(props)
+    // console.log(props)
     
-    const { id } = useParams()
+    // const { id } = useParams()
 
-    //LIKES & DISLIKES
+    // //LIKES & DISLIKES
+
+    // const [reload, setReload] = useState(false)
+    // const [itinerary, setItinerary] = useState()
+
+    // useEffect(() => {
+    //     props.getItinerariesByCityId(id)
+    //     .then(response => setItinerary(response.data.response.itinerary))
+    // }, [reload])
+
+    // async function likesOrDislikes() {
+    //     await props.likeItinerary(itinerary._id)
+        
+    //     setReload(!reload)
+    // }
+    // //console.log(itinerary)
+
 
     const [reload, setReload] = useState(false)
-    const [itinerary, setItinerary] = useState()
-
-    useEffect(() => {
-        props.getItinerariesByCityId(id)
-        .then(response => setItinerary(response.data.response.itinerary))
-    }, [reload])
 
     async function likesOrDislikes() {
-        await props.likeItinerary(itinerary._id)
-        
+        await props.likeItinerary(props.id)
+        ;
         setReload(!reload)
-    }
-    //console.log(itinerary)
+      }
+    
+      console.log(props.id)
 
 
     return ( 
@@ -35,13 +46,13 @@ const Likes = (props) => {
         <div className="likeDislike">
 
 {props.user ?
-  (<button onClick={likesOrDislikes}>{itinerary?.likes.includes(props.user.id) ?
+  (<button onClick={likesOrDislikes}>{props.itinerary?.likes.includes(props.user.id) ?
     <span style={{ color: "red", fontSize:30 }} class="material-icons">favorite</span> :
     <span style={{  fontSize:30 }}class="material-icons">favorite_border</span>}</button>)
 
   : (<span style={{  fontSize:30 }} class="material-icons">favorite_border</span>)}
 
-<h3 style={{  color:"black ",fontSize:30 }}>{itinerary?.likes.length}</h3>
+<h3 style={{  color:"black ",fontSize:30 }}>{props.itinerary?.likes.length}</h3>
 </div>
 
 

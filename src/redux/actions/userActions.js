@@ -110,7 +110,8 @@ const userActions = {
                 title: `${user.data.message}`,
             });
             
-
+                console.log(user)
+                
                 if(user.data.success){
     
                     localStorage.setItem('token',user.data.response.token)
