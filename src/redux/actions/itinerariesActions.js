@@ -36,8 +36,8 @@ const itinerariesActions = {
                             Authorization: "Bearer "+token
                     }
                     })
-                    //console.log(id)
-                    //console.log(response)
+
+                    console.log(response)
                     return {success:true}
 
                 } catch(error) {

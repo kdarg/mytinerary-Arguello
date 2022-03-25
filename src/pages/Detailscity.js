@@ -132,7 +132,10 @@ const Detailscity = (props) => {
                             <p className="itiPrice"><span className="itiUnderline">Price</span>: {"💵".repeat(parseInt(itinerary.price))}</p>
                             <p className="itiDuration"><span className="itiUnderline">Duration</span>: {"🕓" + itinerary.duration}</p>
 
-                            <div className="d-flex likes_pointer">
+
+                            </div>
+        
+                            {<div className="likes_pointer">
                             {props.user
                             ? 
                             (<div onClick={() => likesOrDislikes(itinerary._id)}>
@@ -147,18 +150,9 @@ const Detailscity = (props) => {
                             
                             }
 
-                        <p style={{color:"black ",fontSize:20 }} className='ooola'>{itinerary?.likes.length}</p>
+                        <p style={{color:"black ",fontSize:30 }} className='ooola'>{itinerary?.likes.length}</p>
             
-
-                            {/* <p className="itiLikes">{itinerary.likes + "💖"}</p> */}
-                            </div>
-
-
-
-
-                            </div>
-        
-
+                            </div>}
 
 
 
