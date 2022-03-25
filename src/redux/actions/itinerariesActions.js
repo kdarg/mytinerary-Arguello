@@ -61,6 +61,83 @@ const itinerariesActions = {
         }
     },
 
+    // ADD COMMENT
+
+    addComment: (comment) => {
+
+        return async (dispatch, getState) => {
+            try {
+                const token = localStorage.getItem('token')
+
+                const res = await axios.post('http://localhost:4000/api/itinerary/comment', { ...comment }, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            dispatch({
+                type: 'message',
+                payload: {
+                    view: true,
+                    message: res.data.message,
+                    success: res.data.success
+                }
+            })
+            return {success:true}
+
+            } catch (error) {
+                return {success:false, error:error.message}
+            }
+        }
+    },
+
+    // EDIT COMMENT
+
+    editComment: (comment) => {
+        
+        const token = localStorage.getItem('token')
+console.log(comment)
+        return async (dispatch, getState) => {
+            const res = await axios.post('http://localhost:4000/api/itinerary/comment/'+ comment.commentID,  {comment: comment.comment} , { //comment 1> postman, comment2> parametro funcion, comment3> commentData
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            dispatch({
+                type: 'message',
+                payload: {
+                    view: true,
+                    message: res.data.message,
+                    success: res.data.success
+                }
+            })
+
+            return res
+        }
+    },
+
+    // DELETE COMMENT
+
+    deleteComment: (id) => {
+
+        const token = localStorage.getItem('token')
+        return async (dispatch, getState) => {
+            const res = await axios.delete(`http://localhost:4000/api/itinerary/comment/${id}`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            dispatch({
+                type: 'message',
+                payload: {
+                    view: true,
+                    message: res.data.message,
+                    success: res.data.success
+                }
+            })
+            return res
+        }
+    }
+
 }
 
 export default itinerariesActions;

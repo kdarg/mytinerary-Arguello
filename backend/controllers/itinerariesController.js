@@ -55,7 +55,7 @@ const itinerariesController = {
     // GET ITINERARIES BY CITY 
 
         getItinerariesByCity: (req, res) => {
-            myItineraries.find({ cityId: req.params.id }).populate("cityId")
+            myItineraries.find({ cityId: req.params.id }).populate("cityId").populate("comments.userID", {firstname:1, lastname:1, urlimage:1})
             .then((itinerariesByCity) =>
             res.json({ success: true, response: itinerariesByCity }))
             .catch((err) => res.json({ success: false, response: err }))
@@ -113,16 +113,18 @@ const itinerariesController = {
     // ADD NEW COMMENT
 
     addComment: async (req, res) => {
-        const {itinerary,comment} = req.body.comment
+        const {itinerary,comment} = req.body
         const user = req.user._id
+
+            console.log('agregue comentario')
         try {
             const newComment = await myItineraries.findOneAndUpdate({_id:itinerary}, {$push: {comments: {comment: comment, userID: user}}}, {new: true}).populate("comments.userID", {firstname:1, lastname:1, urlimage:1})
-            res.json({ success: true, response:{newComment}, message:"Thanks for your comment!" })
+            res.json({ success: true, response:newComment, message:"Thanks for your comment!" })
 
         }
         catch (error) {
             console.log(error)
-            res.json({ success: false, message: "Something went wrong, please try again in a few minutes." })
+            res.json({ success: false, message: "Something went wrong, please try again in a few minutes.", error:error.message })
         }
 
     },
@@ -130,14 +132,16 @@ const itinerariesController = {
     // EDIT COMMENT
 
     editComment: async (req, res) => {
-        const {commentID,comment} = req.body.comment
+        const {comment} = req.body
         const user = req.user._id
+        console.log('hola')
+        console.log(req.body)
         try {
-            const editedComment = await myItineraries.findOneAndUpdate({"comments._id":commentID}, {$set: {"comments.$.comment": comment}}, {new: true})
+            const editedComment = await myItineraries.findOneAndUpdate({"comments._id":req.params.id}, {$set: {"comments.$.comment": comment}}, {new: true})
 
-            console.log(editedComment)
+            console.log('try')
 
-            res.json({ success: true, response:{editedComment}, message:"Comment modified!" })
+            res.json({ success: true, response:editedComment, message:"Comment modified!" })
 
         }
         catch (error) {

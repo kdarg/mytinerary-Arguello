@@ -11,11 +11,15 @@ import itinerariesActions from "../redux/actions/itinerariesActions";
 import Noitineraries from '../components/Noitineraries'
 import Swal from 'sweetalert2'
 import Activity from '../components/Activity'
+import Comments from '../components/Comments'
+import InputComments from "../components/InputComments";
+import Itinerary from "../components/Itinerary";
+
 
 const Detailscity = (props) => {
 
     // SCROLL TO TOP
-    //window.scrollTo({top: 0, behavior: "smooth"}) por que con cada click en boton sube? lol
+    //window.scrollTo({top: 0, behavior: "smooth"})
 
     //ITINERARIES BY CITY ID
 
@@ -24,8 +28,9 @@ const Detailscity = (props) => {
     useEffect(()=>{
         props.getOneCity(id)
         props.getItinerariesByCityId(id)
+        window.scrollTo({top: 0, behavior: "smooth"})
     },[]) 
-    //console.log(props)
+
     //SEE MORE / SEE LESS BUTTON 
     const [buttonMore, setButtonMore] = useState(false)
 
@@ -37,7 +42,6 @@ const Detailscity = (props) => {
     const {cityById} = props
 
     //LIKES & DISLIKES
-    
     const [reload, setReload] = useState(false)
     
     async function likesOrDislikes(itineraryid) {
@@ -50,7 +54,7 @@ const Detailscity = (props) => {
     // console.log(props.user)
 
     async function needToLogIn(){
-     
+    
         const Toast = Swal.mixin({
             toast: true,
             position: "center-end",
@@ -73,6 +77,38 @@ const Detailscity = (props) => {
         });
         
     }
+
+    //COMMENTS
+
+    const [inputText, setInputText] = useState()
+    const [modify, setModify] = useState()
+
+    async function allComents(event) {
+
+        const commentData = {
+          itinerary: props._id,
+          comment: inputText,
+        }
+        await props.addComment(commentData)
+         
+    
+      }
+    
+      async function modifyComments(event) {
+        const commentData = {
+          commentID: event.target.id,
+          comment: modify,
+        }
+        await props.editComment(commentData)
+        
+    
+      }
+      async function deleteComments(event) {
+        await props.deleteComment(event.target.id)
+        
+      }
+
+
 
 
     return ( 
@@ -112,73 +148,77 @@ const Detailscity = (props) => {
                 <>
                 {/* {props.user?<h2>Hola</h2>:<h2>Chau</h2>} */}
                     {props.itinerary.map(itinerary => 
-                        <div key= {itinerary._id}>
-                        <div  className="centerItinerariesCards">
-                        <div  className="itinerariesCards">
 
-                            <div className="centerTag"><span className="tag">{itinerary.title}</span></div>
+                    <Itinerary itinerary={itinerary}/>
+                //         <div key= {itinerary._id}>
+                //         <div  className="centerItinerariesCards">
+                //         <div  className="itinerariesCards">
 
-                            <div className="user">
+                //             <div className="centerTag"><span className="tag">{itinerary.title}</span></div>
+
+                //             <div className="user">
                                 
-                            <img src={process.env.PUBLIC_URL+"/assets/imgs/"+ itinerary.profilePicture} alt='user' className='user_img_size'/>
+                //             <img src={process.env.PUBLIC_URL+"/assets/imgs/"+ itinerary.profilePicture} alt='user' className='user_img_size'/>
                                 
-                            <div className="userName"> › {itinerary.userName} ‹ </div>
+                //             <div className="userName"> › {itinerary.userName} ‹ </div>
 
-                            </div>
+                //             </div>
 
-                            <div className="itiDescription text-center">{itinerary.description}</div>
+                //             <div className="itiDescription text-center">{itinerary.description}</div>
 
-                            <div className="priceDuration">
-                            <p className="itiPrice"><span className="itiUnderline">Price</span>: {"💵".repeat(parseInt(itinerary.price))}</p>
-                            <p className="itiDuration"><span className="itiUnderline">Duration</span>: {"🕓" + itinerary.duration}</p>
+                //             <div className="priceDuration">
+                //             <p className="itiPrice"><span className="itiUnderline">Price</span>: {"💵".repeat(parseInt(itinerary.price))}</p>
+                //             <p className="itiDuration"><span className="itiUnderline">Duration</span>: {"🕓" + itinerary.duration}</p>
 
-                            </div>
+                //             </div>
         
-                            {<div className="likes_pointer">
-                            {props.user
-                            ? 
-                            (<div onClick={() => likesOrDislikes(itinerary._id)}>
-                                {itinerary.likes.includes(props.user.id)?
+                //             {<div className="likes_pointer">
+                //             {props.user
+                //             ? 
+                //             (<div onClick={() => likesOrDislikes(itinerary._id)}>
+                //                 {itinerary.likes.includes(props.user.id)?
 
-                            <span style={{color: "red", fontSize:30 , backgroundColor:"white"}} className="material-icons">favorite</span>
-                            :
-                            <span style={{  fontSize:30 }}className="material-icons">favorite_border</span>}
-                            </div>)
-                            :
-                            (<div   onClick={needToLogIn} style={{fontSize:30}}className="material-icons">favorite_border</div>)
+                //             <span style={{color: "red", fontSize:30 , backgroundColor:"white"}} className="material-icons">favorite</span>
+                //             :
+                //             <span style={{  fontSize:30 }}className="material-icons">favorite_border</span>}
+                //             </div>)
+                //             :
+                //             (<div   onClick={needToLogIn} style={{fontSize:30}}className="material-icons">favorite_border</div>)
                             
-                            }
+                //             }
 
-                        <p style={{color:"black ",fontSize:30 }} className='ooola'>{itinerary?.likes.length}</p>
+                //         <p style={{color:"black ",fontSize:30 }} className='ooola'>{itinerary?.likes.length}</p>
             
-                            </div>}
+                //             </div>}
 
-                            <div className="centerHashtags">
-                                {itinerary.hashtags.map((tag, key) => <p className="tagsColor" key={key}>{tag}</p>)}
-                                </div>
+                //             <div className="centerHashtags">
+                //                 {itinerary.hashtags.map((tag, key) => <p className="tagsColor" key={key}>{tag}</p>)}
+                //                 </div>
                             
 
-                            {!buttonMore && <div className="d-flex justify-content-center"><Button variant='outline-dark' className="bg-button-more" onClick={actionButton}> {buttonMore ? 'View less' : 'View More'}</Button></div>}
+                //             {!buttonMore && <div className="d-flex justify-content-center"><Button variant='outline-dark' className="bg-button-more" onClick={actionButton}> {buttonMore ? 'View less' : 'View More'}</Button></div>}
 
                             
-                        {
-                    buttonMore
-                    &&
-                    <div className="activityContainer">
+                //         {
+                //     buttonMore
+                //     &&
+                //     <div className="activityContainer">
 
-                        <div className="uwu">
-                            <Activity id={itinerary._id}/>
-                        </div>
+                //         <div className="uwu">
+                //             <Activity id={itinerary._id}/>
+                //             {itinerary.comments.map(comment => <Comments id={itinerary._id} comment={comment} /> )}
+                //             <InputComments itineraryId={itinerary._id} getItinerariesByCityId={props.getItinerariesByCityId}/>
+                //         </div>
 
 
-                        {/* <Underconstruction buttonMore={buttonMore}  /> */}
+                //         {/* <Underconstruction buttonMore={buttonMore}  /> */}
                                                 
-                        <div className="d-flex justify-content-center"><Button variant='outline-dark' className="bg-button-more" onClick={actionButton}> {buttonMore ? 'View less' : 'View More'}</Button></div>
-                    </div>
-                }
-                        </div>
-                        </div>
-                        </div>
+                //         <div className="d-flex justify-content-center"><Button variant='outline-dark' className="bg-button-more" onClick={actionButton}> {buttonMore ? 'View less' : 'View More'}</Button></div>
+                //     </div>
+                // }
+                //         </div>
+                //         </div>
+                //         </div>
                     )}
                 </>
             )
@@ -215,7 +255,9 @@ const mapDispatchToProps = {
     getOneCity: citiesActions.getOneCity,
     getItinerariesByCityId: itinerariesActions.getItinerariesByCityId,
     likeItinerary: itinerariesActions.likeItinerary,
-
+    addComment: itinerariesActions.addComment,
+    editComment: itinerariesActions.editComment,
+    deleteComment: itinerariesActions.deleteComment
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Detailscity);
