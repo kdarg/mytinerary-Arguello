@@ -38,23 +38,6 @@ const Detailscity = (props) => {
     const {cityById} = props
 
     //LIKES & DISLIKES
-
-    // const [reload, setReload] = useState(false)
-    // const [itinerary, setItinerary] = useState()
-
-    // useEffect(() => {
-    //     props.getItinerariesByCityId(id)
-    //       .then(response => setItinerary(response.data.response.itinerary))
-    //   }, [reload])
-
-    // async function likesOrDislikes() {
-    //     await props.likeItinerary(itinerary._id)
-        
-    //     setReload(!reload)
-    // }
-    // console.log(itinerary)
-
-    
     
     const [reload, setReload] = useState(false)
     
@@ -64,10 +47,33 @@ const Detailscity = (props) => {
         setReload(!reload)
     }
     
-    console.log(props.itinerary);
-    console.log(props.user)
+    // console.log(props.itinerary);
+    // console.log(props.user)
 
+    async function needToLogIn(){
+     
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "center-end",
+            showConfirmButton: false,
+            timer: 3000,
+            background: "#FFF",
+            iconColor: "rgb(238, 76, 103)",
+            confirmButtonColor: "rgb(221, 46, 113)",
+            timerProgressBar: true,
+            
+            didOpen: (toast) => {
+                toast.addEventListener("mouseenter", Swal.stopTimer);
+                toast.addEventListener("mouseleave", Swal.resumeTimer);
+            },
+        });
 
+        Toast.fire({
+            icon: "error",
+            title: `You must be logged in to like this post!`,
+        });
+        
+    }
 
 
     return ( 
@@ -119,11 +125,6 @@ const Detailscity = (props) => {
                                 
                             <div className="userName"> › {itinerary.userName} ‹ </div>
 
-
-                            
-
-
-
                             </div>
 
                             <div className="itiDescription text-center">{itinerary.description}</div>
@@ -131,7 +132,6 @@ const Detailscity = (props) => {
                             <div className="priceDuration">
                             <p className="itiPrice"><span className="itiUnderline">Price</span>: {"💵".repeat(parseInt(itinerary.price))}</p>
                             <p className="itiDuration"><span className="itiUnderline">Duration</span>: {"🕓" + itinerary.duration}</p>
-
 
                             </div>
         
@@ -146,15 +146,13 @@ const Detailscity = (props) => {
                             <span style={{  fontSize:30 }}className="material-icons">favorite_border</span>}
                             </div>)
                             :
-                            (<span style={{fontSize:30}}className="material-icons">favorite_border</span>)
+                            (<div   onClick={needToLogIn} style={{fontSize:30}}className="material-icons">favorite_border</div>)
                             
                             }
 
                         <p style={{color:"black ",fontSize:30 }} className='ooola'>{itinerary?.likes.length}</p>
             
                             </div>}
-
-
 
                             <div className="centerHashtags">
                                 {itinerary.hashtags.map((tag, key) => <p className="tagsColor" key={key}>{tag}</p>)}
