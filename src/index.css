@@ -816,6 +816,50 @@ align-items: center!important;
   align-items: center;
   
 }
+
+
+
+/* /////////////////////////////////////////////////////////////////////////////////COMMENTS  */
+
+.log-in-comment{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tag_login_comment{
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.3rem;
+  margin: 0;
+  color: #fff;
+  padding: 2px 20px;
+  text-transform: uppercase;
+  background-color: #291f249a;
+  /* background-color: #8949f09a; */
+  font-family: "Zen Loop", cursive;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+}
+
+.tag_login_comment:hover{
+  color: #f5cfdc;
+}
+
+.eeeeee{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chauu{
+  width: 70%;
+
+}
+.holala{
+  width: 100%;
+}
+
+
 /* /////////////////////////////////////////////////////////////////////////////////MEDIA  */
 
 @media (max-width: 975px) {

@@ -34,16 +34,15 @@ const Comments = (props) => {
 
     return ( 
         <>
-
+            
                     {props.comment.userID?._id !== props.user?.id ?
-                    <div className="card cardComments " key={props.comment._id}>
-                        <div className="card-header">
-                        {props.comment.userID?.lastname}
-                        </div>
-                        <div className="card-body">
-                        <p className="card-text">{props.comment.comment}</p>
-                        </div>
-                    </div> :
+                        
+                        <div className="" key={props.comment._id}>
+                        <div className="">{props.comment.userID?.lastname}</div>
+                        <div className=""><p className="">{props.comment.comment}</p></div>
+                        </div> 
+                    
+                        :
 
                     <div className="card cardComments">
                         <div className="card-header">
@@ -70,22 +69,18 @@ const Comments = (props) => {
 
                     }
 
-                
         </>
-
     );
 }
 
 const mapStateToProps = (state) => {
     return {
-
         itinerary: state.itinerariesReducer.itinerary,
         user: state.userReducer.user
     }
 }
 
 const mapDispatchToProps = {
-
     addComment: itinerariesActions.addComment,
     editComment: itinerariesActions.editComment,
     deleteComment: itinerariesActions.deleteComment

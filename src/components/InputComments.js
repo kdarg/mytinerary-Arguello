@@ -2,20 +2,16 @@ import React, {useEffect, useState, useRef} from 'react'
 import { connect } from "react-redux";
 import itinerariesActions from "../redux/actions/itinerariesActions";
 import { useParams } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const InputComments = (props) => {
 
     const {id} = useParams()
-    const [reload, setReload] = useState(false)
-    
-    console.log(props.itinerary);
-    console.log(props)
-    // console.log(props.user)
+
 
     //COMMENTS
     const input = useRef() //misma funcioon que el onchange cuando tiene funcion flecha q agarra el evento
     const [inputText, setInputText] = useState()
-    const [modify, setModify] = useState()
 
     async function loadComments() {
         const commentData = {
@@ -24,7 +20,6 @@ const InputComments = (props) => {
         }
         console.log(commentData)
         await props.addComment(commentData)
-        //.then(response => setPlace(response.data.response.newComment), setInputText(""))
         input.current.value= ''
         props.getItinerariesByCityId(id)
     }
@@ -32,22 +27,19 @@ const InputComments = (props) => {
 
     return ( 
         <>
-
                 {props.user ?
-                <div class="card cardComments">
-                    <div class="card-header">
-                    Comment here!
+                    <div className="eeeeee">
+                        <div className="chauu">
+                            <textarea ref={input} className="holala" value={inputText} />
+                            <button onClick={() => loadComments(props.itineraryId)} className="btn btn-primary">Comment</button>
                     </div>
-                    <div class="card-body ">
-                    <textarea ref={input} className="card-text textComments" value={inputText} />
-                    <button onClick={() => loadComments(props.itineraryId)} class="btn btn-primary">Comment</button>
-                    </div>
-                </div> :
-                <h1>Log in and comment!</h1>
+                    </div> 
+                
+                    :
+
+                    <div className='log-in-comment'><Link to="/login" className='tag_login_comment mb-4 mt-4'><span className='color-login-comment'>Please, log in and comment!</span></Link></div>
                 }
-
         </>
-
     );
 }
 

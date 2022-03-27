@@ -1,12 +1,9 @@
-
 import { connect } from 'react-redux'
 import itinerariesActions from "../redux/actions/itinerariesActions"
 import { useEffect, useState } from 'react'
 
 const Activity = (props) => {
 
-    //console.log(props)
-    
     const [activities, setActivities] = useState([])
 
     // const [nombre, setNombre] = useState('')
@@ -35,7 +32,10 @@ const Activity = (props) => {
                         </div>
                     )})} 
 
-                </div>      
+                </div> 
+
+                <div className="centerTag"><span className="tag_act mb-4 mt-4">Comments</span></div>
+                
         </div>
         </>
     )

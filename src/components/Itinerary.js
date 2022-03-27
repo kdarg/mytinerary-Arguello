@@ -1,4 +1,3 @@
-
 import { useParams } from "react-router-dom";
 import React, {useEffect, useState} from 'react'
 import Button from 'react-bootstrap/Button'
@@ -165,13 +164,3 @@ const mapDispatchToProps = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Detailscity);
-
-
-
-
-
-
-
-
-
-

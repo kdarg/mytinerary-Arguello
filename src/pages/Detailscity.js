@@ -101,15 +101,11 @@ const Detailscity = (props) => {
         }
         await props.editComment(commentData)
         
-    
       }
       async function deleteComments(event) {
         await props.deleteComment(event.target.id)
         
       }
-
-
-
 
     return ( 
         <>
@@ -150,83 +146,11 @@ const Detailscity = (props) => {
                     {props.itinerary.map(itinerary => 
 
                     <Itinerary itinerary={itinerary}/>
-                //         <div key= {itinerary._id}>
-                //         <div  className="centerItinerariesCards">
-                //         <div  className="itinerariesCards">
 
-                //             <div className="centerTag"><span className="tag">{itinerary.title}</span></div>
-
-                //             <div className="user">
-                                
-                //             <img src={process.env.PUBLIC_URL+"/assets/imgs/"+ itinerary.profilePicture} alt='user' className='user_img_size'/>
-                                
-                //             <div className="userName"> › {itinerary.userName} ‹ </div>
-
-                //             </div>
-
-                //             <div className="itiDescription text-center">{itinerary.description}</div>
-
-                //             <div className="priceDuration">
-                //             <p className="itiPrice"><span className="itiUnderline">Price</span>: {"💵".repeat(parseInt(itinerary.price))}</p>
-                //             <p className="itiDuration"><span className="itiUnderline">Duration</span>: {"🕓" + itinerary.duration}</p>
-
-                //             </div>
-        
-                //             {<div className="likes_pointer">
-                //             {props.user
-                //             ? 
-                //             (<div onClick={() => likesOrDislikes(itinerary._id)}>
-                //                 {itinerary.likes.includes(props.user.id)?
-
-                //             <span style={{color: "red", fontSize:30 , backgroundColor:"white"}} className="material-icons">favorite</span>
-                //             :
-                //             <span style={{  fontSize:30 }}className="material-icons">favorite_border</span>}
-                //             </div>)
-                //             :
-                //             (<div   onClick={needToLogIn} style={{fontSize:30}}className="material-icons">favorite_border</div>)
-                            
-                //             }
-
-                //         <p style={{color:"black ",fontSize:30 }} className='ooola'>{itinerary?.likes.length}</p>
-            
-                //             </div>}
-
-                //             <div className="centerHashtags">
-                //                 {itinerary.hashtags.map((tag, key) => <p className="tagsColor" key={key}>{tag}</p>)}
-                //                 </div>
-                            
-
-                //             {!buttonMore && <div className="d-flex justify-content-center"><Button variant='outline-dark' className="bg-button-more" onClick={actionButton}> {buttonMore ? 'View less' : 'View More'}</Button></div>}
-
-                            
-                //         {
-                //     buttonMore
-                //     &&
-                //     <div className="activityContainer">
-
-                //         <div className="uwu">
-                //             <Activity id={itinerary._id}/>
-                //             {itinerary.comments.map(comment => <Comments id={itinerary._id} comment={comment} /> )}
-                //             <InputComments itineraryId={itinerary._id} getItinerariesByCityId={props.getItinerariesByCityId}/>
-                //         </div>
-
-
-                //         {/* <Underconstruction buttonMore={buttonMore}  /> */}
-                                                
-                //         <div className="d-flex justify-content-center"><Button variant='outline-dark' className="bg-button-more" onClick={actionButton}> {buttonMore ? 'View less' : 'View More'}</Button></div>
-                //     </div>
-                // }
-                //         </div>
-                //         </div>
-                //         </div>
                     )}
                 </>
             )
-
-            :
-                <Noitineraries/>
-
-        
+            : <Noitineraries/>
 
         }
 
@@ -237,7 +161,6 @@ const Detailscity = (props) => {
                 <Button variant='outline-dark' className='bg-button-more'>Back to cities</Button> 
                 </Link>
             </div>
-
     </>
 
     );
@@ -261,13 +184,3 @@ const mapDispatchToProps = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Detailscity);
-
-
-
-
-
-
-
-
-
-
