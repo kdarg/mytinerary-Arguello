@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from 'react'
+import React, {useState, useRef} from 'react'
 import { connect } from "react-redux";
 import itinerariesActions from "../redux/actions/itinerariesActions";
 import { useParams } from 'react-router-dom';
@@ -37,7 +37,7 @@ const InputComments = (props) => {
                 
                     :
 
-                    <div className='log-in-comment'><Link to="/login" className='tag_login_comment mb-4 mt-4'><span className='color-login-comment'>Please, log in and comment!</span></Link></div>
+                    <div className='log-in-comment'><Link to="/login" className='tag_login_comment mb-4 mt-4'><span className='color-login-comment'>Feel free to sign up and comment !</span></Link></div>
                 }
         </>
     );

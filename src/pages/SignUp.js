@@ -9,7 +9,6 @@ import axios from "axios"
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import userActions from "../redux/actions/userActions";
 import { connect } from 'react-redux';
-// import Toast from "../components/Toast"
 import Swal from 'sweetalert2'
 import FacebookSignup from '../components/FacebookSignup';
 

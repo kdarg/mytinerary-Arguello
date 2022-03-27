@@ -38,7 +38,7 @@ const Detailscity = (props) => {
     }
     
     // console.log(props.itinerary);
-    console.log(props)
+    //console.log(props)
 
     async function needToLogIn(){
     
@@ -65,7 +65,7 @@ const Detailscity = (props) => {
         
     }
 
-console.log(props.itinerary._id)
+//console.log(props.itinerary._id)
 
     return ( 
         <>
@@ -127,7 +127,7 @@ console.log(props.itinerary._id)
                     <div className="activityContainer">
 
                         <div className="uwu">
-                            <Activity id={props.itinerary._id}/>
+                            <Activity id={props.itinerary._id} key={props.itinerary._id}/>
                             {props.itinerary.comments.map(comment => <Comments id={props.itinerary._id} comment={comment} getItinerariesByCityId={props.getItinerariesByCityId} /> )}
                             <InputComments itineraryId={props.itinerary._id} getItinerariesByCityId={props.getItinerariesByCityId}/>
                         </div>

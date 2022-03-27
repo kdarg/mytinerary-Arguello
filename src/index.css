@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Zen+Loop&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Croissant+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Croissant+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 
 body {
   margin: 0;
@@ -646,7 +648,7 @@ font-family: "Croissant One", cursive;
   justify-content: space-around;
   width: 50%;
   margin: auto;
-  padding-top: 2rem;
+  padding-top: 0.5rem;
   padding-bottom: 2rem;
   font-style: italic;
   font-size: 1.2rem;
@@ -859,7 +861,76 @@ align-items: center!important;
   width: 100%;
 }
 
+.user-info-comment{
+  display: flex;
+  align-items: center;
+  /* margin: 2rem; */
+  margin-bottom: 2rem;
+}
 
+.avatar-user-comment{
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1.3rem;
+}
+
+.user-comment{
+  margin-right: 0.3rem;
+  font-family: 'Pacifico', cursive;;
+  /* font-weight: bold; */
+  letter-spacing: 0.2rem;
+
+  font-size: 1rem;
+}
+
+.comment-italic{
+  font-style: italic;
+}
+
+.comment-box{
+  background-color: #f7e8d48a;
+  border-radius: 50px;
+  width: 80%;
+  margin: auto;
+}
+
+.deleteicon{
+  font-size: 2rem;
+  cursor: pointer;
+  color: rgb(221, 46, 113);
+  width: 80%;
+  /* background-color: #fcedd89a; */
+  border-radius: 50px;
+  width: 40%;
+  height: 40%;
+}
+
+.editicon{
+  font-size: 2rem;
+  cursor: pointer;
+  color: rgb(221, 46, 113);
+  width: 80%;
+  /* background-color: #fcedd89a; */
+  border-radius: 50px;
+  width: 40%;
+  height: 40%;
+}
+
+.owowowowowo{
+  width: 60%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  }
+
+.kaaaren{
+  display: flex;
+  justify-content: space-around;
+}
 /* /////////////////////////////////////////////////////////////////////////////////MEDIA  */
 
 @media (max-width: 975px) {

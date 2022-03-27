@@ -120,7 +120,7 @@ const Navbar = (props) => {
               <Tooltip title="User" arrow placement="left">
 
               <IconButton  onClick={handleOpenUserMenu} sx={{ p: 2 }}>
-              <img src={props.user.urlimage }  className='avatarusersize' />  
+              <img src={props.user.urlimage } className='avatarusersize' alt="user_img"/>  
               </IconButton>
               
               </Tooltip>
@@ -154,11 +154,10 @@ const Navbar = (props) => {
             
             : <>
                 <Tooltip title="User" arrow placement="left">
-              <IconButton  onClick={handleOpenUserMenu} sx={{ p: 2 }}>
-              <Avatar  sx={{ width: 50, height: 50}} > <UilChatBubbleUser>  </UilChatBubbleUser> </Avatar> 
-                
-              </IconButton>
-            </Tooltip>
+                  <IconButton  onClick={handleOpenUserMenu} sx={{ p: 2 }}>
+                  <Avatar  sx={{ width: 50, height: 50}} > <UilChatBubbleUser>  </UilChatBubbleUser> </Avatar> 
+                  </IconButton>
+                </Tooltip>
 
             <img className="image_logo" src={process.env.PUBLIC_URL+"/assets/imgs/newlogo.png"}  alt='MyTinerary-logo' />
 
