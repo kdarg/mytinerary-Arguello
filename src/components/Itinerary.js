@@ -1,21 +1,16 @@
 
 import { useParams } from "react-router-dom";
 import React, {useEffect, useState} from 'react'
-import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button'
 import { connect } from "react-redux";
 import citiesActions from "../redux/actions/citiesActions";
 import itinerariesActions from "../redux/actions/itinerariesActions";
-import Noitineraries from './Noitineraries'
 import Swal from 'sweetalert2'
 import Activity from './Activity'
 import Comments from './Comments'
 import InputComments from "./InputComments";
 
 const Detailscity = (props) => {
-
-    // SCROLL TO TOP
-    //window.scrollTo({top: 0, behavior: "smooth"})
 
     //ITINERARIES BY CITY ID
 
@@ -78,7 +73,6 @@ console.log(props.itinerary._id)
 
 {/* DYNAMIC ITINERARIES */}
 
-
                         <div key= {props.itinerary._id}>
                         <div  className="centerItinerariesCards">
                         <div  className="itinerariesCards">
@@ -109,7 +103,7 @@ console.log(props.itinerary._id)
 
                             <span style={{color: "red", fontSize:30 , backgroundColor:"white"}} className="material-icons">favorite</span>
                             :
-                            <span style={{  fontSize:30 }}className="material-icons">favorite_border</span>}
+                            <span style={{ fontSize:30 }}className="material-icons">favorite_border</span>}
                             </div>)
                             :
                             (<div   onClick={needToLogIn} style={{fontSize:30}}className="material-icons">favorite_border</div>)
@@ -152,18 +146,11 @@ console.log(props.itinerary._id)
                 </>
             )
 
-            
-
-
-        
-
 }
-
 
 const mapStateToProps = (state) => {
     return {
         cityById: state.citiesReducer.cityById,
-        // itinerary: state.itinerariesReducer.itinerary,
         user: state.userReducer.user
     }
 }

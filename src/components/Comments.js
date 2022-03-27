@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from 'react'
+import React, {useEffect, useState} from 'react'
 import { connect } from "react-redux";
 import itinerariesActions from "../redux/actions/itinerariesActions";
 import { useParams } from 'react-router-dom';
@@ -6,19 +6,12 @@ import { useParams } from 'react-router-dom';
 const Comments = (props) => {
 
     const [reload, setReload] = useState(false)
-    
-    console.log(props.itinerary);
-    console.log(props)
-    // console.log(props.user)
 
     const {id} = useParams()  //:id del link
-    //COMMENTS
 
+    //COMMENTS
     const [inputText, setInputText] = useState('')
     const [modify, setModify] = useState(false)
-    
-    const inputComment = useRef() 
-    
     
     async function modifyComments(karen) {
         const commentData = {
@@ -31,7 +24,6 @@ const Comments = (props) => {
         setReload(!reload)
     }
 
-
     async function deleteComments(event) {
         await props.deleteComment(event.target.id)
         props.getItinerariesByCityId(id)
@@ -43,8 +35,6 @@ const Comments = (props) => {
     return ( 
         <>
 
-    {/* {props.itinerary.length && props.itinerary?.comments.map(comment => */}
-                <>
                     {props.comment.userID?._id !== props.user?.id ?
                     <div className="card cardComments " key={props.comment._id}>
                         <div className="card-header">
@@ -58,21 +48,28 @@ const Comments = (props) => {
                     <div className="card cardComments">
                         <div className="card-header">
                         {props.comment.userID.firstname}
+                        <span>  </span>
+                        {props.comment.userID.lastname}
+                        {/* {props.comment.userID.urlimage} */}
                         </div>
                         <div className="card-body ">
                     {modify? (
-                          <textarea type="text" className="card-text textComments" onChange={ e => setInputText(e.target.value)} defaultValue={props.comment.comment} />
+                        <textarea type="text" className="card-text textComments" onChange={ e => setInputText(e.target.value)} defaultValue={props.comment.comment} />
                     ): <p>{props.comment.comment}</p>
                     }
 
-                        <button id={props.comment._id} onClick={() => modifyComments(props.comment._id)} class="btn btn-primary">Edit</button>
-                        <button id={props.comment._id} onClick={deleteComments} className="btn btn-primary">Delete</button>
+                        <button id={props.comment._id} onClick={() => modifyComments(props.comment._id)} className="btn btn-primary">Edit</button>
+
+
+                        <button id={props.comment._id} onClick={deleteComments} className="btn btn-primary">Delete</button> 
+
+                        {/* <span className="material-icons-outlined">delete</span> */}
+
                         </div>
                     </div>
 
                     }
-                </>
-                {/* )} */}
+
                 
         </>
 
