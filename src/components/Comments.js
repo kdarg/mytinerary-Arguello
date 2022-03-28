@@ -46,10 +46,12 @@ const Comments = (props) => {
             if(x.status === 200){
                 props.getItinerariesByCityId(id)
                 setReload(!reload)
-                showToast('Comment deleted!', 'rgb(238, 76, 103)' )
+                showToast('Comment deleted!', 'rgb(238, 76, 103)' ) 
             }
         })
     }
+
+    
 
     function showToast(title, iconColor){
     
@@ -76,6 +78,7 @@ const Comments = (props) => {
         
     }
 
+    console.log(props.comment.userID)
     return ( 
         <>
             
@@ -83,7 +86,7 @@ const Comments = (props) => {
                         
                         <div className="comment-box" key={props.comment._id}>
                             <div className='user-info-comment'>
-                                <img src={props.comment.userID.urlimage} className='avatar-user-comment' alt="user_img" /> 
+                                <img src={props.comment.userID?.urlimage} className='avatar-user-comment' alt="user_img" /> 
                                 <div className="user-comment">{props.comment.userID?.firstname}</div>
                                 <div className="user-comment">{props.comment.userID?.lastname}:</div>
                                 <div className="comment-italic">{props.comment.comment}</div>
@@ -96,7 +99,7 @@ const Comments = (props) => {
                         <div className="">
                         <div className="comment-box" key={props.comment._id}>
                             <div className='user-info-comment'>
-                                <img src={props.comment.userID.urlimage} className='avatar-user-comment' alt="user_img" /> 
+                                <img src={props.comment.userID?.urlimage} className='avatar-user-comment' alt="user_img" /> 
                                 <div className="user-comment">{props.comment.userID?.firstname}</div>
                                 <div className="user-comment">{props.comment.userID?.lastname}:</div>
                                 <div className="comment-italic">{props.comment.comment}</div>
