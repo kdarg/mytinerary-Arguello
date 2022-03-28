@@ -26,6 +26,8 @@ const Detailscity = (props) => {
     //DESTRUCTURING 
     const {cityById} = props
 
+console.log(props.itinerary)
+
     return ( 
         <>
 
@@ -63,7 +65,7 @@ const Detailscity = (props) => {
                 <>
                     {props.itinerary.map(itinerary => 
 
-                    <Itinerary itinerary={itinerary} key={itinerary._id}/>
+                    <Itinerary itinerary={itinerary} key={itinerary.title}/>
                     )}
                 </>
             )

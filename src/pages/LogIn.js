@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { FaUser} from "react-icons/fa";
 import { ImKey } from "react-icons/im";
@@ -56,6 +56,11 @@ const LogIn = (props) => {
 
 		}
 	}
+
+    // useEffect(()=>{
+    //     if(){}
+
+    // },[])
 
     return ( 
 

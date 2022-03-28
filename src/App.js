@@ -8,10 +8,11 @@ import Underconstruction from './components/Underconstruction'
 import Detailscity from './pages/Detailscity'
 import LogIn from './pages/LogIn'
 import SignUp from './pages/SignUp'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import React, {useEffect} from 'react'
 import { connect } from 'react-redux';
 import userActions from './redux/actions/userActions';
+// import {Redirect } from 'react-router'
 
 function App(props) {
 
@@ -26,6 +27,7 @@ function App(props) {
   return (
     <BrowserRouter>
       <Navbar/>
+      
         <Routes>
           <Route path='/city/:id' element={ <Detailscity/> }/>
           <Route path='/' element={ <Home/> }/>
@@ -34,8 +36,31 @@ function App(props) {
           <Route path='/const' element={ <Underconstruction/> }/>
           {/* <Route path='/login' element={ <LogIn/> }/>
           <Route path='/signup' element={ <SignUp/> }/> */}
-          {!props.user &&<Route path="/login" element={<LogIn/>} />}
-			    {!props.user &&<Route path="/signup" element={<SignUp />} />}
+          {/* {!props.user &&<Route path="/login" element={<LogIn/>} />}
+			    {!props.user &&<Route path="/signup" element={<SignUp />} />} */}
+
+          
+          {/* {props.user && <Navigate path= '/login' replace to="/"  />} */}
+
+          <Route
+          path="/login"
+          element={
+            localStorage.getItem('token') ? (
+              <Navigate replace to="/" />
+            ) : <LogIn/> 
+          }
+        />
+
+          <Route
+          path="/signup"
+          element={
+            localStorage.getItem('token') ? (
+              <Navigate replace to="/" />
+            ) : <SignUp /> 
+          }
+        />
+
+
         </Routes>
       <Footer/>
     </BrowserRouter>
@@ -46,12 +71,11 @@ const mapDispatchToProps = {
 	VerifyToken: userActions.VerifyToken,
 }
 
-
 const mapStateToProps = (state)=>{
   return{
-    user: state.userReducer.user
+    user: state.userReducer.user,
+    propsLoaded: true
   }
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

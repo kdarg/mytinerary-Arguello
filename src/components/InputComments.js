@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import itinerariesActions from "../redux/actions/itinerariesActions";
 import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 const InputComments = (props) => {
 
@@ -13,16 +14,54 @@ const InputComments = (props) => {
     const input = useRef() //misma funcioon que el onchange cuando tiene funcion flecha q agarra el evento
     const [inputText, setInputText] = useState()
 
-    async function loadComments() {
+    async function postComments() {
         const commentData = {
         itinerary: props.itineraryId,
         comment: input.current.value,
         }
         console.log(commentData)
-        await props.addComment(commentData)
-        input.current.value= ''
-        props.getItinerariesByCityId(id)
+        // await props.addComment(commentData)
+        // input.current.value= ''
+        // props.getItinerariesByCityId(id)
+        props.addComment(commentData)
+        .then( x=> {
+            console.log(x)
+            if(x.status === 200) {
+
+                input.current.value= ''
+                props.getItinerariesByCityId(id)
+                showToast('Comment posted', 'rgb(76, 238, 103)')
+            }
+
+        })
     }
+
+
+    function showToast(title, iconColor){
+    
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "center-end",
+            showConfirmButton: false,
+            timer: 3000,
+            background: "#FFF",
+            iconColor: iconColor,
+            confirmButtonColor: "rgb(221, 46, 113)",
+            timerProgressBar: true,
+            
+            didOpen: (toast) => {
+                toast.addEventListener("mouseenter", Swal.stopTimer);
+                toast.addEventListener("mouseleave", Swal.resumeTimer);
+            },
+        });
+
+        Toast.fire({
+            icon: "success",
+            title: title,
+        });
+        
+    }
+
 
 
     return ( 
@@ -31,7 +70,7 @@ const InputComments = (props) => {
                     <div className="eeeeee">
                         <div className="chauu">
                             <textarea ref={input} className="holala" value={inputText} />
-                            <button onClick={() => loadComments(props.itineraryId)} className="btn btn-primary">Comment</button>
+                            <button onClick={() => postComments(props.itineraryId)} className="btn btn-primary">Comment</button>
                     </div>
                     </div> 
                 

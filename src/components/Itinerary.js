@@ -105,7 +105,7 @@ const Detailscity = (props) => {
                             <span style={{ fontSize:30 }}className="material-icons">favorite_border</span>}
                             </div>)
                             :
-                            (<div   onClick={needToLogIn} style={{fontSize:30}}className="material-icons">favorite_border</div>)
+                            (<div onClick={needToLogIn} style={{fontSize:30}}className="material-icons">favorite_border</div>)
                             
                             }
 
@@ -128,7 +128,9 @@ const Detailscity = (props) => {
 
                         <div className="uwu">
                             <Activity id={props.itinerary._id} key={props.itinerary._id}/>
+
                             {props.itinerary.comments.map(comment => <Comments id={props.itinerary._id} comment={comment} getItinerariesByCityId={props.getItinerariesByCityId} /> )}
+                            
                             <InputComments itineraryId={props.itinerary._id} getItinerariesByCityId={props.getItinerariesByCityId}/>
                         </div>
 

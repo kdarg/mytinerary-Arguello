@@ -866,6 +866,8 @@ align-items: center!important;
   align-items: center;
   /* margin: 2rem; */
   margin-bottom: 2rem;
+  /* flex-wrap: wrap;
+  justify-content: center */
 }
 
 .avatar-user-comment{
@@ -887,6 +889,7 @@ align-items: center!important;
 
 .comment-italic{
   font-style: italic;
+
 }
 
 .comment-box{
@@ -1049,7 +1052,7 @@ align-items: center!important;
 }
 
 .color{
-  color:rgb(238, 76, 103);
+  color:rgb(76, 238, 103);
 }
 
 .selectwidth{

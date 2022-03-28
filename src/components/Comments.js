@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { connect } from "react-redux";
 import itinerariesActions from "../redux/actions/itinerariesActions";
 import { useParams } from 'react-router-dom';
 import {AiFillEdit, AiOutlineDelete} from 'react-icons/ai'
+import Swal from 'sweetalert2'
 
 const Comments = (props) => {
 
@@ -14,21 +15,77 @@ const Comments = (props) => {
     const [inputText, setInputText] = useState('')
     const [modify, setModify] = useState(false)
     
+    // useEffect(() => {
+    //     if(modify){
+            
+    //     }
+    // }, [reload])
+
     async function modifyComments(karen) {
         const commentData = {
         commentID: karen,
         comment: inputText,
         }
-        setModify(!modify)
-        await props.editComment(commentData)
-        props.getItinerariesByCityId(id)
-        setReload(!reload)
+        // let editCommentResponse = await props.editComment(commentData)
+        props.editComment(commentData)
+        .then(x=> {
+            if(x.status === 200){
+                props.getItinerariesByCityId(id)
+                setReload(!reload)
+                showToast('Edited comment', 'rgb(76, 238, 103)')
+                
+            }
+        })
+
+
     }
 
+    async function toggleTextArea(){
+        setModify(!modify)
+        if(modify){
+            modifyComments(props.comment._id) 
+        }else{
+            setInputText(props.comment.comment)
+        }
+    }
+
+
     async function deleteComments(event) {
-        await props.deleteComment(event.target.id)
-        props.getItinerariesByCityId(id)
-        setReload(!reload)
+        props.deleteComment(event.target.id)
+        .then(x=>{
+            if(x.status === 200){
+                props.getItinerariesByCityId(id)
+                setReload(!reload)
+                showToast('Deleted comment', 'rgb(238, 76, 103)' )
+            }
+        })
+
+    }
+
+
+    function showToast(title, iconColor){
+    
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "center-end",
+            showConfirmButton: false,
+            timer: 3000,
+            background: "#FFF",
+            iconColor: iconColor,
+            confirmButtonColor: "rgb(221, 46, 113)",
+            timerProgressBar: true,
+            
+            didOpen: (toast) => {
+                toast.addEventListener("mouseenter", Swal.stopTimer);
+                toast.addEventListener("mouseleave", Swal.resumeTimer);
+            },
+        });
+
+        Toast.fire({
+            icon: "success",
+            title: title,
+        });
+        
     }
 
     //console.log(props.comment) cada comentario
@@ -64,26 +121,24 @@ const Comments = (props) => {
 
                         <div className="eeeeee">
                             
-                    {modify ? (
+                        {modify ? (
                         <textarea type="text" className="owowowowowo" onChange={ e => setInputText(e.target.value)} defaultValue={props.comment.comment} />
-                    )
+                            )
                     
-                        : <span></span>
-                        // <p>{props.comment.comment}</p>
-                    }
-                    <div className='kaaaren mb-4'>
-                        {/* <button id={props.comment._id} onClick={() => modifyComments(props.comment._id)} className="btn btn-primary">Edit</button> */}
+                            : <span></span>
 
-                        <AiFillEdit id={props.comment._id} onClick={() => modifyComments(props.comment._id)} className="editicon" />
+                        }
+                        <div className='kaaaren mb-4'>
 
-                        {/* <AiTwotoneDelete className='deleteicon'/>
+                        <AiFillEdit id={props.comment._id} onClick={() => {
+                            
+                            toggleTextArea()
 
-                        <button id={props.comment._id} onClick={deleteComments} className="btn btn-primary">Delete</button>  */}
+                        
+                        } }className="editicon" />
 
                         <AiOutlineDelete id={props.comment._id} onClick={deleteComments} className=" deleteicon"/>
 
-
-                        {/* <span className="material-icons-outlined">delete</span> */}
                         </div>
                         </div>
                     </div>

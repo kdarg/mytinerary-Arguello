@@ -116,7 +116,6 @@ const itinerariesController = {
         const {itinerary,comment} = req.body
         const user = req.user._id
 
-            console.log('agregue comentario')
         try {
             const newComment = await myItineraries.findOneAndUpdate({_id:itinerary}, {$push: {comments: {comment: comment, userID: user}}}, {new: true}).populate("comments.userID", {firstname:1, lastname:1, urlimage:1})
             res.json({ success: true, response:newComment, message:"Thanks for your comment!" })
@@ -134,12 +133,9 @@ const itinerariesController = {
     editComment: async (req, res) => {
         const {comment} = req.body
         const user = req.user._id
-        console.log('hola')
-        console.log(req.body)
+
         try {
             const editedComment = await myItineraries.findOneAndUpdate({"comments._id":req.params.id}, {$set: {"comments.$.comment": comment}}, {new: true})
-
-            console.log('try')
 
             res.json({ success: true, response:editedComment, message:"Comment modified!" })
 
@@ -161,7 +157,7 @@ const itinerariesController = {
 
         console.log(deleteComment)
 
-            res.json({ success: true, response:{deleteComment}, message: "Comment deleted!" })
+            res.json({ success: true, response:deleteComment, message: "Comment deleted!" })
 
         }
         catch (error) {

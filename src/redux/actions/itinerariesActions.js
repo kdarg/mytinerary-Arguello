@@ -82,7 +82,7 @@ const itinerariesActions = {
                     success: res.data.success
                 }
             })
-            return {success:true}
+            return res
 
             } catch (error) {
                 return {success:false, error:error.message}
@@ -90,12 +90,12 @@ const itinerariesActions = {
         }
     },
 
-    // EDIT COMMENT
+    // EDIT COMMENT-
 
     editComment: (comment) => {
         
         const token = localStorage.getItem('token')
-console.log(comment)
+
         return async (dispatch, getState) => {
             const res = await axios.post('http://localhost:4000/api/itinerary/comment/'+ comment.commentID,  {comment: comment.comment} , { //comment 1> postman, comment2> parametro funcion, comment3> commentData
                 headers: {
