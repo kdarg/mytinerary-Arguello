@@ -33,12 +33,9 @@ const Detailscity = (props) => {
     
     async function likesOrDislikes(itineraryid) {
         await props.likeItinerary(itineraryid)
-        props.getItinerariesByCityId(id) //se reinicia el itinerario sin necesidad de f5
+        props.getItinerariesByCityId(id)
         setReload(!reload)
     }
-    
-    // console.log(props.itinerary);
-    //console.log(props)
 
     async function needToLogIn(){
     
@@ -62,10 +59,7 @@ const Detailscity = (props) => {
             icon: "error",
             title: `You must be logged in to like this post!`,
         });
-        
     }
-
-//console.log(props.itinerary._id)
 
     return ( 
         <>
@@ -109,7 +103,7 @@ const Detailscity = (props) => {
                             
                             }
 
-                        <p style={{color:"black ",fontSize:30 }} className='ooola'>{props.itinerary.likes.length}</p>
+                            <p style={{color:"black ",fontSize:30 }} className='ooola'>{props.itinerary.likes.length}</p>
             
                             </div>}
 
@@ -117,7 +111,6 @@ const Detailscity = (props) => {
                                 {props.itinerary.hashtags.map((tag, key) => <p className="tagsColor" key={key}>{tag}</p>)}
                                 </div>
                             
-
                             {!buttonMore && <div className="d-flex justify-content-center"><Button variant='outline-dark' className="bg-button-more" onClick={actionButton}> {buttonMore ? 'View less' : 'View More'}</Button></div>}
 
                             
@@ -128,15 +121,12 @@ const Detailscity = (props) => {
 
                         <div className="uwu">
                             <Activity id={props.itinerary._id} key={props.itinerary._id}/>
-
+                            
                             {props.itinerary.comments.map(comment => <Comments id={props.itinerary._id} comment={comment} getItinerariesByCityId={props.getItinerariesByCityId} /> )}
                             
                             <InputComments itineraryId={props.itinerary._id} getItinerariesByCityId={props.getItinerariesByCityId}/>
                         </div>
-
-
-                        {/* <Underconstruction buttonMore={buttonMore}  /> */}
-                                                
+                        
                         <div className="d-flex justify-content-center"><Button variant='outline-dark' className="bg-button-more" onClick={actionButton}> {buttonMore ? 'View less' : 'View More'}</Button></div>
                     </div>
                 }

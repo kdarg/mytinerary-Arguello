@@ -531,8 +531,6 @@ font-family: "Croissant One", cursive;
   font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 1.3rem;
   text-transform: uppercase;
-  /* font-weight: bold; */
-  /* letter-spacing: 0.1rem; */
 }
 
 .size-img-search{
@@ -593,7 +591,6 @@ font-family: "Croissant One", cursive;
 .user{
   display: flex;
   justify-content: center;
-  /* margin-right: 10rem; */
   margin-top: 2rem;
   flex-wrap: wrap;
 }
@@ -609,7 +606,6 @@ font-family: "Croissant One", cursive;
   font-family: "Zen Loop", cursive;
   margin-left: 2rem;
   letter-spacing: 0.1rem;
-
 }
 
 .itiDescription{
@@ -622,7 +618,6 @@ font-family: "Croissant One", cursive;
   padding-top: 2rem;
   font-style: italic;
   width: 60%;
-  /* background-color: rgb(255, 238, 241); */
   margin: auto;
 }
 
@@ -667,12 +662,12 @@ font-family: "Croissant One", cursive;
 
 .ooola{
   margin-left: 1rem;
-  
 }
 
 .material-icons{
   margin-bottom: 0.8rem;
 }
+
 /* /////////////////////////////////////////////////////////////////////////////////LOG IN  */
 
 .login{
@@ -686,15 +681,12 @@ font-family: "Croissant One", cursive;
 
 .signuphere{
   text-decoration: none;
-  
 }
 
 .centerLogin{
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: #ffc728; */
-
 }
 
 .lel{
@@ -704,10 +696,9 @@ font-family: "Croissant One", cursive;
 }
 
 .loginCard{
-display: flex;
-flex-direction: column;
-align-items: center!important;
-/* background-color: rgb(255, 19, 19); */
+  display: flex;
+  flex-direction: column;
+  align-items: center!important;
 }
 
 .containerLogin{
@@ -766,6 +757,68 @@ align-items: center!important;
 .logoutmargin{
   margin: 0!important;
   padding: 0!important;
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////// FACEBOOK  */
+
+.panel-heading {
+  padding: 5px 15px;
+}
+
+.panel-footer {
+padding: 1px 15px;
+color: #A0A0A0;
+}
+
+.profile-img {
+width: 96px;
+height: 96px;
+margin: 0 auto 10px;
+display: block;
+-moz-border-radius: 50%;
+-webkit-border-radius: 50%;
+border-radius: 50%;
+}
+.buttonsocial{
+margin-top: 1rem;
+width: 100%;
+height: 50px;
+margin-bottom: 5px;
+display: flex;
+padding: 0.5rem;
+justify-content: left;
+align-items: center;
+border: 0px;
+border-radius: 10px !important;
+}
+.my-facebook-button-class{
+background-color: rgb(52, 52, 207);
+color:white;
+font-size: 0.8rem;
+}
+
+.buttonsocial :nth-child(1){
+margin-right: 0px !important;
+width: 45px !important;
+}
+
+
+.heartIconRed{
+  color:red;
+  font-size: 1.8em;
+  cursor: pointer; 
+}
+
+.heartIcon{
+  font-size: 1.8em;
+  cursor: pointer;
+}
+
+.likes{
+  width: 10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////ACTIVITIES */
@@ -848,26 +901,30 @@ align-items: center!important;
   color: #f5cfdc;
 }
 
-.eeeeee{
+.box-commentinput{
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.chauu{
+.width-boxcontainer{
   width: 70%;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.holala{
-  width: 100%;
+
+.textarea-width{
+  width: 80%;
+  resize: none;
+  font-style: italic;
+  padding-left: 1rem;
+  padding-top: 1rem;
 }
 
 .user-info-comment{
   display: flex;
   align-items: center;
-  /* margin: 2rem; */
   margin-bottom: 2rem;
-  /* flex-wrap: wrap;
-  justify-content: center */
 }
 
 .avatar-user-comment{
@@ -881,15 +938,12 @@ align-items: center!important;
 .user-comment{
   margin-right: 0.3rem;
   font-family: 'Pacifico', cursive;;
-  /* font-weight: bold; */
   letter-spacing: 0.2rem;
-
   font-size: 1rem;
 }
 
 .comment-italic{
   font-style: italic;
-
 }
 
 .comment-box{
@@ -915,25 +969,32 @@ align-items: center!important;
   cursor: pointer;
   color: rgb(221, 46, 113);
   width: 80%;
-  /* background-color: #fcedd89a; */
   border-radius: 50px;
   width: 40%;
   height: 40%;
 }
 
-.owowowowowo{
-  width: 60%;
-  height: 10%;
+.text-area-comm{
+  width: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-
+  margin-bottom: 2rem;
   }
 
-.kaaaren{
+.spacearound-icons{
   display: flex;
   justify-content: space-around;
 }
+
+.posticon{
+  font-size: 2rem;
+  cursor: pointer;
+  color: rgb(221, 46, 113);
+  width: 2rem;
+  height: 2rem;
+}
+
 /* /////////////////////////////////////////////////////////////////////////////////MEDIA  */
 
 @media (max-width: 975px) {
@@ -942,6 +1003,7 @@ align-items: center!important;
   .priceDuration{width: 60%;}
   .tag{font-size: 1.7rem; text-align: center;}
   .activity_title{font-size: 1.3rem;}
+  
 }
 
 @media (max-width: 768px) {
@@ -963,6 +1025,12 @@ align-items: center!important;
   .formLogin{width: 50%;}
   .activities_box{flex-wrap: wrap;}
   .activity_title{font-size: 1.3rem;}
+  .user-info-comment{display: flex; flex-direction: column; justify-content: center; align-items: center; }
+  .avatar-user-comment{margin-right: 0;}
+  .comment-italic{text-align: center; margin-top: 1rem; margin-bottom: 1rem;}
+  .textarea-width{padding-top: 1rem;}
+  .posticon{width: 1.5rem; height: 1.5rem;}
+  .width-boxcontainer{flex-direction: column;}
 }
 
 @media (max-width: 570px) {
@@ -982,10 +1050,15 @@ align-items: center!important;
   .priceDuration{width: 90%;flex-direction: column; align-items: center;}
   .centerHashtags{flex-direction: column; align-items: center; font-size: 1rem;}
   .login{ font-size: 2rem;}
-  /* .containerLogin{width: 90%;} */
   .formLogin{width: 60%;}
   .activities_box{flex-wrap: wrap;}
   .activity_title{font-size: 1.3rem;}
+  .user-info-comment{display: flex; flex-direction: column; justify-content: center; align-items: center; }
+  .avatar-user-comment{margin-right: 0;}
+  .comment-italic{text-align: center; margin-top: 1rem; margin-bottom: 1rem;}
+  .textarea-width{padding-top: 1rem;}
+  .posticon{width: 1.5rem; height: 1.5rem;}
+  .width-boxcontainer{flex-direction: column;}
 }
 
 @media (max-width: 450px) {
@@ -1013,10 +1086,15 @@ align-items: center!important;
   .priceDuration{width: 90%;flex-direction: column; align-items: center;}
   .centerHashtags{flex-direction: column; align-items: center; font-size: 1rem;}
   .login{ font-size: 1.8rem;}
-  /* .containerLogin{width: 90%;} */
   .formLogin{width: 70%;}
   .activities_box{flex-wrap: wrap;}
   .activity_title{font-size: 1.3rem;}
+  .user-info-comment{display: flex; flex-direction: column; justify-content: center; align-items: center; }
+  .avatar-user-comment{margin-right: 0;}
+  .comment-italic{text-align: center; margin-top: 1rem; margin-bottom: 1rem;}
+  .textarea-width{padding-top: 0;}
+  .posticon{width: 1.5rem; height: 1.5rem;}
+  .width-boxcontainer{flex-direction: column;}
 }
 
 @media (max-width: 375px) {
@@ -1044,11 +1122,16 @@ align-items: center!important;
   .priceDuration{width: 90%;flex-direction: column; align-items: center;}
   .centerHashtags{flex-direction: column; align-items: center; font-size: 1rem;}
   .login{ font-size: 1.5rem;}
-  /* .containerLogin{width: 90%;} */
   .formLogin{width: 80%;}
   .activities_box{flex-wrap: wrap;}
   .activity_title{font-size: 1rem;}
   .tag_act{font-size: 1.4rem;}
+  .user-info-comment{display: flex; flex-direction: column; justify-content: center; align-items: center; }
+  .avatar-user-comment{margin-right: 0;}
+  .comment-italic{text-align: center; margin-top: 1rem; margin-bottom: 1rem;}
+  .textarea-width{padding-top: 0;}
+  .posticon{width: 1.5rem; height: 1.5rem;}
+  .width-boxcontainer{flex-direction: column;}
 }
 
 .color{
@@ -1059,64 +1142,3 @@ align-items: center!important;
   width: 100%;
 }
 
-/* ///////////////////////////////////////////////////////////////////////////////// FACEBOOK  */
-
-.panel-heading {
-  padding: 5px 15px;
-}
-
-.panel-footer {
-padding: 1px 15px;
-color: #A0A0A0;
-}
-
-.profile-img {
-width: 96px;
-height: 96px;
-margin: 0 auto 10px;
-display: block;
--moz-border-radius: 50%;
--webkit-border-radius: 50%;
-border-radius: 50%;
-}
-.buttonsocial{
-margin-top: 1rem;
-width: 100%;
-height: 50px;
-margin-bottom: 5px;
-display: flex;
-padding: 0.5rem;
-justify-content: left;
-align-items: center;
-border: 0px;
-border-radius: 10px !important;
-}
-.my-facebook-button-class{
-background-color: rgb(52, 52, 207);
-color:white;
-font-size: 0.8rem;
-}
-
-.buttonsocial :nth-child(1){
-margin-right: 0px !important;
-width: 45px !important;
-}
-
-
-.heartIconRed{
-  color:red;
-  font-size: 1.8em;
-  cursor: pointer; 
-}
-
-.heartIcon{
-  font-size: 1.8em;
-  cursor: pointer;
-}
-
-.likes{
-  width: 10vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}

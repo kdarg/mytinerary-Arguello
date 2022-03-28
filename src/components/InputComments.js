@@ -4,11 +4,11 @@ import itinerariesActions from "../redux/actions/itinerariesActions";
 import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
+import {AiOutlineSend} from'react-icons/ai'
 
 const InputComments = (props) => {
 
     const {id} = useParams()
-
 
     //COMMENTS
     const input = useRef() //misma funcioon que el onchange cuando tiene funcion flecha q agarra el evento
@@ -27,15 +27,13 @@ const InputComments = (props) => {
         .then( x=> {
             console.log(x)
             if(x.status === 200) {
-
+                
                 input.current.value= ''
                 props.getItinerariesByCityId(id)
-                showToast('Comment posted', 'rgb(76, 238, 103)')
+                showToast('Comment posted!', 'rgb(86, 216, 151)')
             }
-
         })
     }
-
 
     function showToast(title, iconColor){
     
@@ -59,18 +57,17 @@ const InputComments = (props) => {
             icon: "success",
             title: title,
         });
-        
     }
-
-
 
     return ( 
         <>
                 {props.user ?
-                    <div className="eeeeee">
-                        <div className="chauu">
-                            <textarea ref={input} className="holala" value={inputText} />
-                            <button onClick={() => postComments(props.itineraryId)} className="btn btn-primary">Comment</button>
+                    <div className="box-commentinput">
+                        <div className="width-boxcontainer mb-3">
+                            <textarea ref={input} className="textarea-width " placeholder='Write your comment here :)' value={inputText} />
+
+                        <AiOutlineSend  onClick={() => postComments(props.itineraryId)} className="posticon"/>
+                        
                     </div>
                     </div> 
                 

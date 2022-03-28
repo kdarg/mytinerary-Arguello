@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { connect } from "react-redux";
 import itinerariesActions from "../redux/actions/itinerariesActions";
 import { useParams } from 'react-router-dom';
-import {AiFillEdit, AiOutlineDelete} from 'react-icons/ai'
+import {AiFillEdit, AiOutlineDelete, AiOutlineEdit} from 'react-icons/ai'
 import Swal from 'sweetalert2'
 
 const Comments = (props) => {
@@ -11,33 +11,24 @@ const Comments = (props) => {
 
     const {id} = useParams()  //:id del link
 
-    //COMMENTS
     const [inputText, setInputText] = useState('')
     const [modify, setModify] = useState(false)
-    
-    // useEffect(() => {
-    //     if(modify){
-            
-    //     }
-    // }, [reload])
 
     async function modifyComments(karen) {
         const commentData = {
         commentID: karen,
         comment: inputText,
         }
-        // let editCommentResponse = await props.editComment(commentData)
+
         props.editComment(commentData)
         .then(x=> {
             if(x.status === 200){
                 props.getItinerariesByCityId(id)
                 setReload(!reload)
-                showToast('Edited comment', 'rgb(76, 238, 103)')
+                showToast('Comment edited!', 'rgb(86, 216, 151)')
                 
             }
         })
-
-
     }
 
     async function toggleTextArea(){
@@ -49,19 +40,16 @@ const Comments = (props) => {
         }
     }
 
-
     async function deleteComments(event) {
         props.deleteComment(event.target.id)
         .then(x=>{
             if(x.status === 200){
                 props.getItinerariesByCityId(id)
                 setReload(!reload)
-                showToast('Deleted comment', 'rgb(238, 76, 103)' )
+                showToast('Comment deleted!', 'rgb(238, 76, 103)' )
             }
         })
-
     }
-
 
     function showToast(title, iconColor){
     
@@ -87,8 +75,6 @@ const Comments = (props) => {
         });
         
     }
-
-    //console.log(props.comment) cada comentario
 
     return ( 
         <>
@@ -118,24 +104,17 @@ const Comments = (props) => {
                         </div> 
                         </div>
 
-
-                        <div className="eeeeee">
+                        <div className="box-commentinput">
                             
                         {modify ? (
-                        <textarea type="text" className="owowowowowo" onChange={ e => setInputText(e.target.value)} defaultValue={props.comment.comment} />
-                            )
+                        <textarea type="text" className="text-area-comm textarea-width" onChange={ e => setInputText(e.target.value)} defaultValue={props.comment.comment} /> )
                     
                             : <span></span>
 
                         }
-                        <div className='kaaaren mb-4'>
+                        <div className='spacearound-icons mb-4'>
 
-                        <AiFillEdit id={props.comment._id} onClick={() => {
-                            
-                            toggleTextArea()
-
-                        
-                        } }className="editicon" />
+                        <AiOutlineEdit id={props.comment._id} onClick={() => {toggleTextArea()}} className="editicon" />
 
                         <AiOutlineDelete id={props.comment._id} onClick={deleteComments} className=" deleteicon"/>
 

@@ -10,9 +10,6 @@ import Itinerary from "../components/Itinerary";
 
 const Detailscity = (props) => {
 
-    // SCROLL TO TOP
-    //window.scrollTo({top: 0, behavior: "smooth"})
-
     //ITINERARIES BY CITY ID
 
     const {id} = useParams()
@@ -25,8 +22,6 @@ const Detailscity = (props) => {
 
     //DESTRUCTURING 
     const {cityById} = props
-
-console.log(props.itinerary)
 
     return ( 
         <>
