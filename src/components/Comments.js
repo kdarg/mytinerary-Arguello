@@ -78,7 +78,7 @@ const Comments = (props) => {
         
     }
 
-    console.log(props.comment.userID)
+    //console.log(props.comment.userID)
     return ( 
         <>
             

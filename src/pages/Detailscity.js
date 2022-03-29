@@ -23,6 +23,7 @@ const Detailscity = (props) => {
     //DESTRUCTURING 
     const {cityById} = props
 
+
     return ( 
         <>
 

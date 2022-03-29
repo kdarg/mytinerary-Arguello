@@ -27,7 +27,7 @@ const Cardscities = (props) => {
 {/* SEARCH */}
 
         <div className=" d-flex justify-content-center mt-3 mb-3"> 
-        <input type='text' placeholder='Search destination..' className='input-search' onChange={inputsearch}/> 
+        <input type='text' placeholder='Search by city..' className='input-search' onChange={inputsearch}/> 
         </div>
 
 {/* CARDS */}
