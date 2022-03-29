@@ -12,7 +12,7 @@ const userActions = {
 
             try{
 
-                const res = await axios.post('http://localhost:4000/api/auth/signup', {userData})
+                const res = await axios.post('https://mytinerary-arguello.herokuapp.com/api/auth/signup', {userData})
             dispatch({type: 'message', payload: res.data});
             // console.log(res.data)
             // console.log(res.data.message)
@@ -82,7 +82,7 @@ const userActions = {
 
             try{
 
-                const user = await axios.post('http://localhost:4000/api/auth/login', { logedUser })
+                const user = await axios.post('https://mytinerary-arguello.herokuapp.com/api/auth/login', { logedUser })
 
                     //console.log(user.data)
 
@@ -152,7 +152,7 @@ const userActions = {
     LogOutUser: (closeuser)=>{
         return async (dispatch, getState) => {
 
-        //const user = axios.post('http://localhost:4000/api/auth/signOut', {closeuser})
+        //const user = axios.post('https://mytinerary-arguello.herokuapp.com/api/auth/signOut', {closeuser})
 
         localStorage.removeItem('token')
 
@@ -168,7 +168,7 @@ const userActions = {
 
         return async (dispatch, getState) => {
 
-            const user = await axios.get('http://localhost:4000/api/auth/signInToken', {
+            const user = await axios.get('https://mytinerary-arguello.herokuapp.com/api/auth/signInToken', {
                 headers: {
                     'Authorization': 'Bearer ' + token
                 }

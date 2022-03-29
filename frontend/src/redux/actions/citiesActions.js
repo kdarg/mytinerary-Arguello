@@ -6,7 +6,7 @@ const citiesActions = {
 
     getCities : () => {
         return async (dispatch, getState) => {
-            const response = await axios.get('http://localhost:4000/api/allcities')
+            const response = await axios.get('https://mytinerary-arguello.herokuapp.com/api/allcities')
             dispatch({type:'all_cities', payload:response.data.response}) 
         }
     },
@@ -23,7 +23,7 @@ const citiesActions = {
 
     getOneCity: (id) => {
         return async (dispatch, getState) => {
-            const response = await axios.get(`http://localhost:4000/api/city/${id}`)
+            const response = await axios.get(`https://mytinerary-arguello.herokuapp.com/api/city/${id}`)
             dispatch ({type: 'one_city', payload: response.data.response})
         }
     }

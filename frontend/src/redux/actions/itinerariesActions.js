@@ -6,7 +6,7 @@ const itinerariesActions = {
 
     getItinerariesByCityId: (id) => {
         return (dispatch, getState) => {
-            axios.get('http://localhost:4000/api/itineraries/'+ id)
+            axios.get('https://mytinerary-arguello.herokuapp.com/api/itineraries/'+ id)
             .then(response => dispatch({ type: 'get_itineraries_by_city_id', payload: response.data.response }))
             .catch(error => console.log(error))
         }
@@ -16,7 +16,7 @@ const itinerariesActions = {
 
     getItineraries: () => {
         return (dispatch, getState) => {
-            axios.get('http://localhost:4000/api/itineraries/')
+            axios.get('https://mytinerary-arguello.herokuapp.com/api/itineraries/')
             .then(response => dispatch({ type: 'get_itineraries', payload: response.data.response }))
                 .catch(error => console.log(error))
         }
@@ -31,7 +31,7 @@ const itinerariesActions = {
             //console.log(token)
 
                 try{
-                    const response = await axios.put(`http://localhost:4000/api/itinerary/like/${id}`, {},
+                    const response = await axios.put(`https://mytinerary-arguello.herokuapp.com/api/itinerary/like/${id}`, {},
                     {headers:{
                             Authorization: "Bearer "+token
                     }
@@ -50,7 +50,7 @@ const itinerariesActions = {
     getActivityByItinterary: (id) => {
         return async () => {
             try { 
-                const response = await axios.get(`http://localhost:4000/api/activities/itinerary/${id}`)
+                const response = await axios.get(`https://mytinerary-arguello.herokuapp.com/api/activities/itinerary/${id}`)
                 const data = response.data.response
                 return {success: true, response: data}
             } catch (error){
@@ -69,7 +69,7 @@ const itinerariesActions = {
             try {
                 const token = localStorage.getItem('token')
 
-                const res = await axios.post('http://localhost:4000/api/itinerary/comment', { ...comment }, {
+                const res = await axios.post('https://mytinerary-arguello.herokuapp.com/api/itinerary/comment', { ...comment }, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -97,7 +97,7 @@ const itinerariesActions = {
         const token = localStorage.getItem('token')
 
         return async (dispatch, getState) => {
-            const res = await axios.post('http://localhost:4000/api/itinerary/comment/'+ comment.commentID,  {comment: comment.comment} , { //comment 1> postman, comment2> parametro funcion, comment3> commentData
+            const res = await axios.post('https://mytinerary-arguello.herokuapp.com/api/itinerary/comment/'+ comment.commentID,  {comment: comment.comment} , { //comment 1> postman, comment2> parametro funcion, comment3> commentData
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -121,7 +121,7 @@ const itinerariesActions = {
 
         const token = localStorage.getItem('token')
         return async (dispatch, getState) => {
-            const res = await axios.delete(`http://localhost:4000/api/itinerary/comment/${id}`, {
+            const res = await axios.delete(`https://mytinerary-arguello.herokuapp.com/api/itinerary/comment/${id}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
