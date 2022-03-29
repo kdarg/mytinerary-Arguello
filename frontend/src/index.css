@@ -1059,6 +1059,7 @@ width: 45px !important;
   .textarea-width{padding-top: 1rem;}
   .posticon{width: 1.5rem; height: 1.5rem;}
   .width-boxcontainer{flex-direction: column;}
+  .tag_login_comment{font-size: 1rem;}
 }
 
 @media (max-width: 450px) {
@@ -1095,6 +1096,7 @@ width: 45px !important;
   .textarea-width{padding-top: 0;}
   .posticon{width: 1.5rem; height: 1.5rem;}
   .width-boxcontainer{flex-direction: column;}
+  .tag_login_comment{font-size: 0.9rem;}
 }
 
 @media (max-width: 375px) {
@@ -1132,6 +1134,7 @@ width: 45px !important;
   .textarea-width{padding-top: 0;}
   .posticon{width: 1.5rem; height: 1.5rem;}
   .width-boxcontainer{flex-direction: column;}
+  .tag_login_comment{font-size: 0.8rem;}
 }
 
 .color{

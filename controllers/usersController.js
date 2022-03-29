@@ -54,7 +54,7 @@ const usersController = {
         if (user) {
             user.verifiedEmail = true 
             await user.save()
-            res.redirect("https://mytinerary-arguello.herokuapp.com/signup") 
+            res.redirect("https://mytinerary-arguello.herokuapp.com/login") 
         }
         else { res.json({ success: false, response: "Unverified email." }) }
     },
