@@ -12,7 +12,7 @@ const userActions = {
 
             try{
 
-                const res = await axios.post('https://mytinerary-arguello.herokuapp.com/api/auth/signup', {userData})
+                const res = await axios.post('http://localhost:4000/api/auth/signup', {userData})
             dispatch({type: 'message', payload: res.data});
             // console.log(res.data)
             // console.log(res.data.message)
@@ -39,7 +39,7 @@ const userActions = {
     
                 Toast.fire({
                     icon: "success",
-                    title: `${res.data.message}`
+                    title: `${res.data.message[0].message || res.data.message[1].message || res.data.message[2].message || res.data.message[3].message || res.data.message[4].message || res.data.message[5].message }`
                 });
             }
             else {
@@ -61,7 +61,7 @@ const userActions = {
 
                 Toast.fire({
                     icon: "error",
-                    title: `${res.data.message}`,
+                    title: `${res.data.message[0].message || res.data.message[1].message || res.data.message[2].message || res.data.message[3].message || res.data.message[4].message || res.data.message[5].message}`,
                     background: "#FFF",
                     iconColor: "rgb(216, 86, 86)",
                     confirmButtonColor: "rgb(221, 46, 113)",
@@ -82,7 +82,7 @@ const userActions = {
 
             try{
 
-                const user = await axios.post('https://mytinerary-arguello.herokuapp.com/api/auth/login', { logedUser })
+                const user = await axios.post('http://localhost:4000/api/auth/login', { logedUser })
 
                     //console.log(user.data)
 
@@ -152,7 +152,7 @@ const userActions = {
     LogOutUser: (closeuser)=>{
         return async (dispatch, getState) => {
 
-        //const user = axios.post('https://mytinerary-arguello.herokuapp.com/api/auth/signOut', {closeuser})
+        //const user = axios.post('http://localhost:4000/api/auth/signOut', {closeuser})
 
         localStorage.removeItem('token')
 
@@ -168,7 +168,7 @@ const userActions = {
 
         return async (dispatch, getState) => {
 
-            const user = await axios.get('https://mytinerary-arguello.herokuapp.com/api/auth/signInToken', {
+            const user = await axios.get('http://localhost:4000/api/auth/signInToken', {
                 headers: {
                     'Authorization': 'Bearer ' + token
                 }
