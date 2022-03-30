@@ -39,7 +39,7 @@ const userActions = {
     
                 Toast.fire({
                     icon: "success",
-                    title: `${res.data.message[0].message}`
+                    title: `${res.data.message}`
                 });
             }
             else {
@@ -61,7 +61,7 @@ const userActions = {
 
                 Toast.fire({
                     icon: "error",
-                    title: `${res.data.message[0].message}`,
+                    title: `${res.data.message}`,
                     background: "#FFF",
                     iconColor: "rgb(216, 86, 86)",
                     confirmButtonColor: "rgb(221, 46, 113)",
