@@ -39,7 +39,7 @@ const userActions = {
     
                 Toast.fire({
                     icon: "success",
-                    title: `${res.data.message[0].message || res.data.message[1].message || res.data.message[2].message || res.data.message[3].message || res.data.message[4].message || res.data.message[5].message }`
+                    title: `${res.data.message[0].message}`
                 });
             }
             else {
@@ -61,7 +61,7 @@ const userActions = {
 
                 Toast.fire({
                     icon: "error",
-                    title: `${res.data.message[0].message || res.data.message[1].message || res.data.message[2].message || res.data.message[3].message || res.data.message[4].message || res.data.message[5].message}`,
+                    title: `${res.data.message[0].message}`,
                     background: "#FFF",
                     iconColor: "rgb(216, 86, 86)",
                     confirmButtonColor: "rgb(221, 46, 113)",
