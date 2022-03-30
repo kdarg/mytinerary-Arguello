@@ -78,7 +78,6 @@ const Comments = (props) => {
         
     }
 
-    //console.log(props.comment.userID)
     return ( 
         <>
             

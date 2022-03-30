@@ -20,7 +20,7 @@ const userActions = {
 
             if (res.data.success) {
                 dispatch({ type: "newuser", payload: res.data });
-                console.log(res.data)
+
                 const Toast = Swal.mixin({
                     toast: true,
                     position: "center-end",
@@ -83,9 +83,6 @@ const userActions = {
             try{
 
                 const user = await axios.post('http://localhost:4000/api/auth/login', { logedUser })
-
-                    //console.log(user.data)
-
                     
             const Toast = Swal.mixin({
                 toast: true,
@@ -108,15 +105,12 @@ const userActions = {
                 title: `${user.data.message}`,
             });
             
-                //console.log(user)
                 
                 if(user.data.success){
     
                     localStorage.setItem('token',user.data.response.token)
     
                     dispatch({type: 'user', payload: user.data.response.logedUser || user.data.response.userData });
-    
-                    //console.log(user.data.response.userData.firstname)
 
                     const Toast = Swal.mixin({
                         toast: true,
@@ -158,7 +152,6 @@ const userActions = {
 
         dispatch({type: 'user', payload: null});
 
-        //console.log(user.data)
         } 
     },
 
@@ -173,7 +166,6 @@ const userActions = {
                     'Authorization': 'Bearer ' + token
                 }
             })
-            //console.log(user)
             
             if (user.data.success) {
                 dispatch({ type: 'user', payload: user.data.response });

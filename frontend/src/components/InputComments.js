@@ -19,10 +19,7 @@ const InputComments = (props) => {
         itinerary: props.itineraryId,
         comment: input.current.value,
         }
-        console.log(commentData)
-        // await props.addComment(commentData)
-        // input.current.value= ''
-        // props.getItinerariesByCityId(id)
+
         props.addComment(commentData)
         .then( x=> {
             console.log(x)

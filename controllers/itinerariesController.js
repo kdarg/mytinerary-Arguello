@@ -81,9 +81,9 @@ const itinerariesController = {
 
     likeItinerary: async (req, res) => {
 
-        const id = req.params.id //id del lugar que queremos likear o dislikear, llega desde axios
+        const id = req.params.id // Itinrerary ID that we want to like or dislike from axios
 
-        const user = req.user.id //el dato del usuario viene una vez que pasa por passport
+        const user = req.user.id // User ID that comes from Passport
 
         await myItineraries.findOne({_id:id})
         .then( (itinerary) => {
@@ -154,8 +154,6 @@ const itinerariesController = {
         const user = req.user._id
         try {
             const deleteComment = await myItineraries.findOneAndUpdate({"comments._id":id}, {$pull: {comments: {_id: id}}}, {new: true})
-
-        console.log(deleteComment)
 
             res.json({ success: true, response:deleteComment, message: "Comment deleted!" })
 

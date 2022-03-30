@@ -28,7 +28,6 @@ const itinerariesActions = {
 
         return async () => {
             const token = localStorage.getItem('token')
-            //console.log(token)
 
                 try{
                     const response = await axios.put(`https://mytinerary-arguello.herokuapp.com/api/itinerary/like/${id}`, {},

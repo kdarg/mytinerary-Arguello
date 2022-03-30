@@ -6,8 +6,6 @@ import userActions from '../redux/actions/userActions';
 function LoginFacebook(props) {
 
     const responseFacebook = async (res) => {
-    
-        //console.log(res)
 
         const separatedFullName = res.name.split(" ")
         console.log(separatedFullName)
