@@ -33,10 +33,10 @@ function App(props) {
           <Route path='/cities' element={ <Cities/> }/>
           <Route path='*' element={ <Error/> }/>
           <Route path='/const' element={ <Underconstruction/> }/>
-          {/* <Route path="/login" element={ localStorage.getItem('token') ? (<Navigate replace to="/" />) : <LogIn/>}/>
-          <Route path="/signup" element={ localStorage.getItem('token') ? (<Navigate replace to="/" />) : <SignUp />}/> */}
-          {!props.user &&<Route path="/login" element={<LogIn/>} />}
-			    {!props.user &&<Route path="/signup" element={<SignUp />} />}
+          <Route path="/login" element={ localStorage.getItem('token') ? (<Navigate replace to="/" />) : <LogIn/>}/>
+          <Route path="/signup" element={ localStorage.getItem('token') ? (<Navigate replace to="/" />) : <SignUp />}/>
+          {/* {!props.user &&<Route path="/login" element={<LogIn/>} />}
+			    {!props.user &&<Route path="/signup" element={<SignUp />} />} */}
         </Routes>
       <Footer/>
     </BrowserRouter>
