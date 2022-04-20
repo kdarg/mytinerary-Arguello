@@ -43,9 +43,10 @@ const userActions = {
                 });
             }
             else {
+
                 const Toast = Swal.mixin({
                     toast: true,
-                    position: "top-end",
+                    position: "center-end",
                     showConfirmButton: false,
                     timer: 3000,
                     confirmButtonColor: "rgb(221, 46, 113)",
@@ -59,13 +60,25 @@ const userActions = {
                     },
                 });
 
-                Toast.fire({
-                    icon: "error",
-                    title: `${res.data.message} `,
-                    background: "#FFF",
-                    iconColor: "rgb(216, 86, 86)",
-                    confirmButtonColor: "rgb(221, 46, 113)",
-                });
+                    if (Array.isArray(res.data.message)){
+                        res.data.message.forEach(msg => {
+                            Toast.fire({
+                                icon: "error",
+                                title: `${msg.message}`,
+                                background: "#FFF",
+                                iconColor: "rgb(216, 86, 86)",
+                                confirmButtonColor: "rgb(221, 46, 113)",
+                            });
+                        })
+                    }else{
+                        Toast.fire({
+                            icon: "error",
+                            title: `${res.data.message}`,
+                            background: "#FFF",
+                            iconColor: "rgb(216, 86, 86)",
+                            confirmButtonColor: "rgb(221, 46, 113)",
+                        });
+                    }
             }
 
             } catch (error) {
