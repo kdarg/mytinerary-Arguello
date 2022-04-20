@@ -25,7 +25,7 @@ const footer = () => {
 
       <div className="bg-dark w-100 hfooter">
         <span className="bg-dark text-light">
-          © 2022 Copyright - All right reserved | Designed by Karen Argüello
+          © 2022 Copyright - All rights reserved | Designed by Karen Argüello
         </span>
       </div>
     </>
