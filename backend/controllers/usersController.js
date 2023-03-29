@@ -139,7 +139,7 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
   <tr>
     <td style="padding-right: 0px;padding-left: 0px;" align="center">
       
-      <img align="center" border="0" src="${process.env.FRONTEND_URL}.com/assets/imgs/newlogo.png"  alt="Logo" title="Logo" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 21%;max-width: 121.8px;" width="121.8" class="v-src-width v-src-max-width"/>
+      <img align="center" border="0" src="${process.env.FRONTEND_URL}/assets/imgs/newlogo.png"  alt="Logo" title="Logo" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 21%;max-width: 121.8px;" width="121.8" class="v-src-width v-src-max-width"/>
       
     </td>
   </tr>
