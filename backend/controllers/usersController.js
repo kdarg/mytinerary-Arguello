@@ -139,7 +139,7 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
   <tr>
     <td style="padding-right: 0px;padding-left: 0px;" align="center">
       
-      <img align="center" border="0" src="https://mytinerary-arguello.herokuapp.com/assets/imgs/newlogo.png"  alt="Logo" title="Logo" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 21%;max-width: 121.8px;" width="121.8" class="v-src-width v-src-max-width"/>
+      <img align="center" border="0" src="${process.env.FRONTEND_URL}.com/assets/imgs/newlogo.png"  alt="Logo" title="Logo" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 21%;max-width: 121.8px;" width="121.8" class="v-src-width v-src-max-width"/>
       
     </td>
   </tr>
@@ -185,7 +185,7 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
         
 <div align="center">
   <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;font-family:arial,helvetica,sans-serif;"><tr><td style="font-family:arial,helvetica,sans-serif;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://unlayer.com/" style="height:39px; v-text-anchor:middle; width:138px;" arcsize="77%" stroke="f" fillcolor="#ff2c7a"><w:anchorlock/><center style="color:#ffffff;font-family:arial,helvetica,sans-serif;"><![endif]-->
-    <a href="https://mytinerary-arguello.herokuapp.com/api/verify/${uniqueString}" target="_blank" style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #ffffff; background-color: #ff2c7a; border-radius: 30px;-webkit-border-radius: 30px; -moz-border-radius: 30px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
+    <a href="${process.env.BACKEND_URL}/api/verify/${uniqueString}" target="_blank" style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #ffffff; background-color: #ff2c7a; border-radius: 30px;-webkit-border-radius: 30px; -moz-border-radius: 30px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
       <span style="display:block;padding:10px 20px;line-height:120%;"><span style="font-size: 14px; line-height: 16.8px;"><strong><span style="line-height: 16.8px; font-size: 14px;">VERIFY EMAIL</span></strong></span></span>
     </a>
   <!--[if mso]></center></v:roundrect></td></tr></table><![endif]-->
@@ -316,7 +316,7 @@ const usersController = {
         if (user) {
             user.verifiedEmail = true 
             await user.save()
-            res.redirect("https://mytinerary-arguello.herokuapp.com/login") 
+            res.redirect(`${process.env.FRONTEND_URL}/login`) 
         }
         else { res.json({ success: false, response: "Unverified email." }) }
     },
