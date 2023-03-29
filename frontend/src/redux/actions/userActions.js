@@ -12,7 +12,7 @@ const userActions = {
 
             try{
 
-                const res = await axios.post(`${REACT_APP_BACKEND_URL}/api/auth/signup`, {userData})
+                const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/signup`, {userData})
             dispatch({type: 'message', payload: res.data});
             console.log(res.data)
             console.log(res.data.message)
@@ -95,7 +95,7 @@ const userActions = {
 
             try{
 
-                const user = await axios.post(`${REACT_APP_BACKEND_URL}/api/auth/login`, { logedUser })
+                const user = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/login`, { logedUser })
 
                     //console.log(user.data)
 
@@ -179,7 +179,7 @@ const userActions = {
 
         return async (dispatch, getState) => {
 
-            const user = await axios.get(`${REACT_APP_BACKEND_URL}/api/auth/signInToken`, {
+            const user = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/auth/signInToken`, {
                 headers: {
                     'Authorization': 'Bearer ' + token
                 }

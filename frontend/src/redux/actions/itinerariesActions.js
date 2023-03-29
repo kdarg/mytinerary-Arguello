@@ -6,7 +6,7 @@ const itinerariesActions = {
 
     getItinerariesByCityId: (id) => {
         return (dispatch, getState) => {
-            axios.get(`${REACT_APP_BACKEND_URL}/api/itineraries/`+ id)
+            axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/itineraries/`+ id)
             .then(response => dispatch({ type: 'get_itineraries_by_city_id', payload: response.data.response }))
             .catch(error => console.log(error))
         }
@@ -16,7 +16,7 @@ const itinerariesActions = {
 
     getItineraries: () => {
         return (dispatch, getState) => {
-            axios.get(`${REACT_APP_BACKEND_URL}/api/itineraries/`)
+            axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/itineraries/`)
             .then(response => dispatch({ type: 'get_itineraries', payload: response.data.response }))
                 .catch(error => console.log(error))
         }
@@ -30,7 +30,7 @@ const itinerariesActions = {
             const token = localStorage.getItem('token')
 
                 try{
-                    const response = await axios.put(`${REACT_APP_BACKEND_URL}/api/itinerary/like/${id}`, {},
+                    const response = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/itinerary/like/${id}`, {},
                     {headers:{
                             Authorization: "Bearer "+token
                     }
@@ -49,7 +49,7 @@ const itinerariesActions = {
     getActivityByItinterary: (id) => {
         return async () => {
             try { 
-                const response = await axios.get(`${REACT_APP_BACKEND_URL}/api/activities/itinerary/${id}`)
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/activities/itinerary/${id}`)
                 const data = response.data.response
                 return {success: true, response: data}
             } catch (error){
@@ -68,7 +68,7 @@ const itinerariesActions = {
             try {
                 const token = localStorage.getItem('token')
 
-                const res = await axios.post(`${REACT_APP_BACKEND_URL}/api/itinerary/comment`, { ...comment }, {
+                const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/itinerary/comment`, { ...comment }, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -96,7 +96,7 @@ const itinerariesActions = {
         const token = localStorage.getItem('token')
 
         return async (dispatch, getState) => {
-            const res = await axios.post(`${REACT_APP_BACKEND_URL}/api/itinerary/comment/`+ comment.commentID,  {comment: comment.comment} , { //comment 1> postman, comment2> parametro funcion, comment3> commentData
+            const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/itinerary/comment/`+ comment.commentID,  {comment: comment.comment} , { //comment 1> postman, comment2> parametro funcion, comment3> commentData
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -120,7 +120,7 @@ const itinerariesActions = {
 
         const token = localStorage.getItem('token')
         return async (dispatch, getState) => {
-            const res = await axios.delete(`${REACT_APP_BACKEND_URL}/api/itinerary/comment/${id}`, {
+            const res = await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/itinerary/comment/${id}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
