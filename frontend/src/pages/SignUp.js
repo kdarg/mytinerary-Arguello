@@ -10,7 +10,6 @@ import { BsEye, BsEyeSlash } from "react-icons/bs";
 import userActions from "../redux/actions/userActions";
 import { connect } from 'react-redux';
 import Swal from 'sweetalert2'
-import FacebookSignup from '../components/FacebookSignup';
 
 const SignUp = (props) => {
 
@@ -129,7 +128,6 @@ const SignUp = (props) => {
         <div className="">
             <Button type="submit" variant='outline-dark' className="bg-button-more" > Create account </Button>
         </div>
-        <FacebookSignup/>
         <div className="text-center mt-4">Already have an account? </div> 
         <div><Link to="/login" className="signuphere"> <span className="fw-bold colorlogsign">Log in here</span></Link> </div>
 
